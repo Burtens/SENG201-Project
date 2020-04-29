@@ -96,7 +96,12 @@ public class Farm
         System.out.println("Your game will last: " + this.days + " days");
         System.out.println("Your chosen farm-type is: " + this.farmType.toString().toLowerCase());
         System.out.println("and the name of your farm is: " + this.name);
+
     }
+
+    public FarmType getFarmType(){return farmType; }
+    public int getDays() { return days; }
+    public String getName() { return name; }
 
 
 
