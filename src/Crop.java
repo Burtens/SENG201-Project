@@ -1,7 +1,8 @@
 public abstract class Crop {
 
     private int growth = 0;
-    private int growthRate;
+    /*Public for testing purposes*/
+    public int growthRate;
     private double value;
     // TODO: Not sure about this implementation yet
     private int amount;
@@ -13,7 +14,7 @@ public abstract class Crop {
 
     public void setValue(double value) { this.value = value; }
 
-    public int getGrowth(int growth) { return growth; }
+    public int getGrowth() { return this.growth; }
 
     public void plant()
         {
