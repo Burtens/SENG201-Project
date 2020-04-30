@@ -118,6 +118,31 @@ public class Farm
             newplots[i] = this.plots[i];
         this.plots = newplots;
     }
+
+    public void plant(Crop crop)
+    {
+        boolean planted = false;
+        int numplots = this.plots.length;
+
+        for (int i = 0; i < numplots; i++)
+        {
+            if (this.plots[i] == null) {
+                this.plots[i] = crop;
+                planted = true;
+                break;
+            }
+        }
+
+        if (planted) {
+            System.out.println("Crop successfully planted.");
+            // TODO: update bag once implemented
+        }
+        else
+            System.out.println("Sorry no plots available to plant crop.");
+
+
+
+    }
     public FarmType getFarmType(){ return farmType; }
 
     public int getDays() { return days; }

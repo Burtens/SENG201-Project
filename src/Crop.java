@@ -1,3 +1,7 @@
+import com.sun.jdi.event.ThreadStartEvent;
+
+import java.util.Objects;
+
 public abstract class Crop {
 
     private int growth = 0;
@@ -16,10 +20,7 @@ public abstract class Crop {
 
     public int getGrowth() { return this.growth; }
 
-    public void plant(Farm farm)
-        {
 
-        }
 
     public void tend(Item item)
         {
@@ -36,9 +37,10 @@ public abstract class Crop {
 
     public void harvest()
     {
-        if (this.growth == 100)
-            // TODO: Once Plots class is implemented add here
+        if (this.growth == 100){
+            // TODO: Once Plots is implemented add here
             Status.updateMoney(this.value);
+        }
         else
             System.out.println("Sorry these crops are not ready!!!");
     }

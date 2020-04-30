@@ -5,7 +5,6 @@ public class Corn extends Crop{
 
     public Corn(Farm farm)
     {
-
         FarmType currFarmType = farm.getFarmType();
         // TODO: Update bass growth rates to be unique
         super.setGrowthRate(GROWTH*currFarmType.getCropPercent());
