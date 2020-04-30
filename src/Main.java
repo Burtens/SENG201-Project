@@ -36,7 +36,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         setFarmerName(scan);
         System.out.println("Welcome " + farmerName + "!");
-        Farm farm = new Farm();
+        Farm farm = new Farm(false, null);
         scan.close();
     }
 

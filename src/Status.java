@@ -1,15 +1,15 @@
 public class Status {
 
     private static int day = 0;
-    private static int money = 0;
+    private static double money = 0;
     private static int actions = 2;
 
 
-    public static void updateMoney(int amount) {
+    public static void updateMoney(double amount) {
         money += amount;
     }
 
-    public static int getMoney() {
+    public static double getMoney() {
         return money;
     }
 
