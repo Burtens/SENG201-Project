@@ -12,8 +12,6 @@ public class Corn extends Crop{
         super.setValue(VALUE);
     }
 
-    public void plant() { super.plant(); }
-
     public void harvest() { super.harvest(); }
 
     public void tend(Item item) { super.tend(item); }

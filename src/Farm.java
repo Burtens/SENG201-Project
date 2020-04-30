@@ -1,3 +1,7 @@
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Farm 
@@ -6,10 +10,12 @@ public class Farm
     private String name;
     private FarmType farmType;
     private int days;
+    public Crop[] plots = new Crop[4];
 
 
     Farm(boolean testing, FarmType farmType)
     {
+        Arrays.fill(plots, null);
         generateFarm(testing, farmType);
     }
 
@@ -100,10 +106,22 @@ public class Farm
             System.out.println("and the name of your farm is: " + this.name);
         }
 
+
     }
 
-    public FarmType getFarmType(){return farmType; }
+    public void updateFarmSize()
+    {
+        /*Updates size of plots array (Increases amount of plots on farm)*/
+        int currSize = this.plots.length;
+        Crop[] newplots = new Crop[currSize + 2];
+        for (int i = 0; i < currSize; i++)
+            newplots[i] = this.plots[i];
+        this.plots = newplots;
+    }
+    public FarmType getFarmType(){ return farmType; }
+
     public int getDays() { return days; }
+
     public String getName() { return name; }
 
 

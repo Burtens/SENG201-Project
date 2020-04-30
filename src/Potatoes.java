@@ -12,7 +12,6 @@ public class Potatoes extends Crop {
         super.setValue(VALUE);
     }
 
-    public void plant() { super.plant(); }
 
     public void harvest() { super.harvest(); }
 

@@ -38,6 +38,7 @@ public class Main {
         System.out.println("Welcome " + farmerName + "!");
         Farm farm = new Farm(false, null);
         scan.close();
+
     }
 
 

@@ -16,9 +16,9 @@ public abstract class Crop {
 
     public int getGrowth() { return this.growth; }
 
-    public void plant()
+    public void plant(Farm farm)
         {
-            // TODO: When Plots class is implemented
+
         }
 
     public void tend(Item item)
