@@ -1,4 +1,4 @@
-public class Food {
+public class Food implements Items {
 
     private String type = "Food";
     private String description = "Animal feed, increases animal happiness and health";

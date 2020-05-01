@@ -1,4 +1,4 @@
-public class Toy {
+public class Toy implements Items {
 
     private String type = "Toy";
     private String description = "Animal toy, increases animal happiness";
