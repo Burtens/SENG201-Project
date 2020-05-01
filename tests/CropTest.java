@@ -1,11 +1,5 @@
-import org.junit.After;
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.nio.channels.NonReadableChannelException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,7 +17,6 @@ class CropTest {
         assertEquals(value, newCarrot.growthRate);
         newCarrot.updateGrowth();
         assertEquals(10, newCarrot.getGrowth());
-        newCarrot.harvest();
     }
 
     @Test

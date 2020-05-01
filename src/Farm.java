@@ -1,7 +1,4 @@
-import java.sql.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Farm 
@@ -118,6 +115,39 @@ public class Farm
             newplots[i] = this.plots[i];
         this.plots = newplots;
     }
+
+    public void plantCrop(Crop crop) {
+        boolean planted = false;
+        int numplots = this.plots.length;
+
+        for (int i = 0; i < numplots; i++) {
+            if (this.plots[i] == null) {
+                this.plots[i] = crop;
+                planted = true;
+                break;
+            }
+        }
+
+        if (planted) {
+            System.out.println("Crop successfully planted.");
+            // TODO: update bag once implemented
+        } else
+            System.out.println("Sorry no plots available to plant crop.");
+    }
+
+    public void harvestCrop()
+    {
+        // TODO: Implement Harvesting
+        int numplots = this.plots.length;
+        System.out.println("Select plot to harvest:");
+        for (int i = 0; i < numplots; i++)
+        {
+            if (this.plots[i] != null)
+                System.out.println(i +": " + this.plots[i].toString());
+        }
+        System.out.println("Sorry this crop is not ready!!!");
+    }
+
     public FarmType getFarmType(){ return farmType; }
 
     public int getDays() { return days; }

@@ -1,3 +1,7 @@
+import com.sun.jdi.event.ThreadStartEvent;
+
+import java.util.Objects;
+
 public abstract class Crop {
 
     private int growth = 0;
@@ -16,32 +20,29 @@ public abstract class Crop {
 
     public int getGrowth() { return this.growth; }
 
-    public void plant(Farm farm)
-        {
-
-        }
-
-    public void tend(Item item)
+    public void tend(Items item)
         {
             if (item.getType() == "Watering Can")
-                // TODO: Not to sure what to do here but will look into later when items have been implemented
                 updateGrowth();
             else
             {
-                /*Do something base on item*/
+                String itemType = item.getType();
+                switch (itemType)
+                {
+                    case "growth": setGrowthRate(this.growthRate * 2);
+                    break;
+                    case "value": setValue(this.value + 1.00);
+                    break;
+                    default: System.out.println("You are unable to use this item here!");
+                    break;
+                }
             }
         }
 
     public void updateGrowth() {this.growth += growthRate;}
 
-    public void harvest()
-    {
-        if (this.growth == 100)
-            // TODO: Once Plots class is implemented add here
-            Status.updateMoney(this.value);
-        else
-            System.out.println("Sorry these crops are not ready!!!");
-    }
+    public String toString(){ return this.getClass().getSimpleName();}
+
 
 
 
