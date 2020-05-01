@@ -10,11 +10,4 @@ public class Corn extends Crop{
         super.setGrowthRate(GROWTH*currFarmType.getCropPercent());
         super.setValue(VALUE);
     }
-
-    public void harvest() { super.harvest(); }
-
-    public void tend(Item item) { super.tend(item); }
-
-
-
 }

@@ -13,9 +13,9 @@ class FarmTest {
     }
 
     @Test
-    void plantCrop() {
+    void testplantCrop() {
         Crop carrot = new Carrots(farm);
-        farm.plant(carrot);
+        farm.plantCrop(carrot);
         boolean isIn = false;
         for (int i = 0; i < farm.plots.length; i++)
         {
@@ -24,5 +24,15 @@ class FarmTest {
             }
         }
         assertEquals(true, isIn);
+    }
+
+    @Test
+    void testHarvestCrop()
+    {
+        Crop carrot = new Carrots(farm);
+        Crop corn = new Corn(farm);
+        farm.plantCrop(carrot);
+        farm.plantCrop(corn);
+        farm.harvestCrop();
     }
 }

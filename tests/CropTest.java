@@ -17,7 +17,6 @@ class CropTest {
         assertEquals(value, newCarrot.growthRate);
         newCarrot.updateGrowth();
         assertEquals(10, newCarrot.getGrowth());
-        newCarrot.harvest();
     }
 
     @Test
