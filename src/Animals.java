@@ -19,6 +19,11 @@ public abstract class Animals {
 
     public void updateHealth(double amount) {
         health += amount;
+        if (health > maxHealth) {
+            health = maxHealth
+        }if (health < 0) {
+            health = 0
+        }
     }
 
     public int getHappiness() {
@@ -27,6 +32,11 @@ public abstract class Animals {
 
     public void updateHappiness(int amount) {
         happiness += amount;
+        if (happiness > 100) {
+            happiness = 100
+        }if (happiness < 0) {
+            happiness = 0
+        }
     }
 
     public int getValue() {
@@ -34,12 +44,12 @@ public abstract class Animals {
         return (int) currentValue;
     }
 
-    public void feed() {
-        /* based on food item */
+    public void feed(Items item) {
+        updateHappiness(20);
+        updateHealth(40);
     }
 
-    public void play() {
-        happiness += 0;
-        /* use item */
+    public void play(Items item) {
+        updateHappiness(50);
     }
 }
