@@ -41,6 +41,8 @@ public abstract class Crop {
 
     public void updateGrowth() {this.growth += growthRate;}
 
+    public double getValue() { return this.value; }
+
     public String toString(){ return this.getClass().getSimpleName();}
 
 

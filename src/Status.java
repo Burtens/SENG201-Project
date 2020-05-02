@@ -1,6 +1,6 @@
 public class Status {
 
-    private static int day = 0;
+    private static int day = 1;
     private static double money = 0;
     private static int actions = 2;
 

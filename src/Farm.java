@@ -1,3 +1,5 @@
+import com.sun.source.tree.ReturnTree;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -10,20 +12,18 @@ public class Farm
     public Crop[] plots = new Crop[4];
 
 
-    Farm(boolean testing, FarmType farmType)
+    Farm(boolean testing, FarmType farmType, Scanner scan)
     {
-        Arrays.fill(plots, null);
-        generateFarm(testing, farmType);
+        generateFarm(testing, farmType, scan);
     }
 
-    private void generateFarm(boolean Testing, FarmType testFarmType) {
+    private void generateFarm(boolean Testing, FarmType testFarmType, Scanner scan) {
         if (Testing)
             this.farmType = testFarmType;
         else {
 
             Boolean VALID = false;
             Utilities u = new Utilities();
-            Scanner scan = new Scanner(System.in);
 
             while (!VALID) {
                 System.out.println("Please enter the amount of days you want to play:\n(Between 5 to 10 days)");
@@ -40,7 +40,7 @@ public class Farm
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid input, please only enter numbers.");
                 }
-                u.waitTimer(1);
+                System.out.print("\n\n");
 
             }
 
@@ -75,7 +75,7 @@ public class Farm
                         System.out.print("Invalid input, please enter valid number.\n");
                         break;
                 }
-                u.waitTimer(1);
+                System.out.print("\n\n");
             }
 
             VALID = false;
@@ -91,27 +91,32 @@ public class Farm
                     this.name = currName.trim();
                     VALID = true;
                 }
-                u.waitTimer(1);
+                System.out.print("\n\n");
 
             }
-
-            scan.close();
-
 
             System.out.println("Your game will last: " + this.days + " days");
             System.out.println("Your chosen farm-type is: " + this.farmType.toString().toLowerCase());
             System.out.println("and the name of your farm is: " + this.name);
+            System.out.println("\n\n");
         }
 
 
     }
 
-    public void updateFarmSize()
+    public void updateFarmSize(Items item)
     {
         /*Updates size of plots array (Increases amount of plots on farm)*/
-        int currSize = this.plots.length;
-        Crop[] newplots = new Crop[currSize + 2];
-        for (int i = 0; i < currSize; i++)
+        int plotsSize = this.plots.length;
+        Crop[] newplots;
+        if (item.getType() == "Hoe"){
+            newplots = new Crop[plotsSize + 3];
+            System.out.println("The use of a hoe made it easier to dig ground, an additional plot was created.");
+        }
+        else {
+            newplots = new Crop[plotsSize + 2];
+        }
+        for (int i = 0; i < plotsSize; i++)
             newplots[i] = this.plots[i];
         this.plots = newplots;
     }
@@ -135,17 +140,54 @@ public class Farm
             System.out.println("Sorry no plots available to plant crop.");
     }
 
-    public void harvestCrop()
+    public void harvestCrop(Scanner scan)
     {
         // TODO: Implement Harvesting
+        boolean VALID = false;
         int numplots = this.plots.length;
-        System.out.println("Select plot to harvest:");
-        for (int i = 0; i < numplots; i++)
-        {
-            if (this.plots[i] != null)
-                System.out.println(i +": " + this.plots[i].toString());
+        Crop crop = null;
+        int num = 0;
+        String input = null;
+        /*Asks for user input until user exits or uses correct input*/
+        while (!VALID) {
+            System.out.println("Select plot to harvest:");
+            /*Prints all available crops*/
+            for (int i = 0; i < numplots; i++) {
+                if (this.plots[i] != null)
+                    System.out.println(i + ": " + this.plots[i].toString());
+            }
+            System.out.println("E: Exit");
+            /*Gets input and checks if its valid*/
+            try {
+                input = scan.nextLine().trim().toLowerCase();
+                num = Integer.parseInt(input);
+                crop = this.plots[num];
+                if (crop == null)
+                    throw new ArrayIndexOutOfBoundsException();
+                else
+                    VALID = true;
+            }
+            catch(ArrayIndexOutOfBoundsException e){
+                    System.out.println("Invalid plot, please select a valid plot.");
+                    System.out.println("\n\n");
+            }
+            catch (NumberFormatException e) {
+                if (input.equals("e"))
+                    return;
+                else{
+                    System.out.println("Invalid number, please input only numbers.");
+                    System.out.println("\n\n");
+                }
+
+            }
         }
-        System.out.println("Sorry this crop is not ready!!!");
+        /*If the selected crop is valid and harvestable total money farm has will update and crop will be harvested*/
+        if (crop.getGrowth() >= 100){
+            Status.updateMoney(crop.getValue());
+            this.plots[num] = null;
+        }
+        else
+            System.out.println("Sorry this crop is not ready to be harvested!!!");
     }
 
     public FarmType getFarmType(){ return farmType; }

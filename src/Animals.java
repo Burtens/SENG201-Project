@@ -20,9 +20,9 @@ public abstract class Animals {
     public void updateHealth(double amount) {
         health += amount;
         if (health > maxHealth) {
-            health = maxHealth
+            health = maxHealth;
         }if (health < 0) {
-            health = 0
+            health = 0;
         }
     }
 
@@ -33,9 +33,9 @@ public abstract class Animals {
     public void updateHappiness(int amount) {
         happiness += amount;
         if (happiness > 100) {
-            happiness = 100
+            happiness = 100;
         }if (happiness < 0) {
-            happiness = 0
+            happiness = 0;
         }
     }
 

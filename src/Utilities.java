@@ -15,15 +15,12 @@ public class Utilities {
         return ISVALID;
     }
 
-    public void waitTimer(int seconds){
+    public void waitTimer(){
       // TODO: 27/04/2020 Update this to allow main class to deal with issues if this occurs.
         /*Waits a second before continuing */
-        try
-        {
-            TimeUnit.SECONDS.sleep(seconds);
-            System.out.print("\n\n");
-        }
-        catch (InterruptedException e) { e.printStackTrace(); }
+
+
+
 
     }
 }
