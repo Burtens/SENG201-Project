@@ -10,6 +10,7 @@ public class Farm
     private FarmType farmType;
     private int days;
     public Crop[] plots = new Crop[4];
+    public Animal[] pens = new Animal[4];
 
 
     Farm(boolean testing, FarmType farmType, Scanner scan)
@@ -119,6 +120,15 @@ public class Farm
         for (int i = 0; i < plotsSize; i++)
             newplots[i] = this.plots[i];
         this.plots = newplots;
+    }
+    
+    public void updatePenSize() {
+        int penSize = this.pens.length;
+        Animals[] newPens;
+        newPens = new Animals[penSize + 1];
+        for (int i = 0; i < penSize; i++)
+            newPens[i] = this.pens[i];
+        this.pens = newPens;
     }
 
     public void plantCrop(Crop crop) {
