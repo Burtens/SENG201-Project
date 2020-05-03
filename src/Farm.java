@@ -130,6 +130,22 @@ public class Farm
             newPens[i] = this.pens[i];
         this.pens = newPens;
     }
+    
+    public void newAnimal(Animals animal) {
+        boolean inPen = false;
+        int numPens = this.pens.length;
+        for (int i = 0; i < numPens; i++) {
+            if (this.pens[i] == null) {
+                this.pens[i] = animal;
+                inPen = true;
+                break;
+            }
+        }
+        if (inPen) {
+            System.out.println("Animal purchased successfully")
+        } else
+            System.out.println("Sorry no pens available.");
+    }
 
     public void plantCrop(Crop crop) {
         /*Allows user to plant crops on farm*/
