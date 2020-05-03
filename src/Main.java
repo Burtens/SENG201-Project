@@ -44,7 +44,6 @@ public class Main {
 
         /*Main Loop*/
         while (Status.getDay() <= farm.getDays()){
-            System.out.println("Today is: Day " + Status.getDay() + ".\nWhat would you like to do today?");
             atFarm(farm, scan);
 
 
@@ -59,6 +58,7 @@ public class Main {
         String selection = "";
         while (!GOTONEXTDAY)
         {
+            System.out.println("Today is: Day " + Status.getDay() + ".\nWhat would you like to do today?");
             System.out.println("1: View your Farm's Status");
             System.out.println("2: Preform an Action");
             System.out.println("3: Travel to Store");
@@ -91,7 +91,76 @@ public class Main {
     }
 
     private static void actions(Farm farm, Scanner scan){
-        System.out.println("Not implemented yet");
+        /*Allows user to select an action to do if they are able*/
+        boolean INACTION = true;
+        String input;
+        int actions = Status.getActions();
+        if (actions == 0)
+            System.out.println("Sorry you are unable to preform any more actions today.");
+        else{
+            if (actions == 1)
+                System.out.println("You have 1 action remaining.");
+            else
+                System.out.println("You have " + actions + " actions remaining.");
+            /*Loops while user chooses to preform an action*/
+            while (INACTION) {
+                System.out.println("What action would you like to preform?");
+                System.out.println("1: Tend to Crops");
+                System.out.println("2: Feed Animals");
+                System.out.println("3: Play with Animals");
+                System.out.println("4: Harvest Crops");
+                System.out.println("5: Tend to Land");
+                System.out.println("E: Exit");
+
+                input = scan.nextLine().trim().toLowerCase();
+                INACTION = false;
+                switch (input) {
+                    case "1":
+                        System.out.println("Not implemented yet");
+                        Status.updateActions(-1);
+                        break;
+                    case "2":
+                        // TODO: Flynn is implementing this
+                        Status.updateActions(-1);
+
+                        break;
+                    case "3":
+                        // TODO: Flynn is implementing this
+                        Status.updateActions(-1);
+                        break;
+                    case "4":
+                        boolean ISCROP = false;
+                        for (Crop crop : farm.plots)
+                            if (crop != null)
+                                ISCROP = true;
+
+                        if (ISCROP){
+                            farm.harvestCrop(scan);
+                            Status.updateActions(-1);
+                        }
+                        else
+                            System.out.println("There are currently no crops on your farm");
+                        break;
+
+                    case "5":
+                        // TODO: Bag functionality
+                        farm.updateFarmSize(null);
+                        Status.updateActions(-1);
+                        break;
+                    case "e":
+                        break;
+                    default:
+                        INACTION = true;
+                        System.out.println("Please Select a valid option.");
+                        System.out.println("\n\n");
+                        break;
+                }
+
+
+            }
+            System.out.println("\n\n");
+        }
+
     }
 
     private static void atShop(Farm farm, Scanner scan){

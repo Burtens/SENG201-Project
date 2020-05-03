@@ -142,7 +142,6 @@ public class Farm
 
     public void harvestCrop(Scanner scan)
     {
-        // TODO: Implement Harvesting
         boolean VALID = false;
         int numplots = this.plots.length;
         Crop crop = null;
@@ -188,6 +187,11 @@ public class Farm
         }
         else
             System.out.println("Sorry this crop is not ready to be harvested!!!");
+    }
+
+    public void tendCrop(Items item ,Scanner scan)
+    {
+        // TODO : Add functionality
     }
 
     public FarmType getFarmType(){ return farmType; }
