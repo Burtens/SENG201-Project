@@ -1,3 +1,5 @@
+import Items.Items;
+
 import static java.lang.Math.round;
 
 public abstract class Animals {
@@ -52,4 +54,6 @@ public abstract class Animals {
     public void play(Items item) {
         updateHappiness(50);
     }
+
+    public String toString(){ return this.getClass().getSimpleName();}
 }

@@ -1,6 +1,4 @@
-import com.sun.jdi.event.ThreadStartEvent;
-
-import java.util.Objects;
+import Items.Items;
 
 public abstract class Crop {
 
@@ -37,7 +35,12 @@ public abstract class Crop {
             }
         }
 
-    public void updateGrowth() {this.growth += growthRate;}
+    public void updateGrowth() {
+        this.growth += growthRate;
+        if (this.growth > 100)
+            this.growth = 100;
+
+    }
 
     public double getValue() { return this.value; }
 

@@ -1,9 +1,15 @@
+import java.util.ArrayList;
+
 public class Bag {
 
     private static int foodAmount = 0;
     private static int toyAmount = 0;
     private static int gFertilizerAmount = 0;
     private static int vFertilizerAmount = 0;
+    public static ArrayList<Seeds> seeds = new ArrayList<>();
+
+    private static boolean hasWateringCan = true;
+    private static boolean hasHoe = false;
 
 
     public static void updateItems(String newItem, int amount) {
@@ -38,6 +44,8 @@ public class Bag {
                 throw new IllegalArgumentException("Incorrect item type given.");
         }
     }
+
+    public static boolean hasHoe() {return hasHoe;}
 
     public static int getFoodAmount() {
         return foodAmount;
