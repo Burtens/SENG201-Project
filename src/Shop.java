@@ -5,13 +5,21 @@ public class Shop {
 
     public void chooseItem(Scanner scanner) {
         System.out.println("Please enter chosen item number.\n" +
-                "Items:\n" + "1: Food\n" + "2: Toy\n" + "3: Growth Fertilizer\n" + "4: Value Fertilizer\n" + "e: Exit");
+                "Items:\n" +
+                "1: Food: Animal feed, increases animal happiness and health.\n" +
+                "2: Toy: Animal toy, increases animal happiness.\n" +
+                "3: Growth Fertilizer: This fertilizer will double the growth rate of your crops.\n" +
+                "4: Value Fertilizer: This fertilizer will increase the value of your crops.\n" +
+                "b: View bag" +
+                "e: Exit.");
         String item = scanner.nextLine();
-        while (!Arrays.asList("1", "2", "3", "4", "e").contains(item)) {
+        while (!Arrays.asList("1", "2", "3", "4", "b", "e").contains(item)) {
             System.out.println("Wrong item, try again.");
             item = scanner.nextLine();
         }
         int amount = 0;
+        System.out.println("Please enter the amount of items you wish to buy.\n" +
+                "Enter anything else to cancel.");
         try {
             amount = Integer.parseInt(scanner.nextLine());
         }
@@ -32,6 +40,9 @@ public class Shop {
                 break;
             case ("4"):
                 System.out.println("You have " + Bag.getVFertilizerAmount() + " bags of growth fertilizer");
+                break;
+            case ("b"):
+                Bag.viewBag;
                 break;
             case ("e"):
                 break;

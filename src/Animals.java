@@ -44,7 +44,7 @@ public abstract class Animals {
         return (int) currentValue;
     }
 
-    public void feed(Items item) {
+    public void feed() {
         updateHappiness(20);
         updateHealth(40);
     }

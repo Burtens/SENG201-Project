@@ -120,13 +120,22 @@ public class Main {
                         Status.updateActions(-1);
                         break;
                     case "2":
-                        // TODO: Flynn is implementing this
-                        Status.updateActions(-1);
-
+                        if (Bag.getFoodAmount() > 0) {
+                            Animals.feed;
+                            Bag.updateItems("1", -1)
+                            Status.updateActions(-1);
+                        } else {
+                            System.out.print("Not enough food.");
+                        }
                         break;
                     case "3":
-                        // TODO: Flynn is implementing this
-                        Status.updateActions(-1);
+                        if (Bag.getToyAmount() > 0) {
+                            Animals.feed;
+                            Bag.updateItems("2", -1)
+                            Status.updateActions(-1);
+                        } else {
+                            System.out.print("Not enough Toys.");
+                        }
                         break;
                     case "4":
                         boolean ISCROP = false;
@@ -170,7 +179,7 @@ public class Main {
         double score = 0;
         for (int pen = 0; pen < Farm.pens; pen++) {
             if (Farm.pens[pen] != null) {
-                score += Farm.pens[pen].getValue
+                score += Farm.pens[pen].getValue;
             }
         }
         score = (score * 10) / Farm.getDays();
