@@ -16,6 +16,7 @@ public class Shop {
             amount = Integer.parseInt(scanner.nextLine());
         } catch (IllegalArgumentException exception) {
             chooseItem();
+            remove;
         }
         Bag.updateItems(item, amount);
         switch (item) {
