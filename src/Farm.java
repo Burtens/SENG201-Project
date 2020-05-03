@@ -148,6 +148,7 @@ public class Farm
     }
 
     public void plantCrop(Crop crop) {
+        /*Allows user to plant crops on farm*/
         boolean planted = false;
         int numplots = this.plots.length;
 
@@ -168,11 +169,13 @@ public class Farm
 
     public void harvestCrop(Scanner scan)
     {
+        /*Allows User To Harvest Crop*/
         boolean VALID = false;
         int numplots = this.plots.length;
         Crop crop = null;
         int num = 0;
         String input = null;
+
         /*Asks for user input until user exits or uses correct input*/
         while (!VALID) {
             System.out.println("Select plot to harvest:");

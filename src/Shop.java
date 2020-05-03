@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Shop {
 
@@ -13,8 +14,9 @@ public class Shop {
         int amount = 0;
         try {
             amount = Integer.parseInt(scanner.nextLine());
-        } catch (IllegalArgumentException exception) {
-            chooseItem();
+        }
+        catch (IllegalArgumentException exception) {
+            chooseItem(scanner);
             return;
         }
         Bag.updateItems(item, amount);
