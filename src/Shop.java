@@ -1,9 +1,9 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Shop {
 
-    public void chooseItem() {
-        Scanner scanner = new Scanner(System.in);
+    public void chooseItem(Scanner scanner) {
         System.out.println("Please enter chosen item number.\n" +
                 "Items:\n" + "1: Food\n" + "2: Toy\n" + "3: Growth Fertilizer\n" + "4: Value Fertilizer\n" + "e: Exit");
         String item = scanner.nextLine();
