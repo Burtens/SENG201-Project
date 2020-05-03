@@ -2,6 +2,7 @@ import java.lang.invoke.SwitchPoint;
 import java.util.Arrays;
 import java.util.PrimitiveIterator;
 import java.util.Scanner;
+import static java.lang.Math.round;
 
 public class Main {
     /**This class houses the Game environment for the game*/
@@ -161,6 +162,22 @@ public class Main {
             System.out.println("\n\n");
         }
 
+    }
+
+    private void endGame() {
+        System.out.println(Farm.getName());
+        System.out.println(Status.getMoney());
+        System.out.println(Status.getDays());
+        double score = 0;
+        for (int pen = 0; pen < Farm.pens; pen++) {
+            if (Farm.pens[pen] != null) {
+                score += Farm.pens[pen].getValue
+            }
+        }
+        score = (score * 10) / Farm.getDays();
+        score += Status.getMoney();
+        score = round(score);
+        System.out.println(score);
     }
 
     private static void atShop(Farm farm, Scanner scan){
