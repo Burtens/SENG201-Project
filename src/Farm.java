@@ -10,7 +10,7 @@ public class Farm
     private FarmType farmType;
     private int days;
     public Crop[] plots = new Crop[4];
-    public Animal[] pens = new Animal[4];
+    public Animals[] pens = new Animals[4];
 
 
     Farm(boolean testing, FarmType farmType, Scanner scan)
@@ -105,7 +105,7 @@ public class Farm
 
     }
 
-    public void updateFarmSize(Items item)
+    public void updatePlotSize(Items item)
     {
         /*Updates size of plots array (Increases amount of plots on farm)*/
         int plotsSize = this.plots.length;
