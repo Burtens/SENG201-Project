@@ -8,8 +8,6 @@ public abstract class Crop {
     /*Public for testing purposes*/
     public int growthRate;
     private double value;
-    // TODO: Not sure about this implementation yet
-    private int amount;
 
 
     public void setGrowthRate(double growthRate) {
