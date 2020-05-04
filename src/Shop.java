@@ -10,24 +10,25 @@ public class Shop {
                 "2: Toy: Animal toy, increases animal happiness.\n" +
                 "3: Growth Fertilizer: This fertilizer will double the growth rate of your crops.\n" +
                 "4: Value Fertilizer: This fertilizer will increase the value of your crops.\n" +
-                "b: View bag" +
+                "b: View bag\n" +
                 "e: Exit.");
         String item = scanner.nextLine();
         while (!Arrays.asList("1", "2", "3", "4", "b", "e").contains(item)) {
             System.out.println("Wrong item, try again.");
             item = scanner.nextLine();
         }
-        int amount = 0;
-        System.out.println("Please enter the amount of items you wish to buy.\n" +
-                "Enter anything else to cancel.");
         try {
-            amount = Integer.parseInt(scanner.nextLine());
+            if (!item.equals("b")) {
+                System.out.println("Please enter the amount of items you wish to buy.\n" +
+                        "Enter anything else to cancel.");
+                int amount = Integer.parseInt(scanner.nextLine());
+                Bag.updateItems(item, amount);
+            }
         }
         catch (IllegalArgumentException exception) {
             chooseItem(scanner);
             return;
         }
-        Bag.updateItems(item, amount);
         switch (item) {
             case ("1"):
                 System.out.println("You have " + Bag.getFoodAmount() + " pieces of food");
@@ -42,7 +43,7 @@ public class Shop {
                 System.out.println("You have " + Bag.getVFertilizerAmount() + " bags of growth fertilizer");
                 break;
             case ("b"):
-                Bag.viewBag;
+                Bag.viewBag();
                 break;
             case ("e"):
                 break;

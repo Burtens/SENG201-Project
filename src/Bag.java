@@ -57,13 +57,13 @@ public class Bag {
 
     public static void viewBag() {
         if (foodAmount > 0) {
-            System.out.println("Food : ", foodAmount);
+            System.out.println("Food: " + foodAmount);
         } if (toyAmount > 0) {
-            System.out.println("Toys : ", toyAmount);
+            System.out.println("Toys: " + toyAmount);
         } if (gFertilizerAmount > 0) {
-            System.out.println("Food : ", gFertilizerAmount);
+            System.out.println("Food: " + gFertilizerAmount);
         } if (vFertilizerAmount > 0) {
-            System.out.println("Value fertilizer : ", vFertilizerAmount);
+            System.out.println("Value fertilizer: " + vFertilizerAmount);
         }
     }
 }
