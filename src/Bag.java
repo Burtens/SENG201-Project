@@ -45,6 +45,7 @@ public class Bag {
         }
     }
 
+
     public static boolean hasHoe() {return hasHoe;}
 
     public static int getFoodAmount() {
