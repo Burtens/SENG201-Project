@@ -91,7 +91,7 @@ public class Main {
                     for (int i = 0; i < farm.pens.length; i++){
                         if (farm.pens[i] != null)
                             // TODO : May want to show happiness and health
-                            System.out.println(i + " : " + farm.pens[i].toString());
+                            System.out.println(i+1 + " : " + farm.pens[i].getClass().getSimpleName());
                     }
                     System.out.println("\n\n");
                     Bag.viewBag();
@@ -140,10 +140,9 @@ public class Main {
                 System.out.println("What action would you like to preform?");
                 System.out.println("P: Plant Crop (This doesn't cost an action)");
                 System.out.println("1: Tend to Crops");
-                System.out.println("2: Feed Animals");
-                System.out.println("3: Play with Animals");
-                System.out.println("4: Harvest Crops");
-                System.out.println("5: Tend to Land");
+                System.out.println("2: Animal menu");
+                System.out.println("3: Harvest Crops");
+                System.out.println("4: Tend to Land");
                 System.out.println("E: Exit");
 
                 input = scan.nextLine().trim().toLowerCase();
@@ -158,24 +157,9 @@ public class Main {
                         Status.updateActions(-1);
                         break;
                     case "2":
-                        if (Bag.getFoodAmount() > 0) {
-                            Animals.feed();
-                            Bag.updateItems("1", -1);
-                            Status.updateActions(-1);
-                        } else {
-                            System.out.print("Not enough food.");
-                        }
+                        Animals.chooseAnimal(scan);
                         break;
                     case "3":
-                        if (Bag.getToyAmount() > 0) {
-                            Animals.feed();
-                            Bag.updateItems("2", -1);
-                            Status.updateActions(-1);
-                        } else {
-                            System.out.print("Not enough Toys.");
-                        }
-                        break;
-                    case "4":
                         boolean ISCROP = false;
                         for (Crop crop : farm.plots)
                             if (crop != null)
@@ -189,7 +173,7 @@ public class Main {
                             System.out.println("There are currently no crops on your farm");
                         break;
 
-                    case "5":
+                    case "4":
 
                         farm.updatePlotSize();
                         Status.updateActions(-1);
