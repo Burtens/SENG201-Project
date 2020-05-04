@@ -1,3 +1,5 @@
+package Items;
+
 public class IllegalTypeException extends IllegalArgumentException {
 
     public IllegalTypeException(){}

@@ -1,3 +1,5 @@
+package Items;
+
 public class Fertilizer implements Items {
      private String type;
      private String description;

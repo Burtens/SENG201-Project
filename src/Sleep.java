@@ -13,10 +13,5 @@ public class Sleep {
         return eventChance;
     }
 
-    public void updatePlants()
-    {
-        // TODO: Once plots implemented
-    }
-
 
 }
