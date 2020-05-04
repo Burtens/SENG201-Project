@@ -1,6 +1,5 @@
-import com.sun.source.tree.ReturnTree;
+import Items.Items;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Farm 
@@ -105,12 +104,12 @@ public class Farm
 
     }
 
-    public void updatePlotSize(Items item)
+    public void updatePlotSize()
     {
         /*Updates size of plots array (Increases amount of plots on farm)*/
         int plotsSize = this.plots.length;
         Crop[] newplots;
-        if (item.getType() == "Hoe"){
+        if (Bag.hasHoe() == true){
             newplots = new Crop[plotsSize + 3];
             System.out.println("The use of a hoe made it easier to dig ground, an additional plot was created.");
         }
@@ -147,22 +146,47 @@ public class Farm
             System.out.println("Sorry no pens available.");
     }
 
-    public void plantCrop(Crop crop) {
+    public void plantCrop(String seed, Farm farm, int seedNum) {
         /*Allows user to plant crops on farm*/
         boolean planted = false;
         int numplots = this.plots.length;
+        int plotToPlant = 0;
 
         for (int i = 0; i < numplots; i++) {
             if (this.plots[i] == null) {
-                this.plots[i] = crop;
+                plotToPlant = i;
                 planted = true;
                 break;
             }
         }
 
         if (planted) {
+            /*Creates plant based on seed*/
+            switch (seed){
+                case "Corn":
+                    this.plots[plotToPlant] = new Corn(farm);
+                    break;
+                case "Carrot":
+                    this.plots[plotToPlant] = new Carrots(farm);
+                    break;
+                case "Lettuce":
+                    this.plots[plotToPlant] = new Lettuce(farm);
+                    break;
+                case "Potatoes":
+                    this.plots[plotToPlant] = new Potatoes(farm);
+                    break;
+                case "Strawberries":
+                    this.plots[plotToPlant] = new Strawberries(farm);
+                    break;
+                case "Tomatoes":
+                    this.plots[plotToPlant] = new Tomatoes(farm);
+                    break;
+            }
+
             System.out.println("Crop successfully planted.");
-            // TODO: update bag once implemented
+            Bag.seeds.get(seedNum).updateAmount(-1);
+            if (Bag.seeds.get(seedNum).getAmount() == 0)
+                Bag.seeds.remove(seedNum);
         } else
             System.out.println("Sorry no plots available to plant crop.");
     }
@@ -203,7 +227,7 @@ public class Farm
                 if (input.equals("e"))
                     return;
                 else{
-                    System.out.println("Invalid number, please input only numbers.");
+                    System.out.println("Invalid input, please input only numbers.");
                     System.out.println("\n\n");
                 }
 
@@ -218,7 +242,7 @@ public class Farm
             System.out.println("Sorry this crop is not ready to be harvested!!!");
     }
 
-    public void tendCrop(Items item ,Scanner scan)
+    public void tendCrop(Items item , Scanner scan)
     {
         // TODO : Add functionality
     }

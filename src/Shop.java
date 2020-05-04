@@ -171,34 +171,22 @@ public class Shop {
         }
         switch (item) {
             case ("1"):
-                System.out.println("You purchased " + amount + " corn seeds for $" + cost +
-                        "\nYou now have " + Bag.getCornSeeds() + " corn seeds\n" +
-                        "Anything else?");
+                System.out.println("You purchased " + amount + " corn seeds for $" + cost + "\nAnything else?");
                 break;
             case ("2"):
-                System.out.println("You purchased " + amount + " potato seeds for $" + cost +
-                        "\nYou now have " + Bag.getPotatoSeeds() + " potato seeds\n" +
-                        "Anything else?");
+                System.out.println("You purchased " + amount + " potato seeds for $" + cost + "\nAnything else?");
                 break;
             case ("3"):
-                System.out.println("You purchased " + amount + " tomato seeds for $" + cost +
-                        "\nYou now have " + Bag.getTomatoSeeds() + " tomato seeds\n" +
-                        "Anything else?");
+                System.out.println("You purchased " + amount + " tomato seeds for $" + cost + "\nAnything else?");
                 break;
             case ("4"):
-                System.out.println("You purchased " + amount + " lettuce seeds for $" + cost +
-                        "\nYou now have " + Bag.getLettuceSeeds() + " lettuce seeds\n" +
-                        "Anything else?");
+                System.out.println("You purchased " + amount + " lettuce seeds for $" + cost + "\nAnything else?");
                 break;
             case ("5"):
-                System.out.println("You purchased " + amount + " carrot seeds for $" + cost +
-                        "\nYou now have " + Bag.getCarrotSeeds() + " carrot seeds\n" +
-                        "Anything else?");
+                System.out.println("You purchased " + amount + " carrot seeds for $" + cost + "\nAnything else?");
                 break;
             case ("6"):
-                System.out.println("You purchased " + amount + " strawberry seeds for $" + cost +
-                        "\nYou now have " + Bag.getStrawberrySeeds() + " strawberry seeds\n" +
-                        "Anything else?");
+                System.out.println("You purchased " + amount + " strawberry seeds for $" + cost + "\nAnything else?");
                 break;
             case ("e"):
                 System.out.println("Sorry we didn't have anything to your liking\n" +
