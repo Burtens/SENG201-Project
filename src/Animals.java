@@ -1,4 +1,5 @@
-import Items.Items;
+import java.util.Arrays;
+import java.util.Scanner;
 
 import static java.lang.Math.round;
 
@@ -15,7 +16,7 @@ public abstract class Animals {
         health = maxHp;
     }
 
-    public int getHealth() {
+    public static int getHealth() {
         return (int) health;
     }
 
@@ -28,7 +29,7 @@ public abstract class Animals {
         }
     }
 
-    public int getHappiness() {
+    public static int getHappiness() {
         return happiness;
     }
 
@@ -49,11 +50,68 @@ public abstract class Animals {
     public static void feed() {
         updateHappiness(20);
         updateHealth(40);
+        Status.updateActions(-1);
     }
 
-    public void play(Items item) {
+    public static void play() {
         updateHappiness(50);
+        Status.updateActions(-1);
     }
 
-    public String toString(){ return this.getClass().getSimpleName();}
+    public static void animalMenu(Scanner scanner, int pen) {
+        System.out.println("Please select an action:\n" +
+                "1: View animal stats.\n" +
+                "2: Feed animal.\n" +
+                "3: Play with animal.\n" +
+                "E: Exit menu.");
+        String item = scanner.nextLine().trim().toLowerCase();
+        while (!Arrays.asList("1", "2", "3", "e").contains(item)) {
+            System.out.println("Wrong item, try again.");
+            item = scanner.nextLine().trim().toLowerCase();
+        }
+        switch (item) {
+            case ("1"):
+                System.out.println(Farm.pens[pen].getClass().getSimpleName() +
+                        "\nHappiness: " + getHappiness() +
+                        "\nHealth: " + getHealth());
+                animalMenu(scanner, pen);
+                break;
+            case ("2"):
+                if (Bag.getFoodAmount() > 0) {
+                    feed();
+                } else {
+                    System.out.println("Sorry not enough food.");
+                }
+                animalMenu(scanner, pen);
+                break;
+            case ("3"):
+                if (Bag.getToyAmount() > 0) {
+                    play();
+                } else {
+                    System.out.println("Sorry not enough toys.");
+                }
+                animalMenu(scanner, pen);
+                break;
+            case ("e"):
+                break;
+        }
+    }
+
+    public static void chooseAnimal(Scanner scanner) {
+        System.out.println("Choose pen between 1 and " + Farm.pens.length +
+                "\nOr enter E to go back");
+        String item = scanner.nextLine().trim().toLowerCase();
+        if (item == "e") {
+            return;
+        } else {
+            try{
+                int pen = Integer.parseInt(item) - 1;
+                Farm.pens[pen].animalMenu(scanner, pen);
+            } catch (NumberFormatException exception) {
+                System.out.println("Sorry invalid number.");
+            } catch (ArrayIndexOutOfBoundsException exception) {
+                System.out.println("Sorry no such pen exists.");
+            }
+        }
+    }
 }
