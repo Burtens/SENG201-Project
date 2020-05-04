@@ -49,7 +49,7 @@ public class Main {
 
 
         }
-
+        endGame();
         scan.close();
     }
 
@@ -59,7 +59,7 @@ public class Main {
         while (!GOTONEXTDAY)
         {
             System.out.println("Today is: Day " + Status.getDay() + ".\nWhat would you like to do today?");
-            System.out.println("1: View your Farm's Status");
+            System.out.println("1: View your Farm's Status and bag");
             System.out.println("2: Preform an Action");
             System.out.println("3: Travel to Store");
             System.out.println("4: Sleep");
@@ -69,12 +69,15 @@ public class Main {
             switch (selection)
             {
                 case "1" :
+                    Status.viewStatus();
+                    Bag.viewBag();
                     break;
                 case "2" :
                     actions(farm, scan);
                     break;
                 case "3" :
-                    atShop(farm, scan);
+                    System.out.println("Welcome to the shop, please choose an item number from the list.");
+                    Shop.chooseItem(scan);
                     break;
                 case "4" :
                     Status.updateDay();
@@ -121,8 +124,8 @@ public class Main {
                         break;
                     case "2":
                         if (Bag.getFoodAmount() > 0) {
-                            Animals.feed;
-                            Bag.updateItems("1", -1)
+                            Animals.feed();
+                            Bag.updateItems("1", -1);
                             Status.updateActions(-1);
                         } else {
                             System.out.print("Not enough food.");
@@ -130,8 +133,8 @@ public class Main {
                         break;
                     case "3":
                         if (Bag.getToyAmount() > 0) {
-                            Animals.feed;
-                            Bag.updateItems("2", -1)
+                            Animals.feed();
+                            Bag.updateItems("2", -1);
                             Status.updateActions(-1);
                         } else {
                             System.out.print("Not enough Toys.");
@@ -153,7 +156,7 @@ public class Main {
 
                     case "5":
                         // TODO: Bag functionality
-                        farm.updateFarmSize(null);
+                        farm.updatePlotSize(null);
                         Status.updateActions(-1);
                         break;
                     case "e":
@@ -172,16 +175,11 @@ public class Main {
 
     }
 
-    private void endGame() {
+    private static void endGame() {
         System.out.println(Farm.getName());
+        System.out.println(Farm.getDays());
         System.out.println(Status.getMoney());
-        System.out.println(Status.getDays());
         double score = 0;
-        for (int pen = 0; pen < Farm.pens; pen++) {
-            if (Farm.pens[pen] != null) {
-                score += Farm.pens[pen].getValue;
-            }
-        }
         score = (score * 10) / Farm.getDays();
         score += Status.getMoney();
         score = round(score);
@@ -192,9 +190,9 @@ public class Main {
         System.out.println("Not implemented yet");
     }
 
-
-
-
+    public static String getFarmerName() {
+        return farmerName;
+    }
 
     public static void main(String[] args)
     {

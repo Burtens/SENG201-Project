@@ -1,7 +1,7 @@
 public class Status {
 
     private static int day = 1;
-    private static double money = 0;
+    private static double money = 500;
     private static int actions = 2;
 
 
@@ -33,5 +33,13 @@ public class Status {
 
     public static int getDay() {
         return day;
+    }
+
+    public static void viewStatus() {
+        System.out.println("Status\nYour name is:" + Main.getFarmerName() +
+                "\nYour farm's name is: " + Farm.getFarmName() +
+                "\nYou have $" + getMoney() +
+                "\nIt is the day " + getDay() + " out of " + Farm.getDays() +
+                "\n");
     }
 }

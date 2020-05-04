@@ -2,9 +2,9 @@ import static java.lang.Math.round;
 
 public abstract class Animals {
 
-    private double maxHealth;
-    private double health;
-    private int happiness = 100;
+    private static double maxHealth;
+    private static double health;
+    private static int happiness = 100;
     private int value;
 
     public Animals(int animalValue, int maxHp) {
@@ -17,7 +17,7 @@ public abstract class Animals {
         return (int) health;
     }
 
-    public void updateHealth(double amount) {
+    public static void updateHealth(double amount) {
         health += amount;
         if (health > maxHealth) {
             health = maxHealth;
@@ -30,7 +30,7 @@ public abstract class Animals {
         return happiness;
     }
 
-    public void updateHappiness(int amount) {
+    public static void updateHappiness(int amount) {
         happiness += amount;
         if (happiness > 100) {
             happiness = 100;
@@ -44,7 +44,7 @@ public abstract class Animals {
         return (int) currentValue;
     }
 
-    public void feed() {
+    public static void feed() {
         updateHappiness(20);
         updateHealth(40);
     }

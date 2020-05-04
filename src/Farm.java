@@ -6,11 +6,11 @@ import java.util.Scanner;
 public class Farm 
 {
 
-    private String name;
+    private static String name;
     private FarmType farmType;
-    private int days;
-    public Crop[] plots = new Crop[4];
-    public Animals[] pens = new Animals[4];
+    private static int days;
+    public static Crop[] plots = new Crop[4];
+    public static Animals[] pens = new Animals[4];
 
 
     Farm(boolean testing, FarmType farmType, Scanner scan)
@@ -131,18 +131,18 @@ public class Farm
         this.pens = newPens;
     }
     
-    public void newAnimal(Animals animal) {
+    public static void newAnimal(Animals animal) {
         boolean inPen = false;
-        int numPens = this.pens.length;
+        int numPens = pens.length;
         for (int i = 0; i < numPens; i++) {
-            if (this.pens[i] == null) {
-                this.pens[i] = animal;
+            if (pens[i] == null) {
+                pens[i] = animal;
                 inPen = true;
                 break;
             }
         }
         if (inPen) {
-            System.out.println("Animal purchased successfully")
+            System.out.println("Animal purchased successfully");
         } else
             System.out.println("Sorry no pens available.");
     }
@@ -225,11 +225,9 @@ public class Farm
 
     public FarmType getFarmType(){ return farmType; }
 
-    public int getDays() { return days; }
+    public static int getDays() { return days; }
 
-    public String getName() { return name; }
+    public static String getName() { return name; }
 
-
-
-    
+    public static String getFarmName() {return name;}
 }
