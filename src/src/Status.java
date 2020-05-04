@@ -27,19 +27,7 @@ public class Status {
         return actions;
     }
 
-    public static void updateDay(Farm farm) {
-        for (Crop crop : farm.plots) {
-            if (crop != null)
-                crop.updateGrowth();
-        }
-        for (Animals animal : farm.pens) {
-            if (animal != null){
-                updateMoney(animal.getValue());
-                // TODO: Update Happiness and health??
-            }
-
-        }
-        updateActions(2);
+    public static void updateDay() {
         day += 1;
     }
 
@@ -47,12 +35,10 @@ public class Status {
         return day;
     }
 
-
     public static void viewStatus() {
         System.out.println("Status\nYour name is:" + Main.getFarmerName() +
                 "\nYour farm's name is: " + Farm.getFarmName() +
                 "\nYou have $" + getMoney() +
-                "\nIt is the day " + getDay() + " out of " + Farm.getDays() +
-                "\n");
+                "\nIt is the day " + getDay() + " out of " + Farm.getDays() + "\n");
     }
 }

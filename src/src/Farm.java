@@ -1,5 +1,6 @@
-import Items.Items;
+import com.sun.source.tree.ReturnTree;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Farm 
@@ -8,7 +9,7 @@ public class Farm
     private static String name;
     private FarmType farmType;
     private static int days;
-    public static Crop[] plots = new Crop[4];
+    public Crop[] plots = new Crop[4];
     public static Animals[] pens = new Animals[4];
 
 
@@ -104,12 +105,12 @@ public class Farm
 
     }
 
-    public void updatePlotSize()
+    public void updatePlotSize(Items item)
     {
         /*Updates size of plots array (Increases amount of plots on farm)*/
         int plotsSize = this.plots.length;
         Crop[] newplots;
-        if (Bag.hasHoe() == true){
+        if (item.getType() == "Hoe"){
             newplots = new Crop[plotsSize + 3];
             System.out.println("The use of a hoe made it easier to dig ground, an additional plot was created.");
         }
@@ -130,12 +131,12 @@ public class Farm
         this.pens = newPens;
     }
     
-    public static void newAnimal(Animals animal) {
+    public void newAnimal(Animals animal) {
         boolean inPen = false;
-        int numPens = pens.length;
+        int numPens = this.pens.length;
         for (int i = 0; i < numPens; i++) {
-            if (pens[i] == null) {
-                pens[i] = animal;
+            if (this.pens[i] == null) {
+                this.pens[i] = animal;
                 inPen = true;
                 break;
             }
@@ -146,47 +147,22 @@ public class Farm
             System.out.println("Sorry no pens available.");
     }
 
-    public void plantCrop(String seed, Farm farm, int seedNum) {
+    public void plantCrop(Crop crop) {
         /*Allows user to plant crops on farm*/
         boolean planted = false;
         int numplots = this.plots.length;
-        int plotToPlant = 0;
 
         for (int i = 0; i < numplots; i++) {
             if (this.plots[i] == null) {
-                plotToPlant = i;
+                this.plots[i] = crop;
                 planted = true;
                 break;
             }
         }
 
         if (planted) {
-            /*Creates plant based on seed*/
-            switch (seed){
-                case "Corn":
-                    this.plots[plotToPlant] = new Corn(farm);
-                    break;
-                case "Carrot":
-                    this.plots[plotToPlant] = new Carrots(farm);
-                    break;
-                case "Lettuce":
-                    this.plots[plotToPlant] = new Lettuce(farm);
-                    break;
-                case "Potatoes":
-                    this.plots[plotToPlant] = new Potatoes(farm);
-                    break;
-                case "Strawberries":
-                    this.plots[plotToPlant] = new Strawberries(farm);
-                    break;
-                case "Tomatoes":
-                    this.plots[plotToPlant] = new Tomatoes(farm);
-                    break;
-            }
-
             System.out.println("Crop successfully planted.");
-            Bag.seeds.get(seedNum).updateAmount(-1);
-            if (Bag.seeds.get(seedNum).getAmount() == 0)
-                Bag.seeds.remove(seedNum);
+            // TODO: update bag once implemented
         } else
             System.out.println("Sorry no plots available to plant crop.");
     }
@@ -227,7 +203,7 @@ public class Farm
                 if (input.equals("e"))
                     return;
                 else{
-                    System.out.println("Invalid input, please input only numbers.");
+                    System.out.println("Invalid number, please input only numbers.");
                     System.out.println("\n\n");
                 }
 
@@ -242,7 +218,7 @@ public class Farm
             System.out.println("Sorry this crop is not ready to be harvested!!!");
     }
 
-    public void tendCrop(Items item , Scanner scan)
+    public void tendCrop(Items item ,Scanner scan)
     {
         // TODO : Add functionality
     }
@@ -254,4 +230,8 @@ public class Farm
     public static String getName() { return name; }
 
     public static String getFarmName() {return name;}
+
+
+
+    
 }

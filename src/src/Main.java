@@ -1,8 +1,5 @@
-import javafx.css.Size;
-
 import java.lang.invoke.SwitchPoint;
 import java.util.Arrays;
-import java.util.List;
 import java.util.PrimitiveIterator;
 import java.util.Scanner;
 import static java.lang.Math.round;
@@ -45,19 +42,15 @@ public class Main {
         setFarmerName(scan);
         System.out.println("Welcome " + farmerName + "!");
         Farm farm = new Farm(false, null, scan);
-        Seeds seed = new Seeds("Corn", 3);
-        Bag.seeds.add(seed);
+
         /*Main Loop*/
         while (Status.getDay() <= farm.getDays()){
             atFarm(farm, scan);
-            System.out.println(Bag.seeds);
-
 
 
         }
         endGame();
         scan.close();
-        endGame(farm);
     }
 
     private static void atFarm(Farm farm, Scanner scan){
@@ -76,41 +69,18 @@ public class Main {
             switch (selection)
             {
                 case "1" :
-
-                    /*Prints current status of Farm*/
                     Status.viewStatus();
-                    System.out.println("\nThe plants on your farm are:");
-                    System.out.println("---------------------");
-                    System.out.println("Plot : Plant (Growth)");
-                    for (int i = 0; i < farm.plots.length; i++){
-                        if (farm.plots[i] != null)
-                            System.out.println(i + " : " + farm.plots[i].toString() + " (" + farm.plots[i].getGrowth() +"%)");
-                    }
-                    System.out.println("\nThe animals on your farm are:");
-                    System.out.println("------------");
-                    System.out.println("Pen : Animal");
-                    for (int i = 0; i < farm.pens.length; i++){
-                        if (farm.pens[i] != null)
-                            // TODO : May want to show happiness and health
-                            System.out.println(i + " : " + farm.pens[i].toString());
-                    }
-                    System.out.println("\n\n");
                     Bag.viewBag();
-
                     break;
                 case "2" :
-                    /*Sends user to actions method to allow user to preform an action*/
                     actions(farm, scan);
                     break;
                 case "3" :
-
-                    /*Sends user to shop method to allow them to view and buy items*/
                     System.out.println("Welcome to the shop, please choose an item number from the list.");
                     Shop.chooseItem(scan);
                     break;
                 case "4" :
-                    /*Updates day*/
-                    Status.updateDay(farm);
+                    Status.updateDay();
                     GOTONEXTDAY = true;
                     break;
                 default :
@@ -130,7 +100,6 @@ public class Main {
         int actions = Status.getActions();
         if (actions == 0)
             System.out.println("Sorry you are unable to preform any more actions today.");
-            // TODO: Add ability to still plant crops here
         else{
             if (actions == 1)
                 System.out.println("You have 1 action remaining.");
@@ -139,7 +108,6 @@ public class Main {
             /*Loops while user chooses to preform an action*/
             while (INACTION) {
                 System.out.println("What action would you like to preform?");
-                System.out.println("P: Plant Crop (This doesn't cost an action)");
                 System.out.println("1: Tend to Crops");
                 System.out.println("2: Feed Animals");
                 System.out.println("3: Play with Animals");
@@ -150,10 +118,6 @@ public class Main {
                 input = scan.nextLine().trim().toLowerCase();
                 INACTION = false;
                 switch (input) {
-                    case "p":
-                        /*Plants a crop is user has seed*/
-                        plantCrop(scan, farm);
-                        break;
                     case "1":
                         System.out.println("Not implemented yet");
                         Status.updateActions(-1);
@@ -191,8 +155,8 @@ public class Main {
                         break;
 
                     case "5":
-
-                        farm.updatePlotSize();
+                        // TODO: Bag functionality
+                        farm.updatePlotSize(null);
                         Status.updateActions(-1);
                         break;
                     case "e":
@@ -211,67 +175,23 @@ public class Main {
 
     }
 
-    private static void endGame(Farm farm) {
-        System.out.println("Name: " + farm.getName());
-        System.out.println("Total money: $" + String.format("%.2f",Status.getMoney()));
-        System.out.println("Total days: " + farm.getDays());
+    private static void endGame() {
+        System.out.println(Farm.getName());
+        System.out.println(Farm.getDays());
+        System.out.println(Status.getMoney());
         double score = 0;
-        for (int pen = 0; pen < farm.pens.length; pen++) {
-            if (farm.pens[pen] != null) {
-                score += farm.pens[pen].getValue();
-            }
-        }
-        score = (score * 10) / farm.getDays();
-   
+        score = (score * 10) / Farm.getDays();
         score += Status.getMoney();
         score = round(score);
-        System.out.println("Final score: " + score);
+        System.out.println(score);
     }
 
-    private static void plantCrop(Scanner scan, Farm farm)
-    {
-        if (Bag.seeds.isEmpty())
-            System.out.println("You do not have any seeds please buy some at the store.");
-        else{
-            String input = "e";
+    private static void atShop(Farm farm, Scanner scan){
+        System.out.println("Not implemented yet");
+    }
 
-            boolean VALID = false;
-            /*Asks for user input until user exits or uses correct input*/
-            while (!VALID) {
-                System.out.println("Please select seed you want to plant:");
-                /*Prints all available seeds*/
-                for (int i = 0; i < Bag.seeds.size(); i++) {
-                        System.out.println(i + ": " + Bag.seeds.get(i).toString());
-                }
-                System.out.println("E: Exit");
-                /*Gets input and checks if its valid*/
-                try {
-                    int num;
-                    String seed;
-
-                    input = scan.nextLine().trim().toLowerCase();
-                    num = Integer.parseInt(input);
-                    seed = Bag.seeds.get(num).toString();
-                    farm.plantCrop(seed, farm, num);
-                    VALID = true;
-                }
-                catch (ArrayIndexOutOfBoundsException e) {
-                    System.out.println("Invalid selection, please select a valid seed.");
-                    System.out.println("\n\n");
-                }
-                catch (NumberFormatException e) {
-                    if (input.equals("e"))
-                        return;
-                    else {
-                        System.out.println("Invalid input, please input only numbers.");
-                        System.out.println("\n\n");
-                    }
-
-                }
-            }
-        }
-        System.out.println("\n\n");
- 
+    public static String getFarmerName() {
+        return farmerName;
     }
 
     public static void main(String[] args)
