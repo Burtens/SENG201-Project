@@ -39,40 +39,22 @@ public class Bag {
                 }
                 break;
             case("s1"):
-                cornSeeds += amount;
-                if (cornSeeds < 0) {
-                    cornSeeds = 0;
-                }
+                updateSeeds("Corn", amount);
                 break;
             case("s2"):
-                potatoSeeds += amount;
-                if (potatoSeeds < 0) {
-                    potatoSeeds = 0;
-                }
+                updateSeeds("Potatoes", amount);
                 break;
             case("s3"):
-                tomatoSeeds += amount;
-                if (tomatoSeeds < 0) {
-                    tomatoSeeds = 0;
-                }
+                updateSeeds("Tomatoes", amount);
                 break;
             case("s4"):
-                lettuceSeeds += amount;
-                if (lettuceSeeds < 0) {
-                    lettuceSeeds = 0;
-                }
+                updateSeeds("Lettuce", amount);
                 break;
             case("s5"):
-                carrotSeeds += amount;
-                if (carrotSeeds < 0) {
-                    carrotSeeds = 0;
-                }
+                updateSeeds("Carrots", amount);
                 break;
             case("s6"):
-                strawberrySeeds += amount;
-                if (strawberrySeeds < 0) {
-                    strawberrySeeds = 0;
-                }
+                updateSeeds("Strawberries", amount);
                 break;
             case("e"):
                 break;
@@ -81,6 +63,16 @@ public class Bag {
         }
     }
 
+    private static void updateSeeds(String type, int amount){
+        boolean added = false;
+        for (Seeds seed : seeds)
+            if (seed.toString() == type){
+                seed.updateAmount(amount);
+                added = true;
+            }
+        if (!added)
+            seeds.add(new Seeds(type, amount));
+    }
 
     public static boolean hasHoe() {return hasHoe;}
 
@@ -100,30 +92,6 @@ public class Bag {
         return vFertilizerAmount;
     }
 
-    public static int getCornSeeds() {
-        return cornSeeds;
-    }
-
-    public static int getCarrotSeeds() {
-        return carrotSeeds;
-    }
-
-    public static int getLettuceSeeds() {
-        return lettuceSeeds;
-    }
-
-    public static int getPotatoSeeds() {
-        return potatoSeeds;
-    }
-
-    public static int getStrawberrySeeds() {
-        return strawberrySeeds;
-    }
-
-    public static int getTomatoSeeds() {
-        return tomatoSeeds;
-    }
-
     public static void viewBag() {
         System.out.println("Your bag contains:");
         if (foodAmount > 0) {
@@ -134,19 +102,9 @@ public class Bag {
             System.out.println("Food: " + gFertilizerAmount);
         } if (vFertilizerAmount > 0) {
             System.out.println("Value fertilizer: " + vFertilizerAmount);
-        } if (cornSeeds > 0) {
-            System.out.println("Corn seeds: " + cornSeeds);
-        } if (potatoSeeds > 0) {
-            System.out.println("Potato seeds: " + potatoSeeds);
-        } if (tomatoSeeds > 0) {
-            System.out.println("Tomato seeds: " + tomatoSeeds);
-        } if (lettuceSeeds > 0) {
-            System.out.println("Lettuce seeds: " + lettuceSeeds);
-        } if (carrotSeeds > 0) {
-            System.out.println("Carrot seeds: " + carrotSeeds);
-        } if (strawberrySeeds > 0) {
-            System.out.println("Strawberry seeds: " + strawberrySeeds);
         }
-        System.out.println("");
+        for (Seeds seed : seeds)
+            System.out.println(seed.toString() + " seeds: " + seed.getAmount());
+        System.out.println();
     }
 }

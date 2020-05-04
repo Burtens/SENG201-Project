@@ -49,8 +49,7 @@ public class Status {
 
 
     public static void viewStatus() {
-        System.out.println("Status\nYour name is:" + Main.getFarmerName() +
-                "\nYour farm's name is: " + Farm.getFarmName() +
+        System.out.println("Your farm's name is: " + Farm.getFarmName() +
                 "\nYou have $" + getMoney() +
                 "\nIt is the day " + getDay() + " out of " + Farm.getDays() +
                 "\n");

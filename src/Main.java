@@ -55,7 +55,6 @@ public class Main {
 
 
         }
-        endGame();
         scan.close();
         endGame(farm);
     }

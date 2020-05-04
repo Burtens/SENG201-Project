@@ -15,8 +15,6 @@ public class Seeds {
             this.amount = 0;
     }
 
-    public void setType(String type) { this.type = type; }
-
     public int getAmount() { return this.amount; }
 
     public String toString() { return this.type; }
