@@ -74,7 +74,8 @@ public class Bag {
             seeds.add(new Seeds(type, amount));
     }
 
-    public static boolean hasHoe() {return hasHoe;}
+    public static boolean hasHoe() { return hasHoe; }
+    public static boolean hasWateringCan() { return  hasWateringCan; }
 
     public static int getFoodAmount() {
         return foodAmount;

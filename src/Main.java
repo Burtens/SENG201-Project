@@ -1,10 +1,6 @@
-import javafx.css.Size;
-
-import java.lang.invoke.SwitchPoint;
-import java.util.Arrays;
-import java.util.List;
-import java.util.PrimitiveIterator;
 import java.util.Scanner;
+
+import static java.lang.Math.cbrt;
 import static java.lang.Math.round;
 
 public class Main {
@@ -45,9 +41,8 @@ public class Main {
         setFarmerName(scan);
         System.out.println("Welcome " + farmerName + "!");
         Farm farm = new Farm(false, null, scan);
-        Seeds seed = new Seeds("Corn", 3);
-        Bag.seeds.add(seed);
         /*Main Loop*/
+        Shop.farm = farm;
         while (Status.getDay() <= farm.getDays()){
             atFarm(farm, scan);
             System.out.println(Bag.seeds);
@@ -77,25 +72,26 @@ public class Main {
                 case "1" :
 
                     /*Prints current status of Farm*/
-                    Status.viewStatus();
-                    System.out.println("\nThe plants on your farm are:");
+                    Status.viewStatus(farm);
+                    System.out.println("\nTotal Plots: " + farm.getPlots().length);
+                    System.out.println("The plants on your farm are:");
                     System.out.println("---------------------");
                     System.out.println("Plot : Plant (Growth)");
-                    for (int i = 0; i < farm.plots.length; i++){
-                        if (farm.plots[i] != null)
-                            System.out.println(i + " : " + farm.plots[i].toString() + " (" + farm.plots[i].getGrowth() +"%)");
+                    for (int i = 0; i < farm.getPlots().length; i++){
+                        if (farm.getPlots()[i] != null)
+                            System.out.println(i + " : " + farm.getPlots()[i].toString() + " (" + farm.getPlots()[i].getGrowth() +"%)");
                     }
-                    System.out.println("\nThe animals on your farm are:");
+                    System.out.println("\nTotal Pens: " + farm.getPens().length);
+                    System.out.println("The animals on your farm are:");
                     System.out.println("------------");
                     System.out.println("Pen : Animal");
-                    for (int i = 0; i < farm.pens.length; i++){
-                        if (farm.pens[i] != null)
+                    for (int i = 0; i < farm.getPens().length; i++){
+                        if (farm.getPens()[i] != null)
                             // TODO : May want to show happiness and health
-                            System.out.println(i+1 + " : " + farm.pens[i].getClass().getSimpleName());
+                            System.out.println(i+1 + " : " + farm.getPens()[i].getClass().getSimpleName());
                     }
                     System.out.println("\n\n");
                     Bag.viewBag();
-
                     break;
                 case "2" :
                     /*Sends user to actions method to allow user to preform an action*/
@@ -127,9 +123,19 @@ public class Main {
         boolean INACTION = true;
         String input;
         int actions = Status.getActions();
-        if (actions == 0)
+        if (actions == 0) {
             System.out.println("Sorry you are unable to preform any more actions today.");
-            // TODO: Add ability to still plant crops here
+            System.out.println("But you may plant crops");
+            System.out.println("Would you like to? (Y or N)");
+            input = scan.nextLine().trim().toLowerCase();
+            if (input.equals("yes") || input.equals("y")){
+                plantCrop(scan, farm);
+            }
+            else if (input.equals("no") || input.equals("n"))
+                return;
+            else
+                System.out.println("Invalid input returning");
+        }
         else{
             if (actions == 1)
                 System.out.println("You have 1 action remaining.");
@@ -153,28 +159,25 @@ public class Main {
                         plantCrop(scan, farm);
                         break;
                     case "1":
-                        System.out.println("Not implemented yet");
-                        Status.updateActions(-1);
+                        tendCrop(scan, farm);
                         break;
                     case "2":
-                        Animals.chooseAnimal(scan);
+                        Animals.chooseAnimal(scan, farm);
                         break;
                     case "3":
                         boolean ISCROP = false;
-                        for (Crop crop : farm.plots)
+                        for (Crop crop : farm.getPlots())
                             if (crop != null)
                                 ISCROP = true;
 
                         if (ISCROP){
                             farm.harvestCrop(scan);
-                            Status.updateActions(-1);
                         }
                         else
                             System.out.println("There are currently no crops on your farm");
                         break;
 
                     case "4":
-
                         farm.updatePlotSize();
                         Status.updateActions(-1);
                         break;
@@ -199,9 +202,9 @@ public class Main {
         System.out.println("Total money: $" + String.format("%.2f",Status.getMoney()));
         System.out.println("Total days: " + farm.getDays());
         double score = 0;
-        for (int pen = 0; pen < farm.pens.length; pen++) {
-            if (farm.pens[pen] != null) {
-                score += farm.pens[pen].getValue();
+        for (int pen = 0; pen < farm.getPens().length; pen++) {
+            if (farm.getPens()[pen] != null) {
+                score += farm.getPens()[pen].getValue();
             }
         }
         score = (score * 10) / farm.getDays();
@@ -255,6 +258,53 @@ public class Main {
         }
         System.out.println("\n\n");
  
+    }
+
+    private static void tendCrop(Scanner scan, Farm farm){
+        boolean VALID = false;
+        boolean empty = true;
+        String input;
+
+        for (Crop crop : farm.getPlots())
+            if (crop != null){
+                empty = false;
+                break;
+            }
+        if (empty)
+            System.out.println("Sorry there are no plots to tend.");
+        else {
+            while (!VALID) {
+                VALID = true;
+                System.out.println("Please select item you would like to use:");
+                if (Bag.hasWateringCan())
+                    System.out.println("1: Watering Can");
+                if (Bag.getGFertilizerAmount() > 0)
+                    System.out.println("2: Growth Fertilizer");
+                if (Bag.getVFertilizerAmount() > 0)
+                    System.out.println("3: Value Fertilizer");
+                System.out.println("E: Exit");
+                input = scan.nextLine().trim().toLowerCase();
+                switch (input) {
+                    case "1":
+                        farm.tendCrop("wateringCan", scan);
+                        break;
+                    case "2":
+                        farm.tendCrop("growth", scan);
+                        break;
+                    case "3":
+                        farm.tendCrop("value", scan);
+                        break;
+                    case "e":
+                        return;
+                    default:
+                        VALID = false;
+                        System.out.println("Invalid input, please try again.");
+                        break;
+                }
+
+            }
+        }
+
     }
 
     public static void main(String[] args)

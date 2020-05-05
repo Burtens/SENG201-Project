@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class Shop {
 
+    public static Farm farm;
+
     public static void chooseItem(Scanner scanner) {
         System.out.println("Items:\n" +
                 "1: Food: $10, Animal feed, increases animal happiness and health.\n" +
@@ -69,7 +71,7 @@ public class Shop {
                 chooseItem(scanner);
                 break;
             case ("a"):
-                animalMenu(scanner);
+                animalMenu(scanner, farm);
                 chooseItem(scanner);
                 break;
             case ("s"):
@@ -88,7 +90,7 @@ public class Shop {
         }
     }
 
-    public static void animalMenu(Scanner scanner) {
+    public static void animalMenu(Scanner scanner, Farm farm) {
         System.out.println("What animal are you looking at buying? we have:\n" +
                 "1: Chickens\n" +
                 "2: Sheep\n" +
@@ -103,22 +105,22 @@ public class Shop {
         }
         switch (item) {
             case ("1"):
-                Farm.newAnimal(new Chicken());
+                farm.newAnimal(new Chicken());
                 System.out.println("Thanks for buying a chicken\n" +
                         "Anything else?");
                 break;
             case ("2"):
-                Farm.newAnimal(new Sheep());
+                farm.newAnimal(new Sheep());
                 System.out.println("Thanks for buying a sheep\n" +
                         "Anything else?");
                 break;
             case ("3"):
-                Farm.newAnimal(new Cow());
+                farm.newAnimal(new Cow());
                 System.out.println("Thanks for buying a cow\n" +
                         "Anything else?");
                 break;
             case ("4"):
-                Farm.newAnimal(new Pig());
+                farm.newAnimal(new Pig());
                 System.out.println("Thanks for buying a pig\n" +
                         "Anything else?");
                 break;

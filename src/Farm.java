@@ -1,21 +1,34 @@
 import Items.Items;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 public class Farm 
 {
 
-    private static String name;
+    private String name;
     private FarmType farmType;
-    private static int days;
-    public static Crop[] plots = new Crop[4];
-    public static Animals[] pens = new Animals[4];
+    private int days;
+    private   Crop[] plots = new Crop[4];
+    private  Animals[] pens = new Animals[4];
 
 
     Farm(boolean testing, FarmType farmType, Scanner scan)
     {
         generateFarm(testing, farmType, scan);
     }
+
+    public FarmType getFarmType(){ return this.farmType; }
+
+    public int getDays() { return this.days; }
+
+    public String getName() { return this.name; }
+
+    public String getFarmName() { return this.name; }
+
+    public Crop[] getPlots() { return this.plots; }
+
+    public Animals[] getPens() { return this.pens; }
 
     private void generateFarm(boolean Testing, FarmType testFarmType, Scanner scan) {
         if (Testing)
@@ -130,12 +143,12 @@ public class Farm
         this.pens = newPens;
     }
     
-    public static void newAnimal(Animals animal) {
+    public void newAnimal(Animals animal) {
         boolean inPen = false;
-        int numPens = pens.length;
+        int numPens = this.pens.length;
         for (int i = 0; i < numPens; i++) {
-            if (pens[i] == null) {
-                pens[i] = animal;
+            if (this.pens[i] == null) {
+                this.pens[i] = animal;
                 inPen = true;
                 break;
             }
@@ -164,22 +177,22 @@ public class Farm
             /*Creates plant based on seed*/
             switch (seed){
                 case "Corn":
-                    this.plots[plotToPlant] = new Corn(farm);
+                    this.plots[plotToPlant] = new Corn(farm, plotToPlant);
                     break;
                 case "Carrot":
-                    this.plots[plotToPlant] = new Carrots(farm);
+                    this.plots[plotToPlant] = new Carrots(farm, plotToPlant);
                     break;
                 case "Lettuce":
-                    this.plots[plotToPlant] = new Lettuce(farm);
+                    this.plots[plotToPlant] = new Lettuce(farm, plotToPlant);
                     break;
                 case "Potatoes":
-                    this.plots[plotToPlant] = new Potatoes(farm);
+                    this.plots[plotToPlant] = new Potatoes(farm, plotToPlant);
                     break;
                 case "Strawberries":
-                    this.plots[plotToPlant] = new Strawberries(farm);
+                    this.plots[plotToPlant] = new Strawberries(farm, plotToPlant);
                     break;
                 case "Tomatoes":
-                    this.plots[plotToPlant] = new Tomatoes(farm);
+                    this.plots[plotToPlant] = new Tomatoes(farm, plotToPlant);
                     break;
             }
 
@@ -193,18 +206,43 @@ public class Farm
 
     public void harvestCrop(Scanner scan)
     {
+        Crop crop = selectCrop("Select plot to harvest:", scan);
+        if (crop == null)
+            return;
+
+        /*Will harvest crop if it is harvestable else will return*/
+        if (crop.getGrowth() >= 100){
+            Status.updateMoney(crop.getValue());
+            this.plots[crop.getPlotPos()] = null;
+            Status.updateActions(-1);
+        }
+        else
+            System.out.println("Sorry this crop is not ready to be harvested!!!");
+    }
+
+    public void tendCrop(String item , Scanner scan)
+    {
+        Crop crop = selectCrop("Select plot to tend:", scan);
+        if (crop == null)
+            return;
+        crop.tend(item);
+        Status.updateActions(-1);
+    }
+
+    public Crop selectCrop(String task, Scanner scan)
+    {
         /*Allows User To Harvest Crop*/
         boolean VALID = false;
-        int numplots = this.plots.length;
+        int numPlots = this.plots.length;
         Crop crop = null;
         int num = 0;
         String input = null;
 
         /*Asks for user input until user exits or uses correct input*/
         while (!VALID) {
-            System.out.println("Select plot to harvest:");
+            System.out.println(task);
             /*Prints all available crops*/
-            for (int i = 0; i < numplots; i++) {
+            for (int i = 0; i < numPlots; i++) {
                 if (this.plots[i] != null)
                     System.out.println(i + ": " + this.plots[i].toString());
             }
@@ -220,12 +258,12 @@ public class Farm
                     VALID = true;
             }
             catch(ArrayIndexOutOfBoundsException e){
-                    System.out.println("Invalid plot, please select a valid plot.");
-                    System.out.println("\n\n");
+                System.out.println("Invalid plot, please select a valid plot.");
+                System.out.println("\n\n");
             }
             catch (NumberFormatException e) {
                 if (input.equals("e"))
-                    return;
+                    return null;
                 else{
                     System.out.println("Invalid input, please input only numbers.");
                     System.out.println("\n\n");
@@ -233,25 +271,6 @@ public class Farm
 
             }
         }
-        /*If the selected crop is valid and harvestable total money farm has will update and crop will be harvested*/
-        if (crop.getGrowth() >= 100){
-            Status.updateMoney(crop.getValue());
-            this.plots[num] = null;
-        }
-        else
-            System.out.println("Sorry this crop is not ready to be harvested!!!");
+        return crop;
     }
-
-    public void tendCrop(Items item , Scanner scan)
-    {
-        // TODO : Add functionality
-    }
-
-    public FarmType getFarmType(){ return farmType; }
-
-    public static int getDays() { return days; }
-
-    public static String getName() { return name; }
-
-    public static String getFarmName() {return name;}
 }

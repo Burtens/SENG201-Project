@@ -3,8 +3,9 @@ public class Corn extends Crop{
     final double VALUE = 5.00;
     final int GROWTH = 10;
 
-    public Corn(Farm farm)
+    public Corn(Farm farm, int pos)
     {
+        super(pos);
         FarmType currFarmType = farm.getFarmType();
         // TODO: Update bass growth rates to be unique
         super.setGrowthRate(GROWTH*currFarmType.getCropPercent());

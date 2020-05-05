@@ -28,11 +28,11 @@ public class Status {
     }
 
     public static void updateDay(Farm farm) {
-        for (Crop crop : farm.plots) {
+        for (Crop crop : farm.getPlots()) {
             if (crop != null)
                 crop.updateGrowth();
         }
-        for (Animals animal : farm.pens) {
+        for (Animals animal : farm.getPens()) {
             if (animal != null){
                 updateMoney(animal.getValue());
                 // TODO: Update Happiness and health??
@@ -48,10 +48,10 @@ public class Status {
     }
 
 
-    public static void viewStatus() {
-        System.out.println("Your farm's name is: " + Farm.getFarmName() +
+    public static void viewStatus(Farm farm) {
+        System.out.println("Your farm's name is: " + farm.getFarmName() +
                 "\nYou have $" + getMoney() +
-                "\nIt is the day " + getDay() + " out of " + Farm.getDays() +
+                "\nIt is the day " + getDay() + " out of " + farm.getDays() +
                 "\n");
     }
 }

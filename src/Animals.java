@@ -58,7 +58,7 @@ public abstract class Animals {
         Status.updateActions(-1);
     }
 
-    public static void animalMenu(Scanner scanner, int pen) {
+    public static void animalMenu(Scanner scanner, int pen, Farm farm) {
         System.out.println("Please select an action:\n" +
                 "1: View animal stats.\n" +
                 "2: Feed animal.\n" +
@@ -71,10 +71,10 @@ public abstract class Animals {
         }
         switch (item) {
             case ("1"):
-                System.out.println(Farm.pens[pen].getClass().getSimpleName() +
+                System.out.println(farm.getPens()[pen].getClass().getSimpleName() +
                         "\nHappiness: " + getHappiness() +
                         "\nHealth: " + getHealth());
-                animalMenu(scanner, pen);
+                animalMenu(scanner, pen, farm);
                 break;
             case ("2"):
                 if (Bag.getFoodAmount() > 0) {
@@ -82,7 +82,7 @@ public abstract class Animals {
                 } else {
                     System.out.println("Sorry not enough food.");
                 }
-                animalMenu(scanner, pen);
+                animalMenu(scanner, pen, farm);
                 break;
             case ("3"):
                 if (Bag.getToyAmount() > 0) {
@@ -90,15 +90,15 @@ public abstract class Animals {
                 } else {
                     System.out.println("Sorry not enough toys.");
                 }
-                animalMenu(scanner, pen);
+                animalMenu(scanner, pen, farm);
                 break;
             case ("e"):
                 break;
         }
     }
 
-    public static void chooseAnimal(Scanner scanner) {
-        System.out.println("Choose pen between 1 and " + Farm.pens.length +
+    public static void chooseAnimal(Scanner scanner, Farm farm) {
+        System.out.println("Choose pen between 1 and " + farm.getPens().length +
                 "\nOr enter E to go back");
         String item = scanner.nextLine().trim().toLowerCase();
         if (item == "e") {
@@ -106,7 +106,7 @@ public abstract class Animals {
         } else {
             try{
                 int pen = Integer.parseInt(item) - 1;
-                Farm.pens[pen].animalMenu(scanner, pen);
+                farm.getPens()[pen].animalMenu(scanner, pen, farm);
             } catch (NumberFormatException exception) {
                 System.out.println("Sorry invalid number.");
             } catch (ArrayIndexOutOfBoundsException exception) {

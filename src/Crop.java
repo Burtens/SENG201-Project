@@ -3,10 +3,14 @@ import Items.Items;
 public abstract class Crop {
 
     private int growth = 0;
+    private int plotPos;
     /*Public for testing purposes*/
     public int growthRate;
     private double value;
 
+    Crop(int pos){
+        this.plotPos = pos;
+    }
 
     public void setGrowthRate(double growthRate) {
         this.growthRate = (int) growthRate;
@@ -16,14 +20,13 @@ public abstract class Crop {
 
     public int getGrowth() { return this.growth; }
 
-    public void tend(Items item)
+    public void tend(String item)
         {
-            if (item.getType() == "Watering Can")
+            if (item == "wateringCan")
                 updateGrowth();
             else
             {
-                String itemType = item.getType();
-                switch (itemType)
+                switch (item)
                 {
                     case "growth": setGrowthRate(this.growthRate * 2);
                     break;
@@ -41,6 +44,8 @@ public abstract class Crop {
             this.growth = 100;
 
     }
+
+    public int getPlotPos() { return this.plotPos; }
 
     public double getValue() { return this.value; }
 

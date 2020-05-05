@@ -12,7 +12,7 @@ class CropTest {
     void testMakeCarrotBasic()
     {
         Farm newFarm = new Farm(true, FarmType.BASIC, null);
-        Crop newCarrot = new Carrots(newFarm);
+        Crop newCarrot = new Carrots(newFarm,0);
         double value = 10*1;
         assertEquals(value, newCarrot.growthRate);
         newCarrot.updateGrowth();
@@ -23,7 +23,7 @@ class CropTest {
     void testMakeCarrotRiver()
     {
         Farm newFarm = new Farm(true, FarmType.RIVER, null);
-        Crop newCarrot = new Carrots(newFarm);
+        Crop newCarrot = new Carrots(newFarm, 0);
         double value = 10*1.5;
         assertEquals(value, newCarrot.growthRate);
         newCarrot.updateGrowth();
@@ -34,7 +34,7 @@ class CropTest {
     void testMakeCarrotBarron()
     {
         Farm newFarm = new Farm(true, FarmType.BARRON, null);
-        Crop newCarrot = new Carrots(newFarm);
+        Crop newCarrot = new Carrots(newFarm, 0);
         double value = 10*0.5;
         assertEquals(value, newCarrot.growthRate);
         newCarrot.updateGrowth();
