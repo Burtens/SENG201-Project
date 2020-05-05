@@ -1,9 +1,3 @@
-import javafx.css.Size;
-
-import java.lang.invoke.SwitchPoint;
-import java.util.Arrays;
-import java.util.List;
-import java.util.PrimitiveIterator;
 import java.util.Scanner;
 import static java.lang.Math.round;
 
