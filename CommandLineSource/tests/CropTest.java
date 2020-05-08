@@ -1,12 +1,8 @@
 import org.junit.jupiter.api.Test;
-
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /*Since all crops are the same initially until we change base values im only testing one type of crop*/
 class CropTest {
-
-
 
     @Test
     void testMakeCarrotBasic()
