@@ -11,6 +11,15 @@ import java.awt.*;
  * window builder
  *
  * Should setup all screen transitions from here
+ *
+ * Variables:
+ * farm: GUIFarm
+ * setupScreen: JFrame
+ *
+ * Methods:
+ * launchSetupScreen: Initialises the setupScreen
+ * closeSetupScreen: Closes the setupScreen and sets starting values to the farm
+ *
  * */
 
 
@@ -24,6 +33,7 @@ public class GUIMain {
         setupScreen.setContentPane(new SetupScreen(this).getMainPanel());
         setupScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setupScreen.pack();
+        setupScreen.setResizable(false);
         setupScreen.setSize(600, 500);
         setupScreen.setVisible(true);
     }
@@ -38,7 +48,11 @@ public class GUIMain {
         farm.setFarmType(screen.getSelectedFarmType());
         System.out.println(farm.getDays());
         setupScreen.dispose();
-        // TODO: Send to FarmScreen
+        launchFarmScreen();
+    }
+
+    public void launchFarmScreen(){
+
     }
 
 

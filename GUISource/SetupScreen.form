@@ -14,7 +14,7 @@
         </constraints>
         <properties>
           <font name="Modern No. 20" size="36" style="0"/>
-          <text value="Welcome to &lt;Farm Game&gt;"/>
+          <text value="Welcome to Farm Game"/>
         </properties>
       </component>
       <grid id="675bf" binding="inputPanel" layout-manager="GridLayoutManager" row-count="11" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
