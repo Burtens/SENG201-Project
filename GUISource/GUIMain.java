@@ -27,6 +27,7 @@ public class GUIMain {
 
     GUIFarm farm = new GUIFarm();
     JFrame setupScreen = new JFrame("Create Farm");
+    JFrame farmScreen = new JFrame("Farm");
 
     public void launchSetupScreen()
     {
@@ -52,7 +53,19 @@ public class GUIMain {
     }
 
     public void launchFarmScreen(){
+        farmScreen.setContentPane(new FarmScreen(this).getMainPanel());
+        farmScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        farmScreen.pack();
+        farmScreen.setResizable(false);
+        farmScreen.setSize(600, 500);
+        farmScreen.setVisible(true);
 
+    }
+
+    public void endGame()
+    {
+        farmScreen.dispose();
+        // TODO: Show End Screen
     }
 
 
