@@ -62,6 +62,8 @@ public class GUIMain {
 
     }
 
+    public void closeBag(){ }
+
     public void endGame()
     {
         farmScreen.dispose();

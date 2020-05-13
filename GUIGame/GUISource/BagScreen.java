@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class BagScreen {
+    private final GUIMain controller;
     private JTabbedPane bagMenu;
     private JPanel MainPanel;
     private JButton closeBagButton;
@@ -21,7 +22,7 @@ public class BagScreen {
         closeBagButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                GUIMain.closeBag();
+                controller.closeBag();
             }
         });
         foodAmountLabel.setText(String.valueOf(GUIBag.getFoodAmount()));
@@ -31,7 +32,8 @@ public class BagScreen {
         carrotAmountLabel.setText(GUIBag.getSeeds());
     }
 
-    public BagScreen() {
+    public BagScreen(GUIMain master) {
+        this.controller = master
         initialize();
     }
 
