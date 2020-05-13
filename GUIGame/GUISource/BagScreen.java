@@ -33,7 +33,7 @@ public class BagScreen {
     }
 
     public BagScreen(GUIMain master) {
-        this.controller = master
+        this.controller = master;
         initialize();
     }
 

@@ -35,7 +35,7 @@ public class ShopScreen {
         bagButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                GUIMain.launchBag();
+                controller.launchBag();
             }
         });
         foodButton.addActionListener(new ActionListener() {
@@ -121,7 +121,7 @@ public class ShopScreen {
         returnToFarmButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                GUIMain.closeShop();
+                controller.closeShop();
             }
         });
     }
