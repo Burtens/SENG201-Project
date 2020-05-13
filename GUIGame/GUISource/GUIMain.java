@@ -129,8 +129,7 @@ public class GUIMain {
     public static void main(String[] args)
     {
         GUIMain main = new GUIMain();
-        //main.launchSetupScreen();
-        main.launchCropScreen();
+        main.launchSetupScreen();
     }
 
 
