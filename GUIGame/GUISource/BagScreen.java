@@ -1,22 +1,25 @@
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class BagScreen {
     private final GUIMain controller;
     private JTabbedPane bagMenu;
     private JPanel MainPanel;
     private JButton closeBagButton;
-    private JLabel carrotAmountLabel;
+    private JLabel turnipAmountLabel;
     private JLabel cornAmountLabel;
-    private JLabel lettuceAmountLabel;
+    private JLabel grapeAmountLabel;
     private JLabel potatoAmountLabel;
     private JLabel tomatoAmountLabel;
     private JLabel strawberryAmountLabel;
     private JLabel foodAmountLabel;
     private JLabel toyAmountLabel;
-    private JLabel gfertilizerAmountLabel;
-    private JLabel vfertilizerAmountLabel;
+    private JLabel gFertilizerAmountLabel;
+    private JLabel vFertilizerAmountLabel;
 
     public void initialize() {
         closeBagButton.addActionListener(new ActionListener() {
@@ -27,9 +30,43 @@ public class BagScreen {
         });
         foodAmountLabel.setText(String.valueOf(GUIBag.getFoodAmount()));
         toyAmountLabel.setText(String.valueOf(GUIBag.getToyAmount()));
-        gfertilizerAmountLabel.setText(String.valueOf(GUIBag.getGFertilizerAmount()));
-        vfertilizerAmountLabel.setText(String.valueOf(GUIBag.getVFertilizerAmount()));
-        carrotAmountLabel.setText(GUIBag.getSeeds());
+        gFertilizerAmountLabel.setText(String.valueOf(GUIBag.getGFertilizerAmount()));
+        vFertilizerAmountLabel.setText(String.valueOf(GUIBag.getVFertilizerAmount()));
+
+        bagMenu.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                if (bagMenu.getSelectedIndex() == 1)
+                    setSeeds();
+            }
+        });
+
+    }
+
+    private void setSeeds() {
+        ArrayList<Seeds> seeds = GUIBag.getSeeds();
+        for (Seeds seed : seeds) {
+            switch (seed.toString()) {
+                case "Turnips":
+                    turnipAmountLabel.setText(Integer.toString(seed.getAmount()));
+                    break;
+                case "Potatoes":
+                    potatoAmountLabel.setText(Integer.toString(seed.getAmount()));
+                    break;
+                case "Corn":
+                    cornAmountLabel.setText(Integer.toString(seed.getAmount()));
+                    break;
+                case "Grapes":
+                    grapeAmountLabel.setText(Integer.toString(seed.getAmount()));
+                    break;
+                case "Strawberries":
+                    strawberryAmountLabel.setText(Integer.toString(seed.getAmount()));
+                    break;
+                case "Tomatoes":
+                    tomatoAmountLabel.setText(Integer.toString(seed.getAmount()));
+                    break;
+            }
+        }
     }
 
     public BagScreen(GUIMain master) {

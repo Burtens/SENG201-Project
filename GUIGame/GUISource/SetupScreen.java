@@ -24,7 +24,7 @@ public class SetupScreen {
 
     /*Stored Variables*/
     private GUIMain controller;
-    private FarmType selectedFarmType;
+    private FarmType selectedFarmType = FarmType.BASIC;
     private boolean isValid = false;
 
 
@@ -140,7 +140,7 @@ public class SetupScreen {
     }
 
     /*Closes window by calling function in controller*/
-    private void finishedWindow() { controller.closeSetupScreen(this);}
+    private void finishedWindow() { controller.closeSetupScreen(this, selectedFarmType);}
 
     /*Getters for values on page*/
     public JPanel getMainPanel() { return mainPanel; }
@@ -148,8 +148,6 @@ public class SetupScreen {
     public String getFarmName() { return farmNameField.getText(); }
 
     public int getDays() { return gameLengthSlider.getValue(); }
-
-    public FarmType getSelectedFarmType() { return selectedFarmType; }
 
     public String getFarmerName() { return userNameField.getText(); }
 }

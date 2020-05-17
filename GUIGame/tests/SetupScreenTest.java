@@ -84,6 +84,7 @@ class SetupScreenTest {
 
             assertEquals(Color.RED, (userNameLabel.getForeground()));
 
+
         }
         catch (AWTException e) {
             fail(e);

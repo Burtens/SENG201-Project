@@ -39,6 +39,8 @@ public class GUIBag {
             seeds.add(new Seeds(type, amount));
     }
 
+    public static ArrayList getSeeds(){ return seeds; }
+
     public static boolean hasHoe() {return hasHoe;}
 
     public static int getFoodAmount() {
@@ -57,12 +59,5 @@ public class GUIBag {
         return vFertilizerAmount;
     }
 
-    public static String getSeeds() {
-        String seedsString = "";
-        for (Seeds seed : seeds) {
-            seedsString += seed.getAmount() + "\n";
-        }
-        return seedsString;
-    }
 }
 

@@ -160,7 +160,7 @@
                   <text value="0"/>
                 </properties>
               </component>
-              <component id="c1920" class="javax.swing.JLabel" binding="gfertilizerAmountLabel">
+              <component id="c1920" class="javax.swing.JLabel" binding="gFertilizerAmountLabel">
                 <constraints>
                   <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -168,7 +168,7 @@
                   <text value="0"/>
                 </properties>
               </component>
-              <component id="b3e60" class="javax.swing.JLabel" binding="vfertilizerAmountLabel">
+              <component id="b3e60" class="javax.swing.JLabel" binding="vFertilizerAmountLabel">
                 <constraints>
                   <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -217,7 +217,7 @@
                   <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="is a carrot seed"/>
+                  <text value="is a turnip seed"/>
                 </properties>
               </component>
               <component id="4425b" class="javax.swing.JLabel">
@@ -233,7 +233,7 @@
                   <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="is a lettuce seed"/>
+                  <text value="is a grape seed"/>
                 </properties>
               </component>
               <component id="f2058" class="javax.swing.JLabel">
@@ -267,7 +267,7 @@
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Carrot seeds"/>
+                  <text value="Turnip seeds"/>
                 </properties>
               </component>
               <component id="83603" class="javax.swing.JLabel">
@@ -283,7 +283,7 @@
                   <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Lettuce seeds"/>
+                  <text value="Grape seeds"/>
                 </properties>
               </component>
               <component id="216a9" class="javax.swing.JLabel">
@@ -334,7 +334,7 @@
                   </grid>
                 </constraints>
               </hspacer>
-              <component id="1bf97" class="javax.swing.JLabel" binding="carrotAmountLabel">
+              <component id="1bf97" class="javax.swing.JLabel" binding="turnipAmountLabel">
                 <constraints>
                   <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -350,7 +350,7 @@
                   <text value="0"/>
                 </properties>
               </component>
-              <component id="56cfc" class="javax.swing.JLabel" binding="lettuceAmountLabel">
+              <component id="56cfc" class="javax.swing.JLabel" binding="grapeAmountLabel">
                 <constraints>
                   <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>

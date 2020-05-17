@@ -159,51 +159,6 @@ public class Farm
             System.out.println("Sorry no pens available.");
     }
 
-    public void plantCrop(String seed, Farm farm, int seedNum) {
-        /*Allows user to plant crops on farm*/
-        boolean planted = false;
-        int numplots = this.plots.length;
-        int plotToPlant = 0;
-
-        for (int i = 0; i < numplots; i++) {
-            if (this.plots[i] == null) {
-                plotToPlant = i;
-                planted = true;
-                break;
-            }
-        }
-
-        if (planted) {
-            /*Creates plant based on seed*/
-            switch (seed){
-                case "Corn":
-                    this.plots[plotToPlant] = new Corn(farm, plotToPlant);
-                    break;
-                case "Carrot":
-                    this.plots[plotToPlant] = new Carrots(farm, plotToPlant);
-                    break;
-                case "Lettuce":
-                    this.plots[plotToPlant] = new Lettuce(farm, plotToPlant);
-                    break;
-                case "Potatoes":
-                    this.plots[plotToPlant] = new Potatoes(farm, plotToPlant);
-                    break;
-                case "Strawberries":
-                    this.plots[plotToPlant] = new Strawberries(farm, plotToPlant);
-                    break;
-                case "Tomatoes":
-                    this.plots[plotToPlant] = new Tomatoes(farm, plotToPlant);
-                    break;
-            }
-
-            System.out.println("Crop successfully planted.");
-            Bag.seeds.get(seedNum).updateAmount(-1);
-            if (Bag.seeds.get(seedNum).getAmount() == 0)
-                Bag.seeds.remove(seedNum);
-        } else
-            System.out.println("Sorry no plots available to plant crop.");
-    }
-
     public void harvestCrop(Scanner scan)
     {
         Crop crop = selectCrop("Select plot to harvest:", scan);

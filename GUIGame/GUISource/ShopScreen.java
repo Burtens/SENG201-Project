@@ -74,8 +74,8 @@ public class ShopScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                GUIBag.updateSeeds("Carrots", amount);
-                buyText.setText("Thanks for buying " + amount + " carrot seeds.");
+                GUIBag.updateSeeds("Turnips", amount);
+                buyText.setText("Thanks for buying " + amount + " turnip seeds.");
             }
         });
         cornButton.addActionListener(new ActionListener() {
@@ -90,15 +90,15 @@ public class ShopScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                GUIBag.updateSeeds("Lettuce", amount);
-                buyText.setText("Thanks for buying " + amount + " lettuce seeds.");
+                GUIBag.updateSeeds("Grapes", amount);
+                buyText.setText("Thanks for buying " + amount + " grape seeds.");
             }
         });
         potatosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                GUIBag.updateSeeds("Potato", amount);
+                GUIBag.updateSeeds("Potatoes", amount);
                 buyText.setText("Thanks for buying " + amount + " potato seeds.");
             }
         });
@@ -106,7 +106,7 @@ public class ShopScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                GUIBag.updateSeeds("Tomato", amount);
+                GUIBag.updateSeeds("Tomatoes", amount);
                 buyText.setText("Thanks for buying " + amount + " tomato seeds.");
             }
         });
@@ -114,7 +114,7 @@ public class ShopScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                GUIBag.updateSeeds("Strawberry", amount);
+                GUIBag.updateSeeds("Strawberries", amount);
                 buyText.setText("Thanks for buying " + amount + " strawberry seeds.");
             }
         });
