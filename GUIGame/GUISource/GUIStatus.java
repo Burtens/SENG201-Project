@@ -43,7 +43,7 @@ public class GUIStatus {
         day += 1;
     }
 
-    public static void viewStatus(Farm farm) {
+    public static void viewStatus(GUIFarm farm) {
         System.out.println("Your farm's name is: " + farm.getFarmName() +
                 "\nYou have $" + getMoney() +
                 "\nIt is the day " + getDay() + " out of " + farm.getDays() +

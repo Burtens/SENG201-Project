@@ -136,8 +136,8 @@ public class Shop {
                 "1: Corn $10\n" +
                 "2: Potatoes $10\n" +
                 "3: Tomatoes $10\n" +
-                "4: Lettuce $10\n" +
-                "5: Carrots $10\n" +
+                "4: Grapes $10\n" +
+                "5: Turnips $10\n" +
                 "6: Strawberries $10\n" +
                 "E: Back to the main store");
         String item = scanner.nextLine().trim().toLowerCase();

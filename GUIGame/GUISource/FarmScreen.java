@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 public class FarmScreen {
 
 
+
     /*Components*/
     private JPanel mainPanel;
     private JButton shopButton;
@@ -24,12 +25,14 @@ public class FarmScreen {
 
     /*Stored Varibles*/
     private GUIMain controller;
+    private GUIFarm farm;
 
     public JPanel getMainPanel(){ return mainPanel; }
 
-    FarmScreen(GUIMain master){
+    FarmScreen(GUIMain master, GUIFarm farm){
         this.controller = master;
         initialise();
+        this.farm = farm;
     }
 
     private void initialise(){
@@ -54,7 +57,7 @@ public class FarmScreen {
 
         shopButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // TODO: Takes user to the shop
+                controller.launchShop();
             }
         });
 
@@ -66,7 +69,14 @@ public class FarmScreen {
 
         viewCropsButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // TODO: Take user to animals
+                controller.launchCropScreen();
+            }
+        });
+
+        bagButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.launchBag();
             }
         });
 

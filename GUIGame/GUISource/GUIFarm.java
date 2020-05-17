@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /**
  * This is the main farm class for the GUI
  * this class holds all basic information about the farm
@@ -48,7 +46,7 @@ public class GUIFarm
         /*Updates size of plots array (Increases amount of plots on farm)*/
         int plotsSize = this.plots.length;
         Crop[] newplots;
-        if (Bag.hasHoe() == true){
+        if (GUIBag.hasHoe() == true){
             newplots = new Crop[plotsSize + 3];
             System.out.println("The use of a hoe made it easier to dig ground, an additional plot was created.");
         }
@@ -85,118 +83,50 @@ public class GUIFarm
             System.out.println("Sorry no pens available.");
     }
 
-    public void plantCrop(String seed, Farm farm, int seedNum) {
+    public void plantCrop(String seed, int seedNum, int plotToPlant) {
         /*Allows user to plant crops on farm*/
-        boolean planted = false;
-        int numplots = this.plots.length;
-        int plotToPlant = 0;
 
-        for (int i = 0; i < numplots; i++) {
-            if (this.plots[i] == null) {
-                plotToPlant = i;
-                planted = true;
-                break;
-            }
-        }
-
-        if (planted) {
             /*Creates plant based on seed*/
             switch (seed){
                 case "Corn":
-                    this.plots[plotToPlant] = new Corn(farm, plotToPlant);
+                    this.plots[plotToPlant] = new Corn(this, plotToPlant);
                     break;
-                case "Carrot":
-                    this.plots[plotToPlant] = new Carrots(farm, plotToPlant);
+                case "Turnips":
+                    this.plots[plotToPlant] = new Turnips(this, plotToPlant);
                     break;
-                case "Lettuce":
-                    this.plots[plotToPlant] = new Lettuce(farm, plotToPlant);
+                case "Grapes":
+                    this.plots[plotToPlant] = new Grapes(this, plotToPlant);
                     break;
                 case "Potatoes":
-                    this.plots[plotToPlant] = new Potatoes(farm, plotToPlant);
+                    this.plots[plotToPlant] = new Potatoes(this, plotToPlant);
                     break;
                 case "Strawberries":
-                    this.plots[plotToPlant] = new Strawberries(farm, plotToPlant);
+                    this.plots[plotToPlant] = new Strawberries(this, plotToPlant);
                     break;
                 case "Tomatoes":
-                    this.plots[plotToPlant] = new Tomatoes(farm, plotToPlant);
+                    this.plots[plotToPlant] = new Tomatoes(this, plotToPlant);
                     break;
             }
 
             System.out.println("Crop successfully planted.");
-            Bag.seeds.get(seedNum).updateAmount(-1);
-            if (Bag.seeds.get(seedNum).getAmount() == 0)
-                Bag.seeds.remove(seedNum);
-        } else
-            System.out.println("Sorry no plots available to plant crop.");
+            GUIBag.seeds.get(seedNum).updateAmount(-1);
+            if (GUIBag.seeds.get(seedNum).getAmount() == 0)
+                GUIBag.seeds.remove(seedNum);
     }
 
-    public void harvestCrop(Scanner scan)
+    public void harvestCrop(int plotNum)
     {
-        Crop crop = selectCrop("Select plot to harvest:", scan);
-        if (crop == null)
-            return;
+        Crop crop = this.plots[plotNum];
 
-        /*Will harvest crop if it is harvestable else will return*/
-        if (crop.getGrowth() >= 100){
-            Status.updateMoney(crop.getValue());
-            this.plots[crop.getPlotPos()] = null;
-            Status.updateActions(-1);
-        }
-        else
-            System.out.println("Sorry this crop is not ready to be harvested!!!");
+        GUIStatus.updateMoney(crop.getValue());
+        GUIStatus.updateActions(-1);
+        this.plots[crop.getPlotPos()] = null;
     }
 
-    public void tendCrop(String item , Scanner scan)
+    public void tendCrop(String item , int plotNum)
     {
-        Crop crop = selectCrop("Select plot to tend:", scan);
-        if (crop == null)
-            return;
+        Crop crop = this.plots[plotNum];
+        GUIStatus.updateActions(-1);
         crop.tend(item);
-        Status.updateActions(-1);
-    }
-
-    public Crop selectCrop(String task, Scanner scan)
-    {
-        /*Allows User To Harvest Crop*/
-        boolean VALID = false;
-        int numPlots = this.plots.length;
-        Crop crop = null;
-        int num = 0;
-        String input = null;
-
-        /*Asks for user input until user exits or uses correct input*/
-        while (!VALID) {
-            System.out.println(task);
-            /*Prints all available crops*/
-            for (int i = 0; i < numPlots; i++) {
-                if (this.plots[i] != null)
-                    System.out.println(i + ": " + this.plots[i].toString());
-            }
-            System.out.println("E: Exit");
-            /*Gets input and checks if its valid*/
-            try {
-                input = scan.nextLine().trim().toLowerCase();
-                num = Integer.parseInt(input);
-                crop = this.plots[num];
-                if (crop == null)
-                    throw new ArrayIndexOutOfBoundsException();
-                else
-                    VALID = true;
-            }
-            catch(ArrayIndexOutOfBoundsException e){
-                System.out.println("Invalid plot, please select a valid plot.");
-                System.out.println("\n\n");
-            }
-            catch (NumberFormatException e) {
-                if (input.equals("e"))
-                    return null;
-                else{
-                    System.out.println("Invalid input, please input only numbers.");
-                    System.out.println("\n\n");
-                }
-
-            }
-        }
-        return crop;
     }
 }

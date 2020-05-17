@@ -1,5 +1,3 @@
-import Items.Items;
-
 public abstract class Crop {
 
     private int growth = 0;
@@ -7,6 +5,12 @@ public abstract class Crop {
     /*Public for testing purposes*/
     public int growthRate;
     private double value;
+    private String seedImage;
+    private String halfGrownImage;
+    private String nearlyGrownImage;
+    private String fullyGrownImage;
+
+
 
     Crop(int pos){
         this.plotPos = pos;
@@ -14,6 +18,15 @@ public abstract class Crop {
 
     public void setGrowthRate(double growthRate) {
         this.growthRate = (int) growthRate;
+    }
+
+    public void setImages(String seedImage, String halfGrownImage, String nearlyGrownImage, String fullyGrownImage)
+    {
+        this.seedImage = seedImage;
+        this.halfGrownImage = halfGrownImage;
+        this.nearlyGrownImage = nearlyGrownImage;
+        this.fullyGrownImage = fullyGrownImage;
+
     }
 
     public void setValue(double value) { this.value = value; }
@@ -45,7 +58,25 @@ public abstract class Crop {
 
     }
 
+    public String getCurrImage()
+    {
+        if (this.growth < 33){
+            return this.seedImage;
+        }
+        else if (this.growth > 66 && this.growth < 100){
+            return this.nearlyGrownImage;
+        }
+        else if (this.growth >= 100){
+            return this.fullyGrownImage;
+        }
+        else{
+            return this.halfGrownImage;
+        }
+    }
+
     public int getPlotPos() { return this.plotPos; }
+
+    public int getGrowthRate() {return  this.growthRate; }
 
     public double getValue() { return this.value; }
 

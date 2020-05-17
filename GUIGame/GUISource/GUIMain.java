@@ -40,6 +40,7 @@ public class GUIMain {
     JFrame bagScreen = new JFrame("Bag");
     JFrame shopScreen = new JFrame("Welcome to Shop");
     JFrame cropScreen = new JFrame("Crops");
+    JFrame cropDetailScreen = new JFrame("Details");
 
     /*Launches initial setup screen*/
     public void launchSetupScreen()
@@ -53,25 +54,27 @@ public class GUIMain {
     }
 
     /*Closes SetupScreen and loads information into farm will then open main farm screen*/
-    public void closeSetupScreen(SetupScreen screen)
+    public void closeSetupScreen(SetupScreen screen, FarmType selectedFarmType)
     {
         /*Sets farm based on info stored on SetupScreen*/
         farm.setFarmName(screen.getFarmName().trim());
         farm.setFarmerName(screen.getFarmerName().trim());
         farm.setDays(screen.getDays());
-        farm.setFarmType(screen.getSelectedFarmType());
+        farm.setFarmType(selectedFarmType);
         setupScreen.dispose();
         launchFarmScreen();
     }
 
 
+
     public void launchFarmScreen(){
-        farmScreen.setContentPane(new FarmScreen(this).getMainPanel());
+        farmScreen.setContentPane(new FarmScreen(this, farm).getMainPanel());
         farmScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         farmScreen.pack();
         farmScreen.setResizable(false);
         farmScreen.setSize(600, 500);
         farmScreen.setVisible(true);
+
 
     }
 
@@ -82,6 +85,7 @@ public class GUIMain {
         cropScreen.setResizable(false);
         cropScreen.setSize(600, 500);
         cropScreen.setVisible(true);
+        farmScreen.dispose();
 
     }
 
@@ -120,6 +124,23 @@ public class GUIMain {
         launchFarmScreen();
     }
 
+
+    public void launchCropDetailScreen(int plotNum) {
+        cropScreen.dispose();
+        cropDetailScreen.setContentPane(new CropDetailScreen(this, plotNum, farm).getMainPanel());
+        cropDetailScreen.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        cropDetailScreen.pack();
+        cropDetailScreen.setResizable(false);
+        cropDetailScreen.setSize(600, 500);
+        cropDetailScreen.setVisible(true);
+    }
+
+    public void closeCropDetailScreen(){
+        cropDetailScreen.dispose();
+        launchCropScreen();
+    }
+
+
     public void endGame()
     {
         farmScreen.dispose();
@@ -131,6 +152,7 @@ public class GUIMain {
         GUIMain main = new GUIMain();
         main.launchSetupScreen();
     }
+
 
 
 }

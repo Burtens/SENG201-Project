@@ -50,15 +50,15 @@ public abstract class Animals {
     public static void feed() {
         updateHappiness(20);
         updateHealth(40);
-        Status.updateActions(-1);
+        GUIStatus.updateActions(-1);
     }
 
     public static void play() {
         updateHappiness(50);
-        Status.updateActions(-1);
+        GUIStatus.updateActions(-1);
     }
 
-    public static void animalMenu(Scanner scanner, int pen, Farm farm) {
+    public static void animalMenu(Scanner scanner, int pen, GUIFarm farm) {
         System.out.println("Please select an action:\n" +
                 "1: View animal stats.\n" +
                 "2: Feed animal.\n" +
@@ -77,7 +77,7 @@ public abstract class Animals {
                 animalMenu(scanner, pen, farm);
                 break;
             case ("2"):
-                if (Bag.getFoodAmount() > 0) {
+                if (GUIBag.getFoodAmount() > 0) {
                     feed();
                 } else {
                     System.out.println("Sorry not enough food.");
@@ -85,7 +85,7 @@ public abstract class Animals {
                 animalMenu(scanner, pen, farm);
                 break;
             case ("3"):
-                if (Bag.getToyAmount() > 0) {
+                if (GUIBag.getToyAmount() > 0) {
                     play();
                 } else {
                     System.out.println("Sorry not enough toys.");
@@ -97,7 +97,7 @@ public abstract class Animals {
         }
     }
 
-    public static void chooseAnimal(Scanner scanner, Farm farm) {
+    public static void chooseAnimal(Scanner scanner, GUIFarm farm) {
         System.out.println("Choose pen between 1 and " + farm.getPens().length +
                 "\nOr enter E to go back");
         String item = scanner.nextLine().trim().toLowerCase();

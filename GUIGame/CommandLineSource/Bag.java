@@ -48,10 +48,10 @@ public class Bag {
                 updateSeeds("Tomatoes", amount);
                 break;
             case("s4"):
-                updateSeeds("Lettuce", amount);
+                updateSeeds("Grapes", amount);
                 break;
             case("s5"):
-                updateSeeds("Carrots", amount);
+                updateSeeds("Turnips", amount);
                 break;
             case("s6"):
                 updateSeeds("Strawberries", amount);
