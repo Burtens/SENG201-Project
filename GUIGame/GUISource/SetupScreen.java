@@ -47,17 +47,15 @@ public class SetupScreen {
                 String value = String.valueOf(farmTypeBox.getSelectedItem());
                 switch (value) {
                     case "basic":
+                        farmThumbnail.setIcon(new ImageIcon(getClass().getResource("BasicThumb.png")));
                         selectedFarmType = FarmType.BASIC;
                         break;
                     case "river":
                         selectedFarmType = FarmType.RIVER;
-                        /* Copyright 2015, "Meander river tileset" by Bernhard1020,
-                        Found at: https://opengameart.org/content/meander-river-tileset
-                        Copyright licence: http://creativecommons.org/licenses/by/3.0/
-                        */
-                        farmThumbnail.setIcon(new ImageIcon(getClass().getResource("TilesetRiver.JPG")));
+                        farmThumbnail.setIcon(new ImageIcon(getClass().getResource("RiverThumb.png")));
                         break;
                     case "meadow":
+                        farmThumbnail.setIcon(new ImageIcon(getClass().getResource("MeadowThumb.png")));
                         selectedFarmType = FarmType.MEADOW;
                         break;
                     case "barron":
@@ -66,7 +64,7 @@ public class SetupScreen {
                         Found at: https://opengameart.org/content/free-desert-top-down-tileset
                         Copyright licence: http://creativecommons.org/licenses/by/3.0/
                         */
-                        farmThumbnail.setIcon(new ImageIcon(getClass().getResource("BarronThumb.jpg")));
+                        farmThumbnail.setIcon(new ImageIcon(getClass().getResource("BarronThumb.png")));
                         break;
                 }
                 if (value.equals("basic")) {
