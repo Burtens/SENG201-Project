@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.Format;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -35,7 +36,7 @@ public class ShopScreen {
         JFormattedTextField tf = ((JSpinner.DefaultEditor) buyAmountSpinner.getEditor()).getTextField();
         tf.setBackground(new Color(174, 141, 62));
         tf.setEditable(false);
-        moneyLabel.setText("Money:  $" + GUIStatus.getMoney());
+        moneyLabel.setText("Money:  $" + String.format("%.2f", GUIStatus.getMoney()));
         bagButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 controller.launchBag();
@@ -101,7 +102,7 @@ public class ShopScreen {
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
                 if (buyButton("potato seeds.", amount, -10 * amount)) {
-                    GUIBag.updateSeeds("Potato", amount);
+                    GUIBag.updateSeeds("Potatoes", amount);
                 }
             }
         });
@@ -109,7 +110,7 @@ public class ShopScreen {
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
                 if (buyButton("tomato seeds.", amount, -10 * amount)) {
-                    GUIBag.updateSeeds("Tomato", amount);
+                    GUIBag.updateSeeds("Tomatoes", amount);
                 }
             }
         });
@@ -117,7 +118,7 @@ public class ShopScreen {
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
                 if (buyButton("strawberry seeds.", amount, -10 * amount)) {
-                    GUIBag.updateSeeds("Strawberry", amount);
+                    GUIBag.updateSeeds("Strawberries", amount);
                 }
             }
         });
@@ -155,7 +156,7 @@ public class ShopScreen {
         } else {
             buyText.setText("Thanks for buying " + amount + " " + item);
             GUIStatus.updateMoney(cost);
-            moneyLabel.setText("Money:  $" + GUIStatus.getMoney());
+            moneyLabel.setText("Money:  $" + String.format("%.2f", GUIStatus.getMoney()));
             return true;
         }
     }

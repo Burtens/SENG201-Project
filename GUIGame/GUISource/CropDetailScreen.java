@@ -38,9 +38,7 @@ public class CropDetailScreen {
     }
 
     private void initialise() {
-
         refresh();
-
 
         tendToCropButton.addActionListener(new ActionListener() {
             @Override
@@ -145,10 +143,25 @@ public class CropDetailScreen {
             valueLabel.setText("$" + String.format("%.2f", 0.0));
         }
         else {
+
             plantCropButton.setVisible(false);
             currentCrop = farm.getPlots()[plotPos];
             nameLabel.setText(currentCrop.toString());
-            growthLabel.setText(currentCrop.getGrowth() + "%");
+
+            if (currentCrop.getGrowth() == 100)
+                growthLabel.setText("Crop is ready");
+            else{
+                int totaldays = Math.round((100 - currentCrop.getGrowth())/currentCrop.getGrowthRate());
+                if (totaldays <= 1)
+                    growthLabel.setText("1 day");
+                else
+                    growthLabel.setText(totaldays + " days");
+            }
+            
+
+
+
+
             growthRateLabel.setText(currentCrop.getGrowthRate() + "%");
             valueLabel.setText("$" + String.format("%.2f", currentCrop.getValue()));
             cropImageIcon.setIcon(new ImageIcon(currentCrop.getCurrImage()));

@@ -75,7 +75,7 @@
                 </constraints>
                 <properties>
                   <foreground color="-12508395"/>
-                  <text value="Current growth:"/>
+                  <text value="Days till harvest:"/>
                 </properties>
               </component>
               <component id="3d3d2" class="javax.swing.JLabel">
