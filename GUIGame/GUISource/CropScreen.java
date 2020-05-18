@@ -42,6 +42,7 @@ public class CropScreen {
     private JButton cropButton12;
     private JPanel cropPanel;
     private JLabel actionLabel;
+    private JButton tendFarmButton;
 
     /*Stored Variables*/
     private GUIMain controller;
@@ -57,32 +58,15 @@ public class CropScreen {
 
     private void initialise() {
         /*Sets up and initialises all plots available */
-        if (GUIStatus.getActions() == 1)
-            actionLabel.setText("Actions remaining: 1");
-        else
-            actionLabel.setText("Actions remaining: " + GUIStatus.getActions());
+        refresh();
 
-        Crop[] plots = farm.getPlots();
-        int totalPlots = plots.length;
-        int totalCrops = 0;
-        for (int i = 0; i < totalPlots; i++) {
-            JButton currButton = (JButton) cropPanel.getComponent(i);
-
-            if (plots[i] != null) {
-                Crop currCrop = plots[i];
-                totalCrops++;
-                currButton.setIcon(new ImageIcon(currCrop.getCurrImage()));
-                currButton.setText(currCrop.toString());
+        tendFarmButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                farm.updatePlotSize();
+                refresh();
             }
-            currButton.setContentAreaFilled(false);
-            currButton.setVisible(true);
-
-
-            if (totalCrops == 1)
-                totalCropsLabel.setText("You have: " + totalCrops + " crop");
-            else
-                totalCropsLabel.setText("You have: " + totalCrops + " crops");
-        }
+        });
 
         returnButton.addActionListener(new ActionListener() {
             @Override
@@ -191,6 +175,40 @@ public class CropScreen {
 
 
 
+    }
+
+    private void refresh(){
+        if (GUIStatus.getActions() == 1)
+            actionLabel.setText("Actions remaining: 1");
+        else
+            actionLabel.setText("Actions remaining: " + GUIStatus.getActions());
+
+        Crop[] plots = farm.getPlots();
+        int totalPlots = plots.length;
+        int totalCrops = 0;
+        for (int i = 0; i < totalPlots; i++) {
+            JButton currButton = (JButton) cropPanel.getComponent(i);
+
+            if (plots[i] != null) {
+                Crop currCrop = plots[i];
+                totalCrops++;
+                currButton.setIcon(new ImageIcon(currCrop.getCurrImage()));
+                currButton.setText(currCrop.toString());
+            }
+            currButton.setContentAreaFilled(false);
+            currButton.setVisible(true);
+
+
+            if (totalCrops == 1)
+                totalCropsLabel.setText("You have: " + totalCrops + " crop");
+            else
+                totalCropsLabel.setText("You have: " + totalCrops + " crops");
+
+            if (GUIStatus.getActions() == 0 || farm.getPlots().length == 12)
+                tendFarmButton.setEnabled(false);
+            else
+                tendFarmButton.setEnabled(true);
+        }
     }
 
     private void selectedPlot(int plotNum){

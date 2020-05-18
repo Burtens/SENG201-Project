@@ -44,15 +44,22 @@ public class GUIFarm
     public void updatePlotSize()
     {
         /*Updates size of plots array (Increases amount of plots on farm)*/
+        GUIStatus.updateActions(-1);
         int plotsSize = this.plots.length;
+        int newPlotsSize;
         Crop[] newplots;
         if (GUIBag.hasHoe() == true){
-            newplots = new Crop[plotsSize + 3];
+            newPlotsSize = plotsSize + 3;
             System.out.println("The use of a hoe made it easier to dig ground, an additional plot was created.");
         }
-        else {
-            newplots = new Crop[plotsSize + 2];
-        }
+        else
+            newPlotsSize = plotsSize + 2;
+
+        if (newPlotsSize > 12)
+            newPlotsSize = 12;
+
+        newplots = new Crop[newPlotsSize];
+
         for (int i = 0; i < plotsSize; i++)
             newplots[i] = this.plots[i];
         this.plots = newplots;

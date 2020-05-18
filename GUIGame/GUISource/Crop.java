@@ -35,7 +35,7 @@ public abstract class Crop {
 
     public void tend(String item)
         {
-            if (item == "wateringCan")
+            if (item == "Watering Can")
                 updateGrowth();
             else
             {

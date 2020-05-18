@@ -45,7 +45,14 @@ public class CropDetailScreen {
         tendToCropButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                farm.tendCrop("wateringCan", plotPos);
+
+                ArrayList<String> tools = new ArrayList<>();
+                tools.add("Watering Can");
+
+                String selection = (String) JOptionPane.showInputDialog(mainPanel, "Please select tool to use", "Tend to Crop",
+                        JOptionPane.PLAIN_MESSAGE, null, tools.toArray(), null);
+                if (selection != null)
+                    farm.tendCrop(selection, plotPos);
                 refresh();
             }
         });
