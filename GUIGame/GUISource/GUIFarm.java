@@ -15,6 +15,7 @@ public class GUIFarm
     private int days;
     private   Crop[] plots = new Crop[4];
     private  GUIAnimals[] pens = new GUIAnimals[4];
+    private boolean tended = false;
 
 
 
@@ -66,7 +67,6 @@ public class GUIFarm
     }
     
     public void updatePenSize() {
-        GUIStatus.updateActions(-1);
         int penSize = this.pens.length;
         GUIAnimals[] newPens;
         int newPensSize = penSize + 1;
@@ -140,5 +140,13 @@ public class GUIFarm
         Crop crop = this.plots[plotNum];
         GUIStatus.updateActions(-1);
         crop.tend(item);
+    }
+
+    public void setTended(boolean state) {
+        tended = state;
+    }
+
+    public boolean getTended() {
+        return tended;
     }
 }

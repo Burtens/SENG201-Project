@@ -35,7 +35,10 @@ public class GUIStatus {
         for (GUIAnimals animal : farm.getPens()) {
             if (animal != null){
                 updateMoney(animal.getValue());
-                // TODO: Update Happiness and health??
+                animal.updateHealth(-animal.getHealth() * 0.1);
+                if (!farm.getTended()) {
+                    animal.updateHappiness((int) (-15.0 / farm.getFarmType().getAnimalPercent()));
+                }
             }
 
         }

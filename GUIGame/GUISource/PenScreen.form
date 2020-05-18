@@ -231,6 +231,7 @@
         <properties>
           <background color="-7550917"/>
           <text value="Tend Farm"/>
+          <toolTipText value="Increases the number of pens and grants the tended buff preventy animal happiness decay for 1 day"/>
         </properties>
       </component>
     </children>
