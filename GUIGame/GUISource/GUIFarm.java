@@ -14,7 +14,7 @@ public class GUIFarm
     private FarmType farmType;
     private int days;
     private   Crop[] plots = new Crop[4];
-    private  Animals[] pens = new Animals[4];
+    private  GUIAnimals[] pens = new GUIAnimals[4];
 
 
 
@@ -38,7 +38,7 @@ public class GUIFarm
 
     public Crop[] getPlots() { return this.plots; }
 
-    public Animals[] getPens() { return this.pens; }
+    public GUIAnimals[] getPens() { return this.pens; }
 
 
     public void updatePlotSize()
@@ -66,15 +66,20 @@ public class GUIFarm
     }
     
     public void updatePenSize() {
+        GUIStatus.updateActions(-1);
         int penSize = this.pens.length;
-        Animals[] newPens;
-        newPens = new Animals[penSize + 1];
+        GUIAnimals[] newPens;
+        int newPensSize = penSize + 1;
+        if (newPensSize > 12) {
+            newPensSize = 12;
+        }
+        newPens = new GUIAnimals[newPensSize];
         for (int i = 0; i < penSize; i++)
             newPens[i] = this.pens[i];
         this.pens = newPens;
     }
     
-    public void newAnimal(Animals animal) {
+    public boolean newAnimal(GUIAnimals animal) {
         boolean inPen = false;
         int numPens = this.pens.length;
         for (int i = 0; i < numPens; i++) {
@@ -85,9 +90,9 @@ public class GUIFarm
             }
         }
         if (inPen) {
-            System.out.println("Animal purchased successfully");
+            return true;
         } else
-            System.out.println("Sorry no pens available.");
+            return false;
     }
 
     public void plantCrop(String seed, int seedNum, int plotToPlant) {

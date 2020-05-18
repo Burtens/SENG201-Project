@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
@@ -11,9 +12,9 @@ public class ShopScreen {
     private JButton toysButton;
     private JButton growthFertilizerButton;
     private JButton valueFertilizerButton;
-    private JButton carrotsButton;
+    private JButton turnipsButton;
     private JButton cornButton;
-    private JButton lettuceButton;
+    private JButton grapesButton;
     private JButton potatosButton;
     private JButton tomatosButton;
     private JButton strawberriesButton;
@@ -26,104 +27,152 @@ public class ShopScreen {
     private JPanel MainPanel;
     private JSpinner buyAmountSpinner;
     private JLabel buyText;
+    private JLabel moneyLabel;
     private GUIMain controller;
 
     public void initialize() {
         buyAmountSpinner.setModel(new SpinnerNumberModel(1, 1, 100, 1));
         JFormattedTextField tf = ((JSpinner.DefaultEditor) buyAmountSpinner.getEditor()).getTextField();
+        tf.setBackground(new Color(174, 141, 62));
         tf.setEditable(false);
+        moneyLabel.setText("Money:  $" + GUIStatus.getMoney());
         bagButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 controller.launchBag();
             }
         });
         foodButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                GUIBag.updateFoodAmount(amount);
-                buyText.setText("Thanks for buying " + amount + " pieces of food.");
+                if (buyButton("pieces of food.", amount, -10 * amount)) {
+                    GUIBag.updateFoodAmount(amount);
+                }
             }
         });
         toysButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                GUIBag.updateToyAmount(amount);
-                buyText.setText("Thanks for buying " + amount + " toys.");
+                if (buyButton("toys.", amount, -10 * amount)) {
+                    GUIBag.updateToyAmount(amount);
+                }
             }
         });
         growthFertilizerButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                GUIBag.updateGFertilizerAmount(amount);
-                buyText.setText("Thanks for buying " + amount + " bags of growth fertilizer.");
+                if (buyButton("bags of growth fertilizer.", amount, -10 * amount)) {
+                    GUIBag.updateGFertilizerAmount(amount);
+                }
             }
         });
         valueFertilizerButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                GUIBag.updateVFertilizerAmount(amount);
-                buyText.setText("Thanks for buying " + amount + " bags of value fertilizer.");
+                if (buyButton("bags of value fertilizer.", amount, -10 * amount)) {
+                    GUIBag.updateVFertilizerAmount(amount);
+                }
             }
         });
-        carrotsButton.addActionListener(new ActionListener() {
-            @Override
+        turnipsButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                GUIBag.updateSeeds("Turnips", amount);
-                buyText.setText("Thanks for buying " + amount + " turnip seeds.");
+                if (buyButton("turnip seeds.", amount, -10 * amount)) {
+                    GUIBag.updateSeeds("Turnips", amount);
+                }
             }
         });
         cornButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                GUIBag.updateSeeds("Corn", amount);
-                buyText.setText("Thanks for buying " + amount + " corn seeds.");
+                if (buyButton("corn seeds.", amount, -10 * amount)) {
+                    GUIBag.updateSeeds("Corn", amount);
+                }
             }
         });
-        lettuceButton.addActionListener(new ActionListener() {
-            @Override
+        grapesButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                GUIBag.updateSeeds("Grapes", amount);
-                buyText.setText("Thanks for buying " + amount + " grape seeds.");
+                if (buyButton("grape seeds.", amount, -10 * amount)) {
+                    GUIBag.updateSeeds("Grapes", amount);
+                }
             }
         });
         potatosButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                GUIBag.updateSeeds("Potatoes", amount);
-                buyText.setText("Thanks for buying " + amount + " potato seeds.");
+                if (buyButton("potato seeds.", amount, -10 * amount)) {
+                    GUIBag.updateSeeds("Potato", amount);
+                }
             }
         });
         tomatosButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                GUIBag.updateSeeds("Tomatoes", amount);
-                buyText.setText("Thanks for buying " + amount + " tomato seeds.");
+                if (buyButton("tomato seeds.", amount, -10 * amount)) {
+                    GUIBag.updateSeeds("Tomato", amount);
+                }
             }
         });
         strawberriesButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                GUIBag.updateSeeds("Strawberries", amount);
-                buyText.setText("Thanks for buying " + amount + " strawberry seeds.");
+                if (buyButton("strawberry seeds.", amount, -10 * amount)) {
+                    GUIBag.updateSeeds("Strawberry", amount);
+                }
+            }
+        });
+        chickenButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                animalBuyButton("chicken.", -100, new Chicken());
+            }
+        });
+        cowButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                animalBuyButton("cow.", -200, new Cow());
+            }
+        });
+        pigButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                animalBuyButton("pig.", -160, new Pig());
+            }
+        });
+        sheepButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                animalBuyButton("sheep.", -140, new Sheep());
             }
         });
         returnToFarmButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 controller.closeShop();
             }
         });
+    }
+
+    private boolean buyButton(String item, int amount, int cost) {
+        if (GUIStatus.getMoney() + cost < 0) {
+            buyText.setText("Sorry not enough money.");
+            return false;
+        } else {
+            buyText.setText("Thanks for buying " + amount + " " + item);
+            GUIStatus.updateMoney(cost);
+            moneyLabel.setText("Money:  $" + GUIStatus.getMoney());
+            return true;
+        }
+    }
+
+    private boolean animalBuyButton(String item, int cost, GUIAnimals animal) {
+        if (GUIStatus.getMoney() + cost < 0) {
+            buyText.setText("Sorry not enough money.");
+            return false;
+        } else if (!controller.farm.newAnimal(animal)) {
+            buyText.setText("Sorry no empty pens.");
+            return false;
+        } else {
+            buyText.setText("Thanks for buying a " + item);
+            GUIStatus.updateMoney(cost);
+            moneyLabel.setText("Money:  $" + GUIStatus.getMoney());
+            return true;
+        }
     }
 
     public ShopScreen(GUIMain control) {
