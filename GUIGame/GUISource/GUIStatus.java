@@ -32,7 +32,7 @@ public class GUIStatus {
             if (crop != null)
                 crop.updateGrowth();
         }
-        for (Animals animal : farm.getPens()) {
+        for (GUIAnimals animal : farm.getPens()) {
             if (animal != null){
                 updateMoney(animal.getValue());
                 // TODO: Update Happiness and health??

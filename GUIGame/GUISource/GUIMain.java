@@ -38,9 +38,11 @@ public class GUIMain {
     JFrame setupScreen = new JFrame("Create Farm");
     JFrame farmScreen = new JFrame("Farm");
     JFrame bagScreen = new JFrame("Bag");
-    JFrame shopScreen = new JFrame("Welcome to Shop");
+    JFrame shopScreen = new JFrame("Shop");
     JFrame cropScreen = new JFrame("Crops");
     JFrame cropDetailScreen = new JFrame("Details");
+    JFrame penScreen = new JFrame("Pens");
+    JFrame animalScreen = new JFrame("Animals");
 
     /*Launches initial setup screen*/
     public void launchSetupScreen()
@@ -92,6 +94,34 @@ public class GUIMain {
     public void closeCropScreen(){
         cropScreen.dispose();
         launchFarmScreen();
+    }
+
+    public void launchPenScreen(){
+        penScreen.setContentPane(new PenScreen(this).getMainPanel());
+        penScreen.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        penScreen.pack();
+        penScreen.setResizable(false);
+        penScreen.setSize(600, 500);
+        penScreen.setVisible(true);
+    }
+
+    public void closePenScreen(){
+        penScreen.dispose();
+        launchFarmScreen();
+    }
+
+    public void launchAnimalScreen(int pen) {
+        animalScreen.setContentPane(new AnimalScreen(this, pen).getMain());
+        animalScreen.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        animalScreen.pack();
+        animalScreen.setResizable(false);
+        animalScreen.setSize(600, 500);
+        animalScreen.setVisible(true);
+    }
+
+    public void closeAnimalScreen() {
+        animalScreen.dispose();
+        launchPenScreen();
     }
 
     public void launchBag(){

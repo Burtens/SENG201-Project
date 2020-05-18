@@ -63,7 +63,7 @@ public class FarmScreen {
 
         viewAnimalsButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // TODO: Take user to animals
+                controller.launchPenScreen();
             }
         });
 
@@ -74,11 +74,9 @@ public class FarmScreen {
         });
 
         bagButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 controller.launchBag();
             }
         });
-
     }
 }
