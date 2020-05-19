@@ -24,21 +24,21 @@ public class FarmScreen {
     private JButton viewAnimalsButton;
 
     /*Stored Varibles*/
-    private GUIMain controller;
-    private GUIFarm farm;
+    private Main controller;
+    private Farm farm;
 
     public JPanel getMainPanel(){ return mainPanel; }
 
-    FarmScreen(GUIMain master, GUIFarm farm){
+    FarmScreen(Main master, Farm farm){
         this.controller = master;
         initialise();
         this.farm = farm;
     }
 
     private void initialise(){
-        dayLabel.setText(Integer.toString(GUIStatus.getDay()));
-        actionLabel.setText(Integer.toString(GUIStatus.getActions()));
-        moneyLabel.setText("$" + String.format("%.2f", GUIStatus.getMoney()));
+        dayLabel.setText(Integer.toString(Status.getDay()));
+        actionLabel.setText(Integer.toString(Status.getActions()));
+        moneyLabel.setText("$" + String.format("%.2f", Status.getMoney()));
          /* Copyright 2015, "Farming Tool Icons" by Calciumtrice,
             Found at: https://opengameart.org/content/farming-tool-icons
             Copyright licence: http://creativecommons.org/licenses/by/3.0/
@@ -48,11 +48,11 @@ public class FarmScreen {
 
         nextDayButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (GUIStatus.getDay() < controller.farm.getDays()) {
-                    GUIStatus.updateDay(controller.farm);
-                    dayLabel.setText(Integer.toString(GUIStatus.getDay()));
-                    actionLabel.setText(Integer.toString(GUIStatus.getActions()));
-                    moneyLabel.setText("$" + String.format("%.2f", GUIStatus.getMoney()));
+                if (Status.getDay() < controller.farm.getDays()) {
+                    Status.updateDay(controller.farm);
+                    dayLabel.setText(Integer.toString(Status.getDay()));
+                    actionLabel.setText(Integer.toString(Status.getActions()));
+                    moneyLabel.setText("$" + String.format("%.2f", Status.getMoney()));
                 }
                 else {
                      controller.endGame();

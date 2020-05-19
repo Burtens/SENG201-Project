@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class CropDetailScreen {
@@ -22,13 +21,13 @@ public class CropDetailScreen {
     private JLabel growthRateLabel;
 
     /*Stored Variables*/
-    private GUIMain controller;
-    private GUIFarm farm;
+    private Main controller;
+    private Farm farm;
     private int plotPos;
     private Crop currentCrop;
 
 
-    CropDetailScreen(GUIMain master, int incomingPlotPos, GUIFarm farm)
+    CropDetailScreen(Main master, int incomingPlotPos, Farm farm)
     {
         this.plotPos = incomingPlotPos;
         this.controller = master;
@@ -67,14 +66,14 @@ public class CropDetailScreen {
         plantCropButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (GUIBag.seeds.isEmpty())
+                if (Bag.seeds.isEmpty())
                     JOptionPane.showMessageDialog(mainPanel, "Sorry you have no seeds please buy some at the shop");
                 else {
                     Seeds selection = (Seeds) JOptionPane.showInputDialog(mainPanel,"Please select a seed", "Plant Crop",
-                                                                            JOptionPane.PLAIN_MESSAGE, null, GUIBag.seeds.toArray(), null);
+                                                                            JOptionPane.PLAIN_MESSAGE, null, Bag.seeds.toArray(), null);
                     if (selection != null){
                         String seedName = selection.toString();
-                        int seedPos = GUIBag.seeds.indexOf(selection);
+                        int seedPos = Bag.seeds.indexOf(selection);
                         farm.plantCrop(seedName, seedPos, plotPos);
                         refresh();
 
@@ -87,13 +86,13 @@ public class CropDetailScreen {
         fertilizeCropButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (GUIBag.getGFertilizerAmount() == 0 && GUIBag.getVFertilizerAmount() == 0)
+                if (Bag.getGFertilizerAmount() == 0 && Bag.getVFertilizerAmount() == 0)
                     JOptionPane.showMessageDialog(mainPanel, "Sorry you have no fertilizer please buy some at the shop");
                 else {
                     ArrayList<String> fertilizer = new ArrayList<>();
-                    if (GUIBag.getVFertilizerAmount() > 0)
+                    if (Bag.getVFertilizerAmount() > 0)
                         fertilizer.add("Value");
-                    if (GUIBag.getGFertilizerAmount() > 0)
+                    if (Bag.getGFertilizerAmount() > 0)
                         fertilizer.add("Growth");
 
                     String selection = (String) JOptionPane.showInputDialog(mainPanel, "Please select fertilizer to use", "Fertilize Crop",
@@ -121,12 +120,12 @@ public class CropDetailScreen {
 
     private void refresh()
     {
-        int actionsLeft = GUIStatus.getActions();
+        int actionsLeft = Status.getActions();
 
-        if (GUIStatus.getActions() == 1)
+        if (Status.getActions() == 1)
             actionsLeftLabel.setText("Actions remaining: 1");
         else
-            actionsLeftLabel.setText("Actions remaining: " + GUIStatus.getActions());
+            actionsLeftLabel.setText("Actions remaining: " + Status.getActions());
 
         if (farm.getPlots()[this.plotPos] == null)
         {
@@ -168,7 +167,7 @@ public class CropDetailScreen {
                 tendToCropButton.setEnabled(false);
             }
 
-            if ((GUIBag.getGFertilizerAmount() > 0 || GUIBag.getVFertilizerAmount() > 0) && actionsLeft > 0
+            if ((Bag.getGFertilizerAmount() > 0 || Bag.getVFertilizerAmount() > 0) && actionsLeft > 0
                     && currentCrop.getGrowth() < 100 )
                 fertilizeCropButton.setEnabled(true);
             else{

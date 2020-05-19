@@ -6,7 +6,7 @@ public class Tomatoes extends Crop {
     final double VALUE = 40.00;
     final int GROWTH = 40;
 
-    public Tomatoes(GUIFarm farm)
+    public Tomatoes(Farm farm)
     {
         super.setImages("GameResources/Seed Tomato.png", "GameResources/Half Grown Tomato.png",
                 "GameResources/Nearly Grown Tomato.png", "GameResources/Fully Grown Tomato.png");

@@ -42,7 +42,7 @@
  * tendCrop : Takes an int "plotNum" and a String "item" and calls the tend method of the crop
  * stored in plots at index plotNum. This also updates the amount of actions the user has by -1
  * **/
-public class GUIFarm
+public class Farm
 {
 
     private String farmName;
@@ -50,7 +50,7 @@ public class GUIFarm
     private FarmType farmType;
     private int days;
     private   Crop[] plots = new Crop[4];
-    private  GUIAnimals[] pens = new GUIAnimals[4];
+    private  Animals[] pens = new Animals[4];
     private boolean tended = false;
 
 
@@ -75,7 +75,7 @@ public class GUIFarm
 
     public Crop[] getPlots() { return this.plots; }
 
-    public GUIAnimals[] getPens() { return this.pens; }
+    public Animals[] getPens() { return this.pens; }
 
     public void setTended(boolean state) { tended = state; }
 
@@ -85,11 +85,11 @@ public class GUIFarm
     public void updatePlotSize()
     {
         /*Updates size of plots array (Increases amount of plots on farm)*/
-        GUIStatus.updateActions(-1);
+        Status.updateActions(-1);
         int plotsSize = this.plots.length;
         int newPlotsSize;
         Crop[] newplots;
-        if (GUIBag.hasHoe() == true){
+        if (Bag.hasHoe() == true){
             newPlotsSize = plotsSize + 3;
             System.out.println("The use of a hoe made it easier to dig ground, an additional plot was created.");
         }
@@ -108,18 +108,18 @@ public class GUIFarm
     
     public void updatePenSize() {
         int penSize = this.pens.length;
-        GUIAnimals[] newPens;
+        Animals[] newPens;
         int newPensSize = penSize + 1;
         if (newPensSize > 12) {
             newPensSize = 12;
         }
-        newPens = new GUIAnimals[newPensSize];
+        newPens = new Animals[newPensSize];
         for (int i = 0; i < penSize; i++)
             newPens[i] = this.pens[i];
         this.pens = newPens;
     }
     
-    public boolean newAnimal(GUIAnimals animal) {
+    public boolean newAnimal(Animals animal) {
         boolean inPen = false;
         int numPens = this.pens.length;
         for (int i = 0; i < numPens; i++) {
@@ -161,23 +161,23 @@ public class GUIFarm
             }
 
             System.out.println("Crop successfully planted.");
-            GUIBag.seeds.get(seedNum).updateAmount(-1);
-            if (GUIBag.seeds.get(seedNum).getAmount() == 0)
-                GUIBag.seeds.remove(seedNum);
+            Bag.seeds.get(seedNum).updateAmount(-1);
+            if (Bag.seeds.get(seedNum).getAmount() == 0)
+                Bag.seeds.remove(seedNum);
     }
 
     public void harvestCrop(int plotNum)
     {
         Crop crop = this.plots[plotNum];
-        GUIStatus.updateMoney(crop.getValue());
-        GUIStatus.updateActions(-1);
+        Status.updateMoney(crop.getValue());
+        Status.updateActions(-1);
         this.plots[plotNum] = null;
     }
 
     public void tendCrop(String item , int plotNum)
     {
         Crop crop = this.plots[plotNum];
-        GUIStatus.updateActions(-1);
+        Status.updateActions(-1);
         crop.tend(item);
     }
 

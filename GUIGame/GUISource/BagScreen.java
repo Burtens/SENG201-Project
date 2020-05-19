@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class BagScreen {
-    private final GUIMain controller;
+    private final Main controller;
     private JTabbedPane bagMenu;
     private JPanel MainPanel;
     private JButton closeBagButton;
@@ -28,10 +28,10 @@ public class BagScreen {
                 controller.closeBag();
             }
         });
-        foodAmountLabel.setText(String.valueOf(GUIBag.getFoodAmount()));
-        toyAmountLabel.setText(String.valueOf(GUIBag.getToyAmount()));
-        gFertilizerAmountLabel.setText(String.valueOf(GUIBag.getGFertilizerAmount()));
-        vFertilizerAmountLabel.setText(String.valueOf(GUIBag.getVFertilizerAmount()));
+        foodAmountLabel.setText(String.valueOf(Bag.getFoodAmount()));
+        toyAmountLabel.setText(String.valueOf(Bag.getToyAmount()));
+        gFertilizerAmountLabel.setText(String.valueOf(Bag.getGFertilizerAmount()));
+        vFertilizerAmountLabel.setText(String.valueOf(Bag.getVFertilizerAmount()));
 
         bagMenu.addChangeListener(new ChangeListener() {
             @Override
@@ -44,7 +44,7 @@ public class BagScreen {
     }
 
     private void setSeeds() {
-        ArrayList<Seeds> seeds = GUIBag.getSeeds();
+        ArrayList<Seeds> seeds = Bag.getSeeds();
         for (Seeds seed : seeds) {
             switch (seed.toString()) {
                 case "Turnips":
@@ -69,7 +69,7 @@ public class BagScreen {
         }
     }
 
-    public BagScreen(GUIMain master) {
+    public BagScreen(Main master) {
         this.controller = master;
         initialize();
     }

@@ -21,10 +21,10 @@ public class PenScreen {
     private JButton returnButton;
     private JButton tendFarmButton;
     private JLabel actionLabel;
-    private GUIMain controller;
+    private Main controller;
 
 
-    PenScreen(GUIMain master){
+    PenScreen(Main master){
         this.controller = master;
         initialise();
     }
@@ -34,7 +34,7 @@ public class PenScreen {
         refresh();
         tendFarmButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                GUIStatus.updateActions(-1);
+                Status.updateActions(-1);
                 if (controller.farm.getPens().length < 12) {
                     controller.farm.updatePenSize();
                 }
@@ -50,20 +50,20 @@ public class PenScreen {
     }
 
     private void refresh() {
-        if (GUIStatus.getActions() == 0) {
+        if (Status.getActions() == 0) {
             tendFarmButton.setEnabled(false);
         } else {
             tendFarmButton.setEnabled(true);
         }
-        actionLabel.setText("Actions remaining: " + GUIStatus.getActions());
-        GUIAnimals[] pens = controller.farm.getPens();
+        actionLabel.setText("Actions remaining: " + Status.getActions());
+        Animals[] pens = controller.farm.getPens();
         int totalPens = pens.length;
         int totalAnimals = 0;
         for (int i = 0; i < totalPens; i++) {
             JButton currButton = (JButton) animalPanel.getComponent(i);
 
             if (pens[i] != null) {
-                GUIAnimals currAnimal = pens[i];
+                Animals currAnimal = pens[i];
                 currButton.setIcon(new ImageIcon(getClass().getResource(pens[i].getClass().getSimpleName() + "Small.png")));
                 totalAnimals++;
                 int finalI = i;

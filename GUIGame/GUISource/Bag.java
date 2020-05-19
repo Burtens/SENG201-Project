@@ -1,16 +1,14 @@
 import java.util.ArrayList;
 
-public class GUIBag {
+public class Bag {
 
     private static int foodAmount = 0;
     private static int toyAmount = 0;
     private static int gFertilizerAmount = 0;
     private static int vFertilizerAmount = 0;
-
     public static ArrayList<Seeds> seeds = new ArrayList<>();
-
     private static boolean hasWateringCan = true;
-    private static boolean hasHoe = false;
+    private static boolean containsHoe = false;
 
     public static void updateFoodAmount(int amount) {
         foodAmount += amount;
@@ -28,20 +26,11 @@ public class GUIBag {
         vFertilizerAmount += amount;
     }
 
-    public static void updateSeeds(String type, int amount){
-        boolean added = false;
-        for (Seeds seed : seeds)
-            if (seed.toString() == type){
-                seed.updateAmount(amount);
-                added = true;
-            }
-        if (!added)
-            seeds.add(new Seeds(type, amount));
-    }
+    public static void setHasHoe(Boolean status) { containsHoe = status; }
 
     public static ArrayList getSeeds(){ return seeds; }
 
-    public static boolean hasHoe() {return hasHoe;}
+    public static boolean hasHoe() {return containsHoe;}
 
     public static int getFoodAmount() {
         return foodAmount;
@@ -58,6 +47,19 @@ public class GUIBag {
     public static int getVFertilizerAmount() {
         return vFertilizerAmount;
     }
+
+
+    public static void updateSeeds(String type, int amount){
+        boolean added = false;
+        for (Seeds seed : seeds)
+            if (seed.toString() == type){
+                seed.updateAmount(amount);
+                added = true;
+            }
+        if (!added)
+            seeds.add(new Seeds(type, amount));
+    }
+
 
 }
 

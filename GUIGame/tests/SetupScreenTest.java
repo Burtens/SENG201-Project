@@ -1,29 +1,23 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
-import javax.swing.text.AbstractDocument;
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-import java.lang.reflect.Array;
-import java.security.Key;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class SetupScreenTest {
 
-    GUIMain main;
-    GUIFarm farm;
+    Main main;
+    Farm farm;
 
     @BeforeEach
     void Start()
     {
-    farm = new GUIFarm();
-    main = new GUIMain();
+    farm = new Farm();
+    main = new Main();
     main.launchSetupScreen();
     }
 

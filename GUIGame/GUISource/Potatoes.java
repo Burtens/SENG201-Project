@@ -6,7 +6,7 @@ public class Potatoes extends Crop {
     final double VALUE = 30.00;
     final int GROWTH = 25;
 
-    public Potatoes(GUIFarm farm)
+    public Potatoes(Farm farm)
     {
         super.setImages("GameResources/Seed Potato.png", "GameResources/Half Grown Potato.png",
                 "GameResources/Nearly Grown Potato.png", "GameResources/Fully Grown Potato.png");

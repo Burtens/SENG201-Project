@@ -23,12 +23,12 @@ public class SetupScreen {
     private JLabel farmNameErrorLabel;
 
     /*Stored Variables*/
-    private GUIMain controller;
+    private Main controller;
     private FarmType selectedFarmType = FarmType.BASIC;
     private boolean isValid = false;
 
 
-    public SetupScreen(GUIMain master){
+    public SetupScreen(Main master){
         controller = master;
         initialize();
 
@@ -102,7 +102,6 @@ public class SetupScreen {
         });
         /*Checks on text update if Farmer name is valid alerts user using userNameErrorLabel*/
         userNameField.getDocument().addDocumentListener(new DocumentListener() {
-            Utilities u = new Utilities();
             @Override
             public void insertUpdate(DocumentEvent e) {
                 errorCheck();
@@ -125,7 +124,7 @@ public class SetupScreen {
                     userNameErrorLabel.setText("Name too short!");
                 else if (userNameField.getText().length() > 15)
                     userNameErrorLabel.setText("Name too long!");
-                else if (!u.checkString(userNameField.getText()))
+                else if (checkString(userNameField.getText()))
                     userNameErrorLabel.setText("One or more invalid Characters!");
                 else {
                     userNameErrorLabel.setText("");
@@ -135,6 +134,18 @@ public class SetupScreen {
 
         });
 
+    }
+
+    private boolean checkString(String s)
+    {
+        boolean ISVALID = true;
+        int strLen = s.length();
+        for (int i = 0; i < strLen; i++)
+        {
+            if (!Character.isLetter(s.charAt(i)) && !Character.isSpaceChar(s.charAt(i)))
+                ISVALID = false;
+        }
+        return ISVALID;
     }
 
     /*Closes window by calling function in controller*/

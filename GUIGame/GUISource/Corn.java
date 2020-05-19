@@ -7,7 +7,7 @@ public class Corn extends Crop{
     final double VALUE = 10.00;
     final int GROWTH = 50;
 
-    public Corn(GUIFarm farm)
+    public Corn(Farm farm)
     {
 
         super.setImages("GameResources/Seed Corn.png", "GameResources/Half Grown Corn.png",

@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 
 
 /***
@@ -13,7 +12,7 @@ import java.awt.*;
  * Should setup all screen transitions from here
  *
  * Variables:
- * farm: GUIFarm
+ * farm: Farm
  * setupScreen: JFrame
  * farmScreen: JFrame
  * bagScreen: JFrame
@@ -32,9 +31,9 @@ import java.awt.*;
  * */
 
 
-public class GUIMain {
+public class Main {
 
-    GUIFarm farm = new GUIFarm();
+    Farm farm = new Farm();
     JFrame setupScreen = new JFrame("Create Farm");
     JFrame farmScreen = new JFrame("Farm");
     JFrame bagScreen = new JFrame("Bag");
@@ -180,7 +179,7 @@ public class GUIMain {
 
     public static void main(String[] args)
     {
-        GUIMain main = new GUIMain();
+        Main main = new Main();
         main.launchSetupScreen();
     }
 

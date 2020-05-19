@@ -11,7 +11,7 @@ import static java.lang.Math.round;
  * value: int, stores max value of the animal
  *
  * methods:
- * GUIAnimals: assigns initial value of variables
+ * Animals: assigns initial value of variables
  * getHealth: returns the int current health value
  * updateHealth: adjust health buy the given amount
  * getHappiness: returns the int current happiness value
@@ -19,16 +19,16 @@ import static java.lang.Math.round;
  * getValue: returns the value of the animal based on value health and happiness
  * feed: increases health and happiness of the animal. costs 1 actions
  * play: increases happiness of the animal. cost 1 action
- */
+ **/
 
-public abstract class GUIAnimals {
+public abstract class Animals {
 
     private double maxHealth;
     private double health;
     private int happiness = 100;
     private int value;
 
-    public GUIAnimals(int animalValue, int maxHp) {
+    public Animals(int animalValue, int maxHp) {
         value = animalValue;
         maxHealth = maxHp;
         health = maxHp;
@@ -77,7 +77,7 @@ public abstract class GUIAnimals {
          */
         updateHappiness(20);
         updateHealth(40);
-        GUIStatus.updateActions(-1);
+        Status.updateActions(-1);
     }
 
     public void play() {
@@ -85,6 +85,6 @@ public abstract class GUIAnimals {
          toy amount is decreased by the toy button of the animal screen.
          */
         updateHappiness(50);
-        GUIStatus.updateActions(-1);
+        Status.updateActions(-1);
     }
 }
