@@ -1,20 +1,44 @@
+/**
+ * Crops Abstract SuperClass
+ * This class contains the necessary methods and variables to create crops on the farm
+ *
+ * Variables:
+ * growth : crops total growth
+ * growthRate : the current growth-rate of the crop, this is effected by the specific crop
+ * value : the current value of the crop, is added to the farms money on harvest
+ * seedImage : file path of the crops specific seed image
+ * halfGrownImage : file path of the crops specific half grown image
+ * nearlyGrownImage : file path of the crops specific nearly grown image
+ * fullyGrownImage : file path of the crops specific fully grown image
+ *
+ * Methods:
+ * setGrowthRate : Sets growth rate of crop from selected crop subtype
+ * setImages : Sets all specific images from selected crop subtype
+ * setValue : Sets value of crop from selected crop subtype
+ * getGrowth : Returns value of growth
+ * getGrowthRate : Returns value of growthRate
+ * getValue : Returns crop's value
+ *
+ * tend : Takes a string "tool" and updates values of crop relating to which tool was used
+ * if "Watering Can" the updateGrowth method is called
+ * if "growth" relating to growth fertilizer the current growth rate of the crop is doubled
+ * if "value" relating to value fertilizer the current value of the crop is increased 25%
+ *
+ * updateGrowth : Adds current growthRate to growth if current growth is less than 100%
+ * daysTillHarvistable : Returns the amount of days till crop is ready to be harvested
+ * getCurrImage : Returns the current image file string based on the current growth of the crop
+ * toString : Returns a string representation of this crop
+ *
+ */
 public abstract class Crop {
 
     private int growth = 0;
-    private int plotPos;
-    /*Public for testing purposes*/
-    public int growthRate;
+    private int growthRate;
     private double value;
     private String seedImage;
     private String halfGrownImage;
     private String nearlyGrownImage;
     private String fullyGrownImage;
-
-
-
-    Crop(int pos){
-        this.plotPos = pos;
-    }
 
     public void setGrowthRate(double growthRate) {
         this.growthRate = (int) growthRate;
@@ -33,6 +57,10 @@ public abstract class Crop {
 
     public int getGrowth() { return this.growth; }
 
+    public int getGrowthRate() {return  this.growthRate; }
+
+    public double getValue() { return this.value; }
+
     public void tend(String item)
         {
             if (item == "Watering Can")
@@ -43,7 +71,7 @@ public abstract class Crop {
                 {
                     case "growth": setGrowthRate(this.growthRate * 2);
                     break;
-                    case "value": setValue(this.value + 1.00);
+                    case "value": setValue(this.value * 1.25);
                     break;
                     default: System.out.println("You are unable to use this item here!");
                     break;
@@ -56,6 +84,18 @@ public abstract class Crop {
         if (this.growth > 100)
             this.growth = 100;
 
+    }
+
+    public String daysTillHarvistable(){
+        if (this.growth == 100)
+            return "Crop is Ready";
+        else{
+            int totalDays = Math.round((100 - this.growth)/this.growthRate);
+            if (totalDays <= 1)
+                return "1 day";
+            else
+                return totalDays + " days";
+        }
     }
 
     public String getCurrImage()
@@ -73,12 +113,6 @@ public abstract class Crop {
             return this.halfGrownImage;
         }
     }
-
-    public int getPlotPos() { return this.plotPos; }
-
-    public int getGrowthRate() {return  this.growthRate; }
-
-    public double getValue() { return this.value; }
 
     public String toString(){ return this.getClass().getSimpleName();}
 

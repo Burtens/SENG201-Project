@@ -6,9 +6,8 @@ public class Grapes extends Crop{
     final double VALUE = 100.00;
     final int GROWTH = 10;
 
-    public Grapes(GUIFarm farm, int pos)
+    public Grapes(GUIFarm farm)
     {
-        super(pos);
         super.setImages("GameResources/Seed Grape.png", "GameResources/Half Grown Grape.png",
                 "GameResources/Nearly Grown Grape.png", "GameResources/Fully Grown Grape.png");
         FarmType currFarmType = farm.getFarmType();

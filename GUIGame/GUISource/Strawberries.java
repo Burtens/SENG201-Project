@@ -6,9 +6,8 @@ public class Strawberries extends Crop{
     final double VALUE = 80.00;
     final int GROWTH = 15;
 
-    public Strawberries(GUIFarm farm, int pos)
+    public Strawberries(GUIFarm farm)
     {
-        super(pos);
         super.setImages("GameResources/Seed Strawberry.png", "GameResources/Half Grown Strawberry.png",
                 "GameResources/Nearly Grown Strawberry.png", "GameResources/Fully Grown Strawberry.png");
         FarmType currFarmType = farm.getFarmType();

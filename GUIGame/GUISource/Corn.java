@@ -7,9 +7,9 @@ public class Corn extends Crop{
     final double VALUE = 10.00;
     final int GROWTH = 50;
 
-    public Corn(GUIFarm farm, int pos)
+    public Corn(GUIFarm farm)
     {
-        super(pos);
+
         super.setImages("GameResources/Seed Corn.png", "GameResources/Half Grown Corn.png",
                 "GameResources/Nearly Grown Corn.png", "GameResources/Fully Grown Corn.png");
         FarmType currFarmType = farm.getFarmType();

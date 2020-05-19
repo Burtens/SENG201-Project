@@ -148,19 +148,7 @@ public class CropDetailScreen {
             currentCrop = farm.getPlots()[plotPos];
             nameLabel.setText(currentCrop.toString());
 
-            if (currentCrop.getGrowth() == 100)
-                growthLabel.setText("Crop is ready");
-            else{
-                int totaldays = Math.round((100 - currentCrop.getGrowth())/currentCrop.getGrowthRate());
-                if (totaldays <= 1)
-                    growthLabel.setText("1 day");
-                else
-                    growthLabel.setText(totaldays + " days");
-            }
-            
-
-
-
+            growthLabel.setText(currentCrop.daysTillHarvistable());
 
             growthRateLabel.setText(currentCrop.getGrowthRate() + "%");
             valueLabel.setText("$" + String.format("%.2f", currentCrop.getValue()));
