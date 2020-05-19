@@ -34,7 +34,11 @@ public class PenScreen {
         refresh();
         tendFarmButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                controller.farm.updatePenSize();
+                GUIStatus.updateActions(-1);
+                if (controller.farm.getPens().length < 12) {
+                    controller.farm.updatePenSize();
+                }
+                controller.farm.setTended(true);
                 refresh();
             }
         });
@@ -46,7 +50,7 @@ public class PenScreen {
     }
 
     private void refresh() {
-        if (GUIStatus.getActions() == 0 || controller.farm.getPens().length == 12) {
+        if (GUIStatus.getActions() == 0) {
             tendFarmButton.setEnabled(false);
         } else {
             tendFarmButton.setEnabled(true);
