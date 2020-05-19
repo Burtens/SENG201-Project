@@ -1,7 +1,10 @@
+/**
+ * High growth and high value but come with a cost
+ */
 public class Tomatoes extends Crop {
 
-    final double VALUE = 5.00;
-    final int GROWTH = 10;
+    final double VALUE = 40.00;
+    final int GROWTH = 40;
 
     public Tomatoes(GUIFarm farm, int pos)
     {

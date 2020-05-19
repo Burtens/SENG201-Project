@@ -343,7 +343,7 @@
                   <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="$10"/>
+                  <text value="$12"/>
                 </properties>
               </component>
               <component id="501fe" class="javax.swing.JLabel">
@@ -351,7 +351,7 @@
                   <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="$10"/>
+                  <text value="$5"/>
                 </properties>
               </component>
               <component id="7a563" class="javax.swing.JLabel">
@@ -359,7 +359,7 @@
                   <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="$10"/>
+                  <text value="$15"/>
                 </properties>
               </component>
               <component id="f8a5" class="javax.swing.JLabel">
@@ -367,7 +367,7 @@
                   <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="$10"/>
+                  <text value="$7"/>
                 </properties>
               </component>
               <component id="dbfe1" class="javax.swing.JLabel">
@@ -375,7 +375,7 @@
                   <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="$10"/>
+                  <text value="$20"/>
                 </properties>
               </component>
               <component id="9bdc2" class="javax.swing.JLabel">

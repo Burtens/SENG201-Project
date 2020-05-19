@@ -1,7 +1,10 @@
+/**
+ * Cheep and rugged good all round crop
+ */
 public class Potatoes extends Crop {
 
-    final double VALUE = 5.00;
-    final int GROWTH = 10;
+    final double VALUE = 30.00;
+    final int GROWTH = 25;
 
     public Potatoes(GUIFarm farm, int pos)
     {

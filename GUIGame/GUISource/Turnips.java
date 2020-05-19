@@ -1,7 +1,7 @@
 public class Turnips extends Crop {
 
-    final double VALUE = 5.00;
-    final int GROWTH = 10;
+    final double VALUE = 40.00;
+    final int GROWTH = 25;
 
     public Turnips(GUIFarm farm, int pos)
     {

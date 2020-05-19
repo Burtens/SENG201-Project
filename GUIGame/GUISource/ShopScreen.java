@@ -77,7 +77,7 @@ public class ShopScreen {
         turnipsButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                if (buyButton("turnip seeds.", amount, -10 * amount)) {
+                if (buyButton("turnip seeds.", amount, -12 * amount)) {
                     GUIBag.updateSeeds("Turnips", amount);
                 }
             }
@@ -85,7 +85,7 @@ public class ShopScreen {
         cornButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                if (buyButton("corn seeds.", amount, -10 * amount)) {
+                if (buyButton("corn seeds.", amount, -5 * amount)) {
                     GUIBag.updateSeeds("Corn", amount);
                 }
             }
@@ -93,7 +93,7 @@ public class ShopScreen {
         grapesButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                if (buyButton("grape seeds.", amount, -10 * amount)) {
+                if (buyButton("grape seeds.", amount, -15 * amount)) {
                     GUIBag.updateSeeds("Grapes", amount);
                 }
             }
@@ -101,7 +101,7 @@ public class ShopScreen {
         potatosButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                if (buyButton("potato seeds.", amount, -10 * amount)) {
+                if (buyButton("potato seeds.", amount, -7 * amount)) {
                     GUIBag.updateSeeds("Potatoes", amount);
                 }
             }
@@ -109,7 +109,7 @@ public class ShopScreen {
         tomatosButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                if (buyButton("tomato seeds.", amount, -10 * amount)) {
+                if (buyButton("tomato seeds.", amount, -20 * amount)) {
                     GUIBag.updateSeeds("Tomatoes", amount);
                 }
             }

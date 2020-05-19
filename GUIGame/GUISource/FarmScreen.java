@@ -39,6 +39,12 @@ public class FarmScreen {
         dayLabel.setText(Integer.toString(GUIStatus.getDay()));
         actionLabel.setText(Integer.toString(GUIStatus.getActions()));
         moneyLabel.setText("$" + String.format("%.2f", GUIStatus.getMoney()));
+         /* Copyright 2015, "Farming Tool Icons" by Calciumtrice,
+            Found at: https://opengameart.org/content/farming-tool-icons
+            Copyright licence: http://creativecommons.org/licenses/by/3.0/
+         */
+        bagButton.setIcon(new ImageIcon("GameResources/Bag Icon.png"));
+        bagButton.setContentAreaFilled(false);
 
         nextDayButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
