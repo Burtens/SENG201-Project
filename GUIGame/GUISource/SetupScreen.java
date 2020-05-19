@@ -124,7 +124,7 @@ public class SetupScreen {
                     userNameErrorLabel.setText("Name too short!");
                 else if (userNameField.getText().length() > 15)
                     userNameErrorLabel.setText("Name too long!");
-                else if (checkString(userNameField.getText()))
+                else if (!checkString(userNameField.getText()))
                     userNameErrorLabel.setText("One or more invalid Characters!");
                 else {
                     userNameErrorLabel.setText("");
