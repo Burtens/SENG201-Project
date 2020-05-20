@@ -29,19 +29,19 @@ public class AnimalScreen {
     public void initialize() {
         Animals[] pens = controller.farm.getPens();
         animalType.setText(pens[penPos].getClass().getSimpleName());
-        animalHealth.setText(String.valueOf(pens[penPos].getHealth()));
-        animalHappiness.setText(String.valueOf(pens[penPos].getHappiness()));
-        animalValue.setText(String.valueOf(pens[penPos].getValue()));
+        animalHealth.setText("Health:  " + pens[penPos].getHealth());
+        animalHappiness.setText("Happiness:  " + pens[penPos].getHappiness());
+        animalValue.setText("Value:  " + pens[penPos].getValue());
         animalIcon.setIcon(new ImageIcon(getClass().getResource(pens[penPos].getClass().getSimpleName() + ".png")));
         feedButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (Bag.getFoodAmount() > 0 && Status.getActions() > 0) {
-                    Status.updateActions(-1);
                     Bag.updateFoodAmount(-1);
                     actionText.setText("you feed the " + animalType.getText());
                     pens[penPos].feed();
-                    animalHealth.setText(String.valueOf(pens[penPos].getHealth()));
-                    animalHappiness.setText(String.valueOf(pens[penPos].getHappiness()));
+                    animalHealth.setText("Health:  " + pens[penPos].getHealth());
+                    animalHappiness.setText("Happiness:  " + pens[penPos].getHappiness());
+                    animalValue.setText("Value:  " + pens[penPos].getValue());
                 } else if (Status.getActions() == 0) {
                     actionText.setText("No more actions.");
                 } else {
@@ -52,11 +52,11 @@ public class AnimalScreen {
         playButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (Bag.getToyAmount() > 0 && Status.getActions() > 0) {
-                    Status.updateActions(-1);
                     Bag.updateToyAmount(-1);
                     actionText.setText("you play with the " + animalType.getText());
                     pens[penPos].play();
-                    animalHappiness.setText(String.valueOf(pens[penPos].getHappiness()));
+                    animalHappiness.setText("Happiness:  " + pens[penPos].getHappiness());
+                    animalValue.setText("Value:  " + pens[penPos].getValue());
                 } else if (Status.getActions() == 0) {
                     actionText.setText("No more actions.");
                 } else {

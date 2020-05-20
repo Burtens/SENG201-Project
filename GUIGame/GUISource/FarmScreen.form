@@ -65,7 +65,7 @@
             </constraints>
             <properties>
               <background color="-3430077"/>
-              <text value="Shop"/>
+              <text value="Store"/>
             </properties>
           </component>
           <component id="8353e" class="javax.swing.JLabel">
@@ -107,7 +107,10 @@
           <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="View Crops"/>
+          <background color="-8468400"/>
+          <enabled value="true"/>
+          <icon value="PlotsSign.png"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="67088" class="javax.swing.JButton" binding="viewAnimalsButton">
@@ -115,7 +118,9 @@
           <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="View Animals"/>
+          <background color="-8468400"/>
+          <icon value="PensSign.png"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="adda6" class="javax.swing.JButton" binding="bagButton">
