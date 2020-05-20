@@ -42,6 +42,7 @@ public class Main {
     JFrame cropDetailScreen = new JFrame("Details");
     JFrame penScreen = new JFrame("Pens");
     JFrame animalScreen = new JFrame("Animals");
+    JFrame endScreen = new JFrame("End");
 
     /*Launches initial setup screen*/
     public void launchSetupScreen()
@@ -169,12 +170,18 @@ public class Main {
         launchCropScreen();
     }
 
-
-
-    public void endGame()
-    {
+    public void endGame() {
         farmScreen.dispose();
-        // TODO: Show End Screen
+        endScreen.setContentPane(new EndScreen(this).getMainPanel());
+        endScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        endScreen.pack();
+        endScreen.setResizable(false);
+        endScreen.setSize(600, 500);
+        endScreen.setVisible(true);
+    }
+
+    public void closeEndScreen() {
+        endScreen.dispose();
     }
 
     public static void main(String[] args)

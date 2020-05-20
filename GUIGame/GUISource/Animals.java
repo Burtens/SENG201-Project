@@ -51,6 +51,10 @@ public abstract class Animals {
         return (int) currentValue;
     }
 
+    public int getMaxValue() {
+        return value;
+    }
+
     /* variable updaters */
 
     public void updateHealth(double amount) {
