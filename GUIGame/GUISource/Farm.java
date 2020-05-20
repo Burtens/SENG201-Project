@@ -110,6 +110,9 @@ public class Farm
         int penSize = this.pens.length;
         Animals[] newPens;
         int newPensSize = penSize + 1;
+        if (Bag.hasHoe()) {
+            newPensSize ++;
+        }
         if (newPensSize > 12) {
             newPensSize = 12;
         }

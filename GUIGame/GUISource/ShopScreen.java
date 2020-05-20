@@ -49,7 +49,7 @@ public class ShopScreen {
         foodButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                if (buyButton("pieces of food.", amount, -10 * amount)) {
+                if (buyButton("pieces of food.", amount, -50 * amount)) {
                     Bag.updateFoodAmount(amount);
                 }
             }
@@ -57,7 +57,7 @@ public class ShopScreen {
         toysButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
-                if (buyButton("toys.", amount, -10 * amount)) {
+                if (buyButton("toys.", amount, -30 * amount)) {
                     Bag.updateToyAmount(amount);
                 }
             }
