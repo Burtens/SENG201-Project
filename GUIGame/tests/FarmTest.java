@@ -1,18 +1,23 @@
-import com.sun.source.tree.CatchTree;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FarmTest {
     private static Farm farm;
 
-    @BeforeAll
-    static void setup(){
+    @BeforeEach
+    void setup(){
         farm = new Farm();
         farm.setFarmType(FarmType.BASIC);
         /*checks if farmType is correct when set*/
         assertEquals(FarmType.BASIC, farm.getFarmType());
+    }
+
+    @Test
+    void testPlantCrop(){
         Bag.updateSeeds("Corn", 1);
+
         /*Checks to see if bag actually contains seed*/
         assertEquals(1, Bag.getSeeds().size());
         Bag.updateSeeds("Grapes",1);
@@ -20,10 +25,6 @@ class FarmTest {
         Bag.updateSeeds("Turnips",1);
         Bag.updateSeeds("Strawberries",1);
         Bag.updateSeeds("Tomatoes",1);
-    }
-
-    @Test
-    void testPlantCrop(){
 
         farm.plantCrop("Corn", 0, 1);
         int totalCrops = 0;
@@ -103,6 +104,20 @@ class FarmTest {
         assertEquals("Tomatoes", farm.getPlots()[5].toString());
         assertEquals("Tomatoes", farm.getPlots()[8].toString());
         assertEquals("Tomatoes", farm.getPlots()[11].toString());
+    }
+
+    @Test
+    void testingFarmActionsUpdate(){
+        /*Checks if updating the plot size decreases the amount of actions the user has*/
+        farm.updatePlotSize();
+        assertEquals(1, Status.getActions());
+
+        /*Checks if tending crop also uses an action*/
+        Bag.updateSeeds("Tomatoes", 1);
+        farm.plantCrop("Tomatoes", 0, 1);
+        farm.harvestCrop(1);
+        assertEquals(0, Status.getActions());
+
     }
 
     

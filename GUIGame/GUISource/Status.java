@@ -43,11 +43,4 @@ public class Status {
         updateActions(2);
         day += 1;
     }
-
-    public static void viewStatus(Farm farm) {
-        System.out.println("Your farm's name is: " + farm.getFarmName() +
-                "\nYou have $" + getMoney() +
-                "\nIt is the day " + getDay() + " out of " + farm.getDays() +
-                "\n");
-    }
 }

@@ -25,14 +25,12 @@ public class FarmScreen {
 
     /*Stored Varibles*/
     private Main controller;
-    private Farm farm;
 
     public JPanel getMainPanel(){ return mainPanel; }
 
-    FarmScreen(Main master, Farm farm){
+    FarmScreen(Main master){
         this.controller = master;
         initialise();
-        this.farm = farm;
     }
 
     private void initialise(){

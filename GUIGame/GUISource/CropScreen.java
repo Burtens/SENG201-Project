@@ -17,18 +17,6 @@ public class CropScreen {
     private JPanel mainPanel;
     private JButton returnButton;
     private JLabel totalCropsLabel;
-    private JButton cropButton1;
-    private JButton cropButton2;
-    private JButton cropButton3;
-    private JButton cropButton4;
-    private JButton cropButton5;
-    private JButton cropButton6;
-    private JButton cropButton7;
-    private JButton cropButton8;
-    private JButton cropButton9;
-    private JButton cropButton10;
-    private JButton cropButton11;
-    private JButton cropButton12;
     private JPanel cropPanel;
     private JLabel actionLabel;
     private JButton tendFarmButton;

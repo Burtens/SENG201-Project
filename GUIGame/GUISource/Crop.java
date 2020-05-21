@@ -32,8 +32,8 @@
  */
 public abstract class Crop {
 
-    private int growth = 0;
-    private int growthRate;
+    private double growth = 0;
+    private double growthRate;
     private double value;
     private String seedImage;
     private String halfGrownImage;
@@ -41,7 +41,7 @@ public abstract class Crop {
     private String fullyGrownImage;
 
     public void setGrowthRate(double growthRate) {
-        this.growthRate = (int) growthRate;
+        this.growthRate = growthRate;
     }
 
     public void setImages(String seedImage, String halfGrownImage, String nearlyGrownImage, String fullyGrownImage)
@@ -55,15 +55,15 @@ public abstract class Crop {
 
     public void setValue(double value) { this.value = value; }
 
-    public int getGrowth() { return this.growth; }
+    public double getGrowth() { return this.growth; }
 
-    public int getGrowthRate() {return  this.growthRate; }
+    public double getGrowthRate() {return this.growthRate; }
 
     public double getValue() { return this.value; }
 
     public void tend(String item)
         {
-            if (item == "Watering Can")
+            if (item.equals("Watering Can"))
                 updateGrowth();
             else
             {
@@ -90,7 +90,7 @@ public abstract class Crop {
         if (this.growth == 100)
             return "Crop is Ready";
         else{
-            int totalDays = Math.round((100 - this.growth)/this.growthRate);
+            int totalDays = (int) Math.floor((100 - this.growth)/this.growthRate);
             if (totalDays <= 1)
                 return "1 day";
             else

@@ -7,7 +7,6 @@ public class Bag {
     private static int gFertilizerAmount = 0;
     private static int vFertilizerAmount = 0;
     public static ArrayList<Seeds> seeds = new ArrayList<>();
-    private static boolean hasWateringCan = true;
     private static boolean containsHoe = false;
 
     public static void updateFoodAmount(int amount) {
@@ -52,7 +51,7 @@ public class Bag {
     public static void updateSeeds(String type, int amount){
         boolean added = false;
         for (Seeds seed : seeds)
-            if (seed.toString() == type){
+            if (seed.toString().equals(type)){
                 seed.updateAmount(amount);
                 added = true;
             }

@@ -70,7 +70,7 @@ public class Main {
 
 
     public void launchFarmScreen(){
-        farmScreen.setContentPane(new FarmScreen(this, farm).getMainPanel());
+        farmScreen.setContentPane(new FarmScreen(this).getMainPanel());
         farmScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         farmScreen.pack();
         farmScreen.setResizable(false);

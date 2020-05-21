@@ -24,7 +24,6 @@ public class CropDetailScreen {
     private Main controller;
     private Farm farm;
     private int plotPos;
-    private Crop currentCrop;
 
 
     CropDetailScreen(Main master, int incomingPlotPos, Farm farm)
@@ -144,7 +143,7 @@ public class CropDetailScreen {
         else {
 
             plantCropButton.setVisible(false);
-            currentCrop = farm.getPlots()[plotPos];
+            Crop currentCrop = farm.getPlots()[plotPos];
             nameLabel.setText(currentCrop.toString());
 
             growthLabel.setText(currentCrop.daysTillHarvistable());

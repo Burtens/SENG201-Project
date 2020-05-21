@@ -49,8 +49,8 @@ public class Farm
     private String farmerName;
     private FarmType farmType;
     private int days;
-    private   Crop[] plots = new Crop[4];
-    private  Animals[] pens = new Animals[4];
+    private Crop[] plots = new Crop[4];
+    private Animals[] pens = new Animals[4];
     private boolean tended = false;
 
 
@@ -100,8 +100,7 @@ public class Farm
 
         newplots = new Crop[newPlotsSize];
 
-        for (int i = 0; i < plotsSize; i++)
-            newplots[i] = this.plots[i];
+        System.arraycopy(this.plots, 0, newplots, 0, plotsSize);
         this.plots = newplots;
     }
     
@@ -116,8 +115,7 @@ public class Farm
             newPensSize = 12;
         }
         newPens = new Animals[newPensSize];
-        for (int i = 0; i < penSize; i++)
-            newPens[i] = this.pens[i];
+        System.arraycopy(this.pens, 0, newPens, 0, penSize);
         this.pens = newPens;
     }
     

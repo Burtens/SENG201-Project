@@ -1,7 +1,7 @@
 public class Seeds {
 
     private String type;
-    private int amount = 0;
+    private int amount;
 
     Seeds(String type, int amount) {
         this.type = type;

@@ -50,7 +50,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="7e070" class="javax.swing.JButton" binding="cropButton1">
+          <component id="7e070" class="javax.swing.JButton">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -68,7 +68,7 @@
               <visible value="true"/>
             </properties>
           </component>
-          <component id="bbdc3" class="javax.swing.JButton" binding="cropButton2">
+          <component id="bbdc3" class="javax.swing.JButton">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -82,7 +82,7 @@
               <visible value="true"/>
             </properties>
           </component>
-          <component id="33991" class="javax.swing.JButton" binding="cropButton3">
+          <component id="33991" class="javax.swing.JButton">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -96,7 +96,7 @@
               <visible value="true"/>
             </properties>
           </component>
-          <component id="6aa23" class="javax.swing.JButton" binding="cropButton4">
+          <component id="6aa23" class="javax.swing.JButton">
             <constraints>
               <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -110,7 +110,7 @@
               <visible value="true"/>
             </properties>
           </component>
-          <component id="2308b" class="javax.swing.JButton" binding="cropButton5">
+          <component id="2308b" class="javax.swing.JButton">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -124,7 +124,7 @@
               <visible value="false"/>
             </properties>
           </component>
-          <component id="3b00a" class="javax.swing.JButton" binding="cropButton6">
+          <component id="3b00a" class="javax.swing.JButton">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -138,7 +138,7 @@
               <visible value="false"/>
             </properties>
           </component>
-          <component id="22c1c" class="javax.swing.JButton" binding="cropButton7">
+          <component id="22c1c" class="javax.swing.JButton">
             <constraints>
               <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -152,7 +152,7 @@
               <visible value="false"/>
             </properties>
           </component>
-          <component id="1dd7a" class="javax.swing.JButton" binding="cropButton8">
+          <component id="1dd7a" class="javax.swing.JButton">
             <constraints>
               <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -166,7 +166,7 @@
               <visible value="false"/>
             </properties>
           </component>
-          <component id="5bd46" class="javax.swing.JButton" binding="cropButton9">
+          <component id="5bd46" class="javax.swing.JButton">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -180,7 +180,7 @@
               <visible value="false"/>
             </properties>
           </component>
-          <component id="177fe" class="javax.swing.JButton" binding="cropButton10">
+          <component id="177fe" class="javax.swing.JButton">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -194,7 +194,7 @@
               <visible value="false"/>
             </properties>
           </component>
-          <component id="addf1" class="javax.swing.JButton" binding="cropButton11">
+          <component id="addf1" class="javax.swing.JButton">
             <constraints>
               <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -208,7 +208,7 @@
               <visible value="false"/>
             </properties>
           </component>
-          <component id="7276d" class="javax.swing.JButton" binding="cropButton12">
+          <component id="7276d" class="javax.swing.JButton">
             <constraints>
               <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
