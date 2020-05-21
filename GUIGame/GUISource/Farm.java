@@ -89,9 +89,8 @@ public class Farm
         int plotsSize = this.plots.length;
         int newPlotsSize;
         Crop[] newplots;
-        if (Bag.hasHoe() == true){
+        if (Bag.hasHoe()){
             newPlotsSize = plotsSize + 3;
-            System.out.println("The use of a hoe made it easier to dig ground, an additional plot was created.");
         }
         else
             newPlotsSize = plotsSize + 2;
@@ -163,7 +162,6 @@ public class Farm
                     break;
             }
 
-            System.out.println("Crop successfully planted.");
             Bag.seeds.get(seedNum).updateAmount(-1);
             if (Bag.seeds.get(seedNum).getAmount() == 0)
                 Bag.seeds.remove(seedNum);

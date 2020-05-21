@@ -4,7 +4,7 @@
 public class Strawberries extends Crop{
 
     final double VALUE = 80.00;
-    final int GROWTH = 15;
+    final int GROWTH = 20;
 
     public Strawberries(Farm farm)
     {

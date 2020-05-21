@@ -15,4 +15,5 @@ public class Turnips extends Crop {
         super.setValue(VALUE);
 
     }
+
 }
