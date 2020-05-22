@@ -105,6 +105,7 @@ public class Farm
     }
     
     public void updatePenSize() {
+        /*updates the size of the pens array (increases amount of pens on farm)*/
         int penSize = this.pens.length;
         Animals[] newPens;
         int newPensSize = penSize + 1;
@@ -120,6 +121,8 @@ public class Farm
     }
     
     public boolean newAnimal(Animals animal) {
+        /*Places new animal object into a pen
+         and prevents to many animals from being created*/
         boolean inPen = false;
         int numPens = this.pens.length;
         for (int i = 0; i < numPens; i++) {

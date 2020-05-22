@@ -18,7 +18,6 @@
         </constraints>
         <properties>
           <background color="-5337794"/>
-          <foreground color="-16777216"/>
           <tabLayoutPolicy value="0"/>
         </properties>
         <border type="none"/>

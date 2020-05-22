@@ -1,4 +1,4 @@
-/** Chicken subclass contains chicken stats */
+/** Chicken subclass contains chicken stats. low value, needs less food */
 
 public class Chicken extends Animals {
 
