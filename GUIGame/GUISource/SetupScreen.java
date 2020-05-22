@@ -5,6 +5,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * This screen class provides the methods to allow user to setup their farm. User has to ensure their name is imputed
+ * correctly as well as imputing a farm name. All other fields are initialised with default values.
+ */
 public class SetupScreen {
 
     /*Form Variables*/

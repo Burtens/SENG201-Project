@@ -5,6 +5,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ * Screen Class that provides methods to
+ * allow user to view items stored in the bag. All values are initially set at 0.
+ * Buying items will update the total amount stored.
+ */
 public class BagScreen {
     private final Main controller;
     private JTabbedPane bagMenu;

@@ -2,6 +2,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Screen Class that provides methods to
+ * allow user to interact with animals from the GUI. This class only shows buttons equal
+ * to the amount of pens available to the user, clicking on a pen with an animal will take user to a
+ * more detailed screen based on animal clicked. User can also increase the amount of pens by tending to them.
+ */
 public class AnimalScreen {
     private JButton feedButton;
     private JButton playButton;

@@ -5,6 +5,10 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Screen Class that provides methods to
+ * allow user view score at the end of the game.
+ */
 public class EndScreen {
 
     private JPanel mainPanel;

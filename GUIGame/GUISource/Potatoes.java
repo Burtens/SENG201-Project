@@ -1,5 +1,5 @@
 /**
- * Cheep and rugged good all round crop
+ * Holds values for Potatoes crop. Cheep and rugged good all round crop.
  */
 public class Potatoes extends Crop {
 

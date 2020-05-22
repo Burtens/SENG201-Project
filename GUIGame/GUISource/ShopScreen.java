@@ -3,6 +3,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * This screen class provides the methods to allow user to interact with the shop screen. From here the user can
+ * buy items and animals all which are updated in the farm/bag classes.
+ */
 public class ShopScreen {
 
     private JTabbedPane shopMenu;
@@ -13,8 +17,8 @@ public class ShopScreen {
     private JButton turnipsButton;
     private JButton cornButton;
     private JButton grapesButton;
-    private JButton potatosButton;
-    private JButton tomatosButton;
+    private JButton potatoesButton;
+    private JButton tomatoesButton;
     private JButton strawberriesButton;
     private JButton chickenButton;
     private JButton cowButton;
@@ -121,7 +125,7 @@ public class ShopScreen {
                 }
             }
         });
-        potatosButton.addActionListener(new ActionListener() {
+        potatoesButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
                 if (buyButton("potato seeds.", amount, -7 * amount)) {
@@ -129,7 +133,7 @@ public class ShopScreen {
                 }
             }
         });
-        tomatosButton.addActionListener(new ActionListener() {
+        tomatoesButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 int amount = (int) buyAmountSpinner.getValue();
                 if (buyButton("tomato seeds.", amount, -20 * amount)) {

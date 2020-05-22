@@ -3,6 +3,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+/**
+ *  Screen Class that provides methods to
+ *  allow user to interact with individual crops
+ *  from the GUI. This screen will only show buttons for the plots available currently it also allows user to increase
+ *  the amount of plots available at the cost of one action.
+ */
 public class CropDetailScreen {
 
     /*Components*/

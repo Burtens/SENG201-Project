@@ -3,10 +3,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * This class houses the functionality of the farm screen. This screen acts as a main hub to the rest of the game.
+ * This Screen class provides the methods for the farm screen. This screen acts as a main hub to the rest of the game.
  * From here you will be able to access the shop and bag as well as accessing current crops and animals on the farm.
- *
- *
  */
 public class FarmScreen {
 

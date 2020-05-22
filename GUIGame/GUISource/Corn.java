@@ -1,6 +1,5 @@
 /**
- * Corn Grows Fast but has low value
- *
+ * Holds values for Corn crop. Description: Corn Grows Fast but has low value
  */
 public class Corn extends Crop{
 

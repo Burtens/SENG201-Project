@@ -1,5 +1,5 @@
 /**
- * High growth and high value but come with a cost
+ * Holds values for Tomatoes crop. Description: High growth and high value but comes with a cost
  */
 public class Tomatoes extends Crop {
 
