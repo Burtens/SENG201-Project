@@ -25,7 +25,7 @@ public abstract class Animals {
 
     private double maxHealth;
     private double health;
-    private int happiness = 100;
+    private double happiness = 100;
     private int value;
 
     public Animals(int animalValue, int maxHp) {
@@ -41,7 +41,7 @@ public abstract class Animals {
     }
 
     public int getHappiness() {
-        return happiness;
+        return (int) happiness;
     }
 
     public int getValue() {
