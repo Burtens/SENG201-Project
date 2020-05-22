@@ -11,7 +11,6 @@ public class Grapes extends Crop{
         super.setImages("GameResources/Seed Grape.png", "GameResources/Half Grown Grape.png",
                 "GameResources/Nearly Grown Grape.png", "GameResources/Fully Grown Grape.png");
         FarmType currFarmType = farm.getFarmType();
-        // TODO: Update bass growth rates to be unique
         super.setGrowthRate(GROWTH*currFarmType.getCropPercent());
         super.setValue(VALUE);
     }
