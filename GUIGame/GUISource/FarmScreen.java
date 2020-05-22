@@ -51,6 +51,8 @@ public class FarmScreen {
                     dayLabel.setText(Integer.toString(Status.getDay()));
                     actionLabel.setText(Integer.toString(Status.getActions()));
                     moneyLabel.setText("$" + String.format("%.2f", Status.getMoney()));
+                    if (Status.getDay() == controller.farm.getDays())
+                        nextDayButton.setText("End Game");
                 }
                 else {
                      controller.endGame();
