@@ -67,10 +67,16 @@ class CropTest {
         /*Tend with fertilizer*/
         turnip1.tend("growth");
         assertEquals(50, turnip1.getGrowthRate());
-        
+
         turnip1.tend("value");
         assertEquals(40*1.25, turnip1.getValue());
+    }
 
+    @Test
+    void testDaysTillHarvestible(){
+        Crop strawberry1 = new Strawberries(farm);
+
+        assertEquals("5 days", strawberry1.daysTillHarvistable());
 
     }
 

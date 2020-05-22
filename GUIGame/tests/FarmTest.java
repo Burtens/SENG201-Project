@@ -34,6 +34,7 @@ class FarmTest {
             }
         }
         assertEquals(1, totalCrops);
+
         /*Checks if seed is removed*/
         assertEquals(5, Bag.getSeeds().size());
 

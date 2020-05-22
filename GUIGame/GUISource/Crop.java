@@ -63,19 +63,19 @@ public abstract class Crop {
 
     public void tend(String item)
         {
-            if (item.equals("Watering Can"))
-                updateGrowth();
-            else
+            switch (item)
             {
-                switch (item)
-                {
-                    case "growth": setGrowthRate(this.growthRate * 2);
-                    break;
-                    case "value": setValue(this.value * 1.25);
-                    break;
-                    default: System.out.println("You are unable to use this item here!");
-                    break;
-                }
+                case "Watering Can": updateGrowth();
+                break;
+                case "growth": setGrowthRate(this.growthRate * 2);
+                break;
+                case "value": setValue(this.value * 1.25);
+                break;
+                case "Bonemeal": updateGrowth();
+                setValue(this.value * 1.10);
+                break;
+                default: System.out.println("You are unable to use this item here!");
+                break;
             }
         }
 
