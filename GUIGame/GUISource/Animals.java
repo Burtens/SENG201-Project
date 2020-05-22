@@ -3,22 +3,6 @@ import static java.lang.Math.round;
 /***
  * Animals abstract superclass
  * this class contains all the methods and variables for the animals
- *
- * variables:
- * maxHealth: int, stores max health for the animal type
- * health: int, stores current health of the animal
- * happiness: int, stores current happiness of the animal
- * value: int, stores max value of the animal
- *
- * methods:
- * Animals: assigns initial value of variables
- * getHealth: returns the int current health value
- * updateHealth: adjust health buy the given amount
- * getHappiness: returns the int current happiness value
- * updateHappiness: updates current happiness by the given value
- * getValue: returns the value of the animal based on value health and happiness
- * feed: increases health and happiness of the animal. costs 1 actions
- * play: increases happiness of the animal. cost 1 action
  **/
 
 public abstract class Animals {

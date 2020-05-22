@@ -1,5 +1,10 @@
 import java.util.ArrayList;
 
+/***
+ * bag class
+ * contains all the methods and variable for the storage of items
+ **/
+
 public class Bag {
 
     private static int foodAmount = 0;

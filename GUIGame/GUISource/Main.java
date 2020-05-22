@@ -10,24 +10,6 @@ import javax.swing.*;
  * windowbuilder
  *
  * Should setup all screen transitions from here
- *
- * Variables:
- * farm: Farm
- * setupScreen: JFrame
- * farmScreen: JFrame
- * bagScreen: JFrame
- * shopScreen: JFrame
- * cropScreen: JFrame
- *
- * Methods:
- * launchSetupScreen: Initialises the setupScreen
- * closeSetupScreen: Closes the setupScreen and sets starting values to the farm
- * launchFarmScreen: Initialises the farmScreen this will act as a main hub in our game
- * closeFarmScreen: Closes farm screen
- * launchCropScreen : Initialises the cropScreen, this will be used to allow the user to access the crops on his or her
- *                      farm.
- * closeCropScreen : Closes cropScreen, returns user to farm after disposing.
- *
  * */
 
 

@@ -1,3 +1,9 @@
+/***
+ * Status
+ * This class contains stores and updates player/farm stats
+ **/
+
+
 public class Status {
 
     private static int day = 1;
