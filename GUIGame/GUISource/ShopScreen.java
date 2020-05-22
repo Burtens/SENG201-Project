@@ -24,7 +24,7 @@ public class ShopScreen {
     private JButton bagButton;
     private JPanel MainPanel;
     private JSpinner buyAmountSpinner;
-    private JLabel buyText;
+    private JTextPane buyText;
     private JLabel moneyLabel;
     private JButton hoeButton;
     private Main controller;
