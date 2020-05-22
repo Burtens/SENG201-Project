@@ -85,7 +85,7 @@ public class CropDetailScreen {
         fertilizeCropButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Bag.getGFertilizerAmount() == 0 && Bag.getVFertilizerAmount() == 0)
+                if (Bag.getGFertilizerAmount() == 0 && Bag.getVFertilizerAmount() == 0 && Bag.getBonemealAmount() == 0)
                     JOptionPane.showMessageDialog(mainPanel, "Sorry you have no fertilizer please buy some at the shop");
                 else {
                     ArrayList<String> fertilizer = new ArrayList<>();
@@ -93,11 +93,13 @@ public class CropDetailScreen {
                         fertilizer.add("Value");
                     if (Bag.getGFertilizerAmount() > 0)
                         fertilizer.add("Growth");
+                    if (Bag.getBonemealAmount() > 0)
+                        fertilizer.add("Bonemeal");
 
                     String selection = (String) JOptionPane.showInputDialog(mainPanel, "Please select fertilizer to use", "Fertilize Crop",
                             JOptionPane.PLAIN_MESSAGE, null, fertilizer.toArray(), null);
                     if (selection != null) {
-                        String fertilizerType = selection.toLowerCase();
+                        String fertilizerType = selection;
                         farm.tendCrop(fertilizerType, plotPos);
                         refresh();
 
@@ -166,8 +168,7 @@ public class CropDetailScreen {
                 tendToCropButton.setEnabled(false);
             }
 
-            if ((Bag.getGFertilizerAmount() > 0 || Bag.getVFertilizerAmount() > 0) && actionsLeft > 0
-                    && currentCrop.getGrowth() < 100 )
+            if (actionsLeft > 0 && currentCrop.getGrowth() < 100 )
                 fertilizeCropButton.setEnabled(true);
             else{
                 fertilizeCropButton.setEnabled(false);

@@ -20,6 +20,7 @@ public class BagScreen {
     private JLabel toyAmountLabel;
     private JLabel gFertilizerAmountLabel;
     private JLabel vFertilizerAmountLabel;
+    private JLabel bonemealAmountLabel;
 
     public void initialize() {
         closeBagButton.addActionListener(new ActionListener() {
@@ -32,6 +33,7 @@ public class BagScreen {
         toyAmountLabel.setText(String.valueOf(Bag.getToyAmount()));
         gFertilizerAmountLabel.setText(String.valueOf(Bag.getGFertilizerAmount()));
         vFertilizerAmountLabel.setText(String.valueOf(Bag.getVFertilizerAmount()));
+        bonemealAmountLabel.setText(String.valueOf(Bag.getBonemealAmount()));
 
         bagMenu.addChangeListener(new ChangeListener() {
             @Override

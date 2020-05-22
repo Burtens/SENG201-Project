@@ -67,11 +67,14 @@ public abstract class Crop {
             {
                 case "Watering Can": updateGrowth();
                 break;
-                case "growth": setGrowthRate(this.growthRate * 2);
+                case "Growth": setGrowthRate(this.growthRate * 2);
+                Bag.updateGFertilizerAmount(-1);
                 break;
-                case "value": setValue(this.value * 1.25);
+                case "Value": setValue(this.value * 1.25);
+                Bag.updateVFertilizerAmount(-1);
                 break;
                 case "Bonemeal": updateGrowth();
+                Bag.updateBonemealAmount(-1);
                 setValue(this.value * 1.10);
                 break;
                 default: System.out.println("You are unable to use this item here!");

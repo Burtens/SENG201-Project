@@ -6,7 +6,7 @@ public class Bag {
     private static int toyAmount = 0;
     private static int gFertilizerAmount = 0;
     private static int vFertilizerAmount = 0;
-    private static int bonemealAmount = 0;
+    private static int bonemealAmount = 1;
     public static ArrayList<Seeds> seeds = new ArrayList<>();
     private static boolean containsHoe = false;
 
@@ -30,7 +30,7 @@ public class Bag {
 
     public static void setHasHoe(Boolean status) { containsHoe = status; }
 
-    public static int getBonemealAmount(int amount) { return bonemealAmount; }
+    public static int getBonemealAmount() { return bonemealAmount; }
 
     public static ArrayList getSeeds(){ return seeds; }
 

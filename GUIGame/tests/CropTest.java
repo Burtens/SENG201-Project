@@ -65,10 +65,10 @@ class CropTest {
         assertEquals(25, turnip1.getGrowth());
 
         /*Tend with fertilizer*/
-        turnip1.tend("growth");
+        turnip1.tend("Growth");
         assertEquals(50, turnip1.getGrowthRate());
 
-        turnip1.tend("value");
+        turnip1.tend("Value");
         assertEquals(40*1.25, turnip1.getValue());
     }
 
