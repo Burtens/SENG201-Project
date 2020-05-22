@@ -90,19 +90,18 @@ public class CropDetailScreen {
                 else {
                     ArrayList<String> fertilizer = new ArrayList<>();
                     if (Bag.getVFertilizerAmount() > 0)
-                        fertilizer.add("Value");
+                        fertilizer.add("Value Fertilizer");
                     if (Bag.getGFertilizerAmount() > 0)
-                        fertilizer.add("Growth");
+                        fertilizer.add("Growth Fertilizer");
                     if (Bag.getBonemealAmount() > 0)
                         fertilizer.add("Bonemeal");
 
-                    String selection = (String) JOptionPane.showInputDialog(mainPanel, "Please select fertilizer to use", "Fertilize Crop",
+                    String selection = (String) JOptionPane.showInputDialog(mainPanel, "Please select item to use", "Fertilize Crop",
                             JOptionPane.PLAIN_MESSAGE, null, fertilizer.toArray(), null);
                     if (selection != null) {
                         String fertilizerType = selection;
                         farm.tendCrop(fertilizerType, plotPos);
                         refresh();
-
 
                     }
 

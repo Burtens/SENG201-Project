@@ -65,18 +65,29 @@ class CropTest {
         assertEquals(25, turnip1.getGrowth());
 
         /*Tend with fertilizer*/
-        turnip1.tend("Growth");
+        turnip1.tend("Growth Fertilizer");
         assertEquals(50, turnip1.getGrowthRate());
 
-        turnip1.tend("Value");
+        turnip1.tend("Value Fertilizer");
         assertEquals(40*1.25, turnip1.getValue());
     }
 
     @Test
-    void testDaysTillHarvestible(){
+    void testHarvesting(){
         Crop strawberry1 = new Strawberries(farm);
-
         assertEquals("5 days", strawberry1.daysTillHarvistable());
+
+        strawberry1.updateGrowth();
+        assertEquals("4 days", strawberry1.daysTillHarvistable());
+
+        Crop grape1 = new Grapes(farm);
+        assertEquals("10 days", grape1.daysTillHarvistable());
+
+        while (strawberry1.getGrowth() < 100) {
+            strawberry1.updateGrowth();
+        }
+
+        assertEquals("Crop is Ready", strawberry1.daysTillHarvistable());
 
     }
 

@@ -27,6 +27,7 @@ public class ShopScreen {
     private JTextPane buyText;
     private JLabel moneyLabel;
     private JButton hoeButton;
+    private JButton bonemealButton;
     private Main controller;
 
     private void initialize() {
@@ -85,6 +86,15 @@ public class ShopScreen {
                     hoeButton.setEnabled(false);
                 }
 
+            }
+        });
+        bonemealButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int amount = (int) buyAmountSpinner.getValue();
+                if (buyButton("bonemeal.", amount, -5 * amount)) {
+                    Bag.updateBonemealAmount(amount);
+                }
             }
         });
         turnipsButton.addActionListener(new ActionListener() {
