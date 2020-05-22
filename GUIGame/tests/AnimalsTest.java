@@ -18,6 +18,7 @@ public class AnimalsTest {
         main.farm.newAnimal(new Cow());
         main.farm.newAnimal(new Pig());
         main.farm.newAnimal(new Sheep());
+        Status.updateActions(2);
     }
 
 
@@ -97,5 +98,41 @@ public class AnimalsTest {
         chicken = new Chicken();
         chicken.updateHappiness(-50);
         assertEquals(38, chicken.getValue());
+    }
+
+
+    @Test
+    void animalFeedTest() {
+        Cow cow = new Cow();
+        cow.feed();
+        assertEquals(100, cow.getHealth());
+        assertEquals(100, cow.getHappiness());
+        assertEquals(1, Status.getActions());
+        cow.updateHealth(-100);
+        cow.updateHappiness(-100);
+        cow.feed();
+        assertEquals(40, cow.getHealth());
+        assertEquals(20, cow.getHappiness());
+        assertEquals(0, Status.getActions());
+        cow.feed();
+        assertEquals(80, cow.getHealth());
+        assertEquals(40, cow.getHappiness());
+        assertEquals(0, Status.getActions());
+    }
+
+
+    @Test
+    void animalPlayTest() {
+        Cow cow = new Cow();
+        cow.play();
+        assertEquals(100, cow.getHappiness());
+        assertEquals(1, Status.getActions());
+        cow.updateHappiness(-100);
+        cow.play();
+        assertEquals(50, cow.getHappiness());
+        assertEquals(0, Status.getActions());
+        cow.play();
+        assertEquals(100, cow.getHappiness());
+        assertEquals(0, Status.getActions());
     }
 }
