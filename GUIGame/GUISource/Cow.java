@@ -1,4 +1,4 @@
-/** Cow subclass contains cow stats */
+/** Cow subclass contains cow stats. high value needs more food */
 
 public class Cow extends Animals {
 

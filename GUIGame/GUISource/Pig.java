@@ -1,4 +1,4 @@
-/** Pig subclass contains pig stats */
+/** Pig subclass contains pig stats. medium value, needs average amount of food */
 
 public class Pig extends Animals {
 

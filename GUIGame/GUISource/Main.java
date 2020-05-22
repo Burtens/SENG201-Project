@@ -70,6 +70,7 @@ public class Main {
 
 
     public void launchFarmScreen(){
+        /*launches the farm screen (main hub screen from which everything else is accessed)*/
         farmScreen.setContentPane(new FarmScreen(this).getMainPanel());
         farmScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         farmScreen.pack();
@@ -81,6 +82,7 @@ public class Main {
     }
 
     public void launchCropScreen(){
+        /*launches new window for the crop screen*/
         cropScreen.setContentPane(new CropScreen(this, farm).getMainPanel());
         cropScreen.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         cropScreen.pack();
@@ -92,11 +94,13 @@ public class Main {
     }
 
     public void closeCropScreen(){
+        /*closes the crop screen*/
         cropScreen.dispose();
         launchFarmScreen();
     }
 
     public void launchPenScreen(){
+        /*launches new window for the pen screen*/
         penScreen.setContentPane(new PenScreen(this).getMainPanel());
         penScreen.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         penScreen.pack();
@@ -106,11 +110,13 @@ public class Main {
     }
 
     public void closePenScreen(){
+        /*closes pen screen*/
         penScreen.dispose();
         launchFarmScreen();
     }
 
     public void launchAnimalScreen(int pen) {
+        /*launches new window for the screen of the individual animals*/
         animalScreen.setContentPane(new AnimalScreen(this, pen).getMain());
         animalScreen.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         animalScreen.pack();
@@ -120,11 +126,13 @@ public class Main {
     }
 
     public void closeAnimalScreen() {
+        /*closes screen of the individual animals*/
         animalScreen.dispose();
         launchPenScreen();
     }
 
     public void launchBag(){
+        /*launches new window for the bag screen*/
         bagScreen.setContentPane(new BagScreen(this).getMainPanel());
         bagScreen.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         bagScreen.pack();
@@ -134,6 +142,7 @@ public class Main {
     }
 
     public void closeBag() {
+        /*closes bag window*/
         bagScreen.dispose();
     }
 
@@ -148,14 +157,15 @@ public class Main {
         shopScreen.setVisible(true);
     }
 
-    public void closeShop()
-    {
+    public void closeShop() {
+        /*closes shop screen and returns to farm*/
         shopScreen.dispose();
         launchFarmScreen();
     }
 
 
     public void launchCropDetailScreen(int plotNum) {
+        /*launches the details of the individual plots*/
         cropScreen.dispose();
         cropDetailScreen.setContentPane(new CropDetailScreen(this, plotNum, farm).getMainPanel());
         cropDetailScreen.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -166,11 +176,13 @@ public class Main {
     }
 
     public void closeCropDetailScreen(){
+        /*closes the details of the individual plots*/
         cropDetailScreen.dispose();
         launchCropScreen();
     }
 
     public void endGame() {
+        /*launches the end screen after a set amount of days*/
         farmScreen.dispose();
         endScreen.setContentPane(new EndScreen(this).getMainPanel());
         endScreen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -181,6 +193,7 @@ public class Main {
     }
 
     public void closeEndScreen() {
+        /*ends the game*/
         endScreen.dispose();
     }
 

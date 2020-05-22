@@ -1,4 +1,4 @@
-/** Sheep subclass contains sheep stats */
+/** Sheep subclass contains sheep stats. medium value, needs average amount of food */
 
 public class Sheep extends Animals {
 
