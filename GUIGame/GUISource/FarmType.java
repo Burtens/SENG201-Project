@@ -1,3 +1,7 @@
+/**
+ * Holds values for the different farm types. These values effect the happiness of animals
+ * and growth rate of crops
+ */
 public enum FarmType {
     BASIC (1,1),
     RIVER (1, 1.5),

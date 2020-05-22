@@ -1,6 +1,7 @@
 /**
  * This is the main farm class for the GUI
  * this class holds all basic information about the farm
+ * and methods to allow the user to preform actions on the farm
  * **/
 public class Farm
 {

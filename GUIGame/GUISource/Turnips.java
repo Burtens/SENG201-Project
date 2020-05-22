@@ -1,5 +1,5 @@
 /**
- *
+ * Holds values for Turnips crop. Description: Same growth rate as a potato but higher value and cost
  */
 public class Turnips extends Crop {
 

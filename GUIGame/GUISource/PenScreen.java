@@ -2,20 +2,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * This screen class allows user to interact with individual animals on the farm.
+ * From here user can play and feed animals as well as viewing their current stats.
+ */
 public class PenScreen {
     private JPanel animalPanel;
-    private JButton animalButton1;
-    private JButton animalButton2;
-    private JButton animalButton3;
-    private JButton animalButton4;
-    private JButton animalButton5;
-    private JButton animalButton6;
-    private JButton animalButton7;
-    private JButton animalButton8;
-    private JButton animalButton9;
-    private JButton animalButton10;
-    private JButton animalButton11;
-    private JButton animalButton12;
     private JLabel totalAnimalsLabel;
     private JPanel mainPanel;
     private JButton returnButton;

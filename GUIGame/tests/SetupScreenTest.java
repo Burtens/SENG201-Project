@@ -70,7 +70,7 @@ class SetupScreenTest {
             assertEquals("Name too long!", (userNameLabel.getText()));
 
             /*This test only works on my computer due to mouse positioning*/
-            bot.mouseMove(190, 470);
+            bot.mouseMove(170, 445);
             bot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
             bot.delay(250);
             bot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);

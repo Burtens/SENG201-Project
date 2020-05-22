@@ -1,3 +1,6 @@
+/**
+ * Contains methods to create seeds for storage in bag
+ */
 public class Seeds {
 
     private String type;

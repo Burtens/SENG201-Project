@@ -20,7 +20,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="b2300" class="javax.swing.JButton" binding="animalButton1">
+          <component id="b2300" class="javax.swing.JButton">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -33,7 +33,7 @@
               <visible value="true"/>
             </properties>
           </component>
-          <component id="8a795" class="javax.swing.JButton" binding="animalButton2">
+          <component id="8a795" class="javax.swing.JButton">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -46,7 +46,7 @@
               <visible value="true"/>
             </properties>
           </component>
-          <component id="f7e60" class="javax.swing.JButton" binding="animalButton3">
+          <component id="f7e60" class="javax.swing.JButton">
             <constraints>
               <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -59,7 +59,7 @@
               <visible value="true"/>
             </properties>
           </component>
-          <component id="f7fb1" class="javax.swing.JButton" binding="animalButton4">
+          <component id="f7fb1" class="javax.swing.JButton">
             <constraints>
               <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -72,7 +72,7 @@
               <visible value="true"/>
             </properties>
           </component>
-          <component id="93744" class="javax.swing.JButton" binding="animalButton5">
+          <component id="93744" class="javax.swing.JButton">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -85,7 +85,7 @@
               <visible value="false"/>
             </properties>
           </component>
-          <component id="b8597" class="javax.swing.JButton" binding="animalButton6">
+          <component id="b8597" class="javax.swing.JButton">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -98,7 +98,7 @@
               <visible value="false"/>
             </properties>
           </component>
-          <component id="8a94" class="javax.swing.JButton" binding="animalButton7">
+          <component id="8a94" class="javax.swing.JButton">
             <constraints>
               <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -111,7 +111,7 @@
               <visible value="false"/>
             </properties>
           </component>
-          <component id="9a067" class="javax.swing.JButton" binding="animalButton8">
+          <component id="9a067" class="javax.swing.JButton">
             <constraints>
               <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -124,7 +124,7 @@
               <visible value="false"/>
             </properties>
           </component>
-          <component id="4640" class="javax.swing.JButton" binding="animalButton9">
+          <component id="4640" class="javax.swing.JButton">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -137,7 +137,7 @@
               <visible value="false"/>
             </properties>
           </component>
-          <component id="c7d9c" class="javax.swing.JButton" binding="animalButton10">
+          <component id="c7d9c" class="javax.swing.JButton">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -150,7 +150,7 @@
               <visible value="false"/>
             </properties>
           </component>
-          <component id="840d0" class="javax.swing.JButton" binding="animalButton11">
+          <component id="840d0" class="javax.swing.JButton">
             <constraints>
               <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>
@@ -163,7 +163,7 @@
               <visible value="false"/>
             </properties>
           </component>
-          <component id="8a614" class="javax.swing.JButton" binding="animalButton12">
+          <component id="8a614" class="javax.swing.JButton">
             <constraints>
               <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="80" height="80"/>

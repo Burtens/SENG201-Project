@@ -1,5 +1,5 @@
 /**
- * Slow Growing but with a high value
+ * Holds values for Grape crop. Description: Slow Growing but with a high value.
  */
 public class Grapes extends Crop{
 

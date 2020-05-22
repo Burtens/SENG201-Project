@@ -1,5 +1,5 @@
 /**
- * Grow slower than most crops but value a lot higher
+ * Holds values for Strawberries crop. Description: Grows slower than most crops but value a lot higher
  */
 public class Strawberries extends Crop{
 
