@@ -6,7 +6,7 @@ public class Bag {
     private static int toyAmount = 0;
     private static int gFertilizerAmount = 0;
     private static int vFertilizerAmount = 0;
-    private static int bonemealAmount = 1;
+    private static int bonemealAmount = 0;
     public static ArrayList<Seeds> seeds = new ArrayList<>();
     private static boolean containsHoe = false;
 
