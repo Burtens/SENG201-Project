@@ -1,6 +1,8 @@
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FarmTest {
@@ -73,6 +75,15 @@ class FarmTest {
         }
 
         assertEquals("Grapes Turnips Strawberries Tomatoes", crops.trim());
+
+        /*Don't know how to check if the console outputs a value but error should be caught here
+        * and it should output
+        * "This won't happen in game, error occurred due to invalid input during testing"
+        * Can check that seed doesn't get used*/
+        Bag.updateSeeds("Tomatoes", 1);
+        farm.plantCrop("Tomatoes", 0, 4);
+
+        assertEquals(1, Bag.getSeeds().size());
 
     }
 

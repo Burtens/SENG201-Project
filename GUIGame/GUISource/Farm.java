@@ -139,7 +139,8 @@ public class Farm
         /*Allows user to plant crops on farm*/
 
             /*Creates plant based on seed*/
-            switch (seed){
+        try {
+            switch (seed) {
                 case "Corn":
                     this.plots[plotToPlant] = new Corn(this);
                     break;
@@ -163,6 +164,10 @@ public class Farm
             Bag.seeds.get(seedNum).updateAmount(-1);
             if (Bag.seeds.get(seedNum).getAmount() == 0)
                 Bag.seeds.remove(seedNum);
+        }
+        catch (IndexOutOfBoundsException e){
+            System.out.println("This won't happen in game, error occurred due to invalid input during testing");
+        }
     }
 
     public void harvestCrop(int plotNum)

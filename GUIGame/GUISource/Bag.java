@@ -6,27 +6,39 @@ public class Bag {
     private static int toyAmount = 0;
     private static int gFertilizerAmount = 0;
     private static int vFertilizerAmount = 0;
-    private static int bonemealAmount = 1;
+    private static int bonemealAmount = 0;
     public static ArrayList<Seeds> seeds = new ArrayList<>();
     private static boolean containsHoe = false;
 
     public static void updateFoodAmount(int amount) {
         foodAmount += amount;
+        if (foodAmount < 0)
+            foodAmount = 0;
     }
 
     public static void updateToyAmount(int amount) {
         toyAmount += amount;
+        if (toyAmount < 0)
+            toyAmount = 0;
     }
 
     public static void updateGFertilizerAmount(int amount) {
         gFertilizerAmount += amount;
+        if (gFertilizerAmount < 0)
+            gFertilizerAmount = 0;
     }
 
     public static void updateVFertilizerAmount(int amount) {
         vFertilizerAmount += amount;
+        if (vFertilizerAmount < 0)
+            vFertilizerAmount = 0;
     }
 
-    public static void updateBonemealAmount(int amount) { bonemealAmount += amount; }
+    public static void updateBonemealAmount(int amount) {
+        bonemealAmount += amount;
+        if (bonemealAmount < 0)
+            bonemealAmount = 0;
+    }
 
     public static void setHasHoe(Boolean status) { containsHoe = status; }
 
@@ -51,8 +63,6 @@ public class Bag {
     public static int getVFertilizerAmount() {
         return vFertilizerAmount;
     }
-
-
 
     public static void updateSeeds(String type, int amount){
         boolean added = false;
