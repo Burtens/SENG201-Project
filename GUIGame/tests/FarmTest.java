@@ -131,12 +131,4 @@ class FarmTest {
         assertEquals(0, Status.getActions());
 
     }
-
-    
-
-
-
-
-
-
 }
