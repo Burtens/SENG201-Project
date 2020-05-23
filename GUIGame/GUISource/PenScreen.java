@@ -55,7 +55,6 @@ public class PenScreen {
             JButton currButton = (JButton) animalPanel.getComponent(i);
 
             if (pens[i] != null) {
-                Animals currAnimal = pens[i];
                 currButton.setIcon(new ImageIcon(getClass().getResource(pens[i].getClass().getSimpleName() + "Small.png")));
                 totalAnimals++;
                 int finalI = i;
