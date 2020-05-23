@@ -69,6 +69,10 @@ class CropTest {
 
         turnip1.tend("Value Fertilizer");
         assertEquals(40*1.25, turnip1.getValue());
+
+        turnip1.tend("Bonemeal");
+        assertEquals(75, turnip1.getGrowth());
+        assertEquals(Math.round(40*1.25*1.10), turnip1.getValue());
     }
 
     @Test
