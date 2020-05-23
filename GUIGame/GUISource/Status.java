@@ -19,6 +19,9 @@ public class Status {
 
     public static void updateMoney(double amount) {
         money += amount;
+        if (money < 0) {
+            money = 0;
+        }
     }
 
     public static void updateActions(int amount) {
@@ -44,8 +47,8 @@ public class Status {
                     animal.updateHappiness((int) (-15.0 / farm.getFarmType().getAnimalPercent()));
                 }
             }
-
         }
+        farm.setTended(false);
         updateActions(2);
         day += 1;
     }
