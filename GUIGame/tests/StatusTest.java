@@ -2,19 +2,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Array;
 
 public class StatusTest {
 
     @Test
     void statusTest() {
         Status status = new Status();
-        assertEquals(500, status.getMoney());
-        assertEquals(1, status.getDay());
         assertEquals(2, status.getActions());
-        status.updateMoney(100);
-        assertEquals(600, status.getMoney());
-        status.updateMoney(-700);
+        status.updateMoney(Double.NEGATIVE_INFINITY);
         assertEquals(0, status.getMoney());
         status.updateActions(-1);
         assertEquals(1, status.getActions());

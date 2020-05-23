@@ -39,6 +39,6 @@ public class BagTest {
         assertEquals(0, bag.getGFertilizerAmount());
         assertEquals(0, bag.getVFertilizerAmount());
         assertEquals(0, bag.getBonemealAmount());
-
+        Bag.setHasHoe(false);
     }
 }
