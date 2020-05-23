@@ -75,7 +75,7 @@ public class CropScreen {
             if (plots[i] != null) {
                 Crop currCrop = plots[i];
                 totalCrops++;
-                currButton.setIcon(new ImageIcon(currCrop.getCurrImage()));
+                currButton.setIcon(new ImageIcon(getClass().getResource(currCrop.getCurrImage())));
                 currButton.setText(currCrop.toString());
             }
             currButton.setContentAreaFilled(false);

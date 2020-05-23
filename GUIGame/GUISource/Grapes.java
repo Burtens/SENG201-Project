@@ -8,8 +8,8 @@ public class Grapes extends Crop{
 
     public Grapes(Farm farm)
     {
-        super.setImages("GameResources/Seed Grape.png", "GameResources/Half Grown Grape.png",
-                "GameResources/Nearly Grown Grape.png", "GameResources/Fully Grown Grape.png");
+        super.setImages("Seed Grape.png", "Half Grown Grape.png",
+                "Nearly Grown Grape.png", "Fully Grown Grape.png");
         FarmType currFarmType = farm.getFarmType();
         super.setGrowthRate(GROWTH*currFarmType.getCropPercent());
         super.setValue(VALUE);

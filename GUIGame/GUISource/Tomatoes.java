@@ -8,8 +8,8 @@ public class Tomatoes extends Crop {
 
     public Tomatoes(Farm farm)
     {
-        super.setImages("GameResources/Seed Tomato.png", "GameResources/Half Grown Tomato.png",
-                "GameResources/Nearly Grown Tomato.png", "GameResources/Fully Grown Tomato.png");
+        super.setImages("Seed Tomato.png", "Half Grown Tomato.png",
+                "Nearly Grown Tomato.png", "Fully Grown Tomato.png");
         FarmType currFarmType = farm.getFarmType();
         super.setGrowthRate(GROWTH*currFarmType.getCropPercent());
         super.setValue(VALUE);

@@ -8,8 +8,8 @@ public class Corn extends Crop{
 
     public Corn(Farm farm)
     {
-        super.setImages("GameResources/Seed Corn.png", "GameResources/Half Grown Corn.png",
-                "GameResources/Nearly Grown Corn.png", "GameResources/Fully Grown Corn.png");
+        super.setImages("Seed Corn.png", "Half Grown Corn.png",
+                "Nearly Grown Corn.png", "Fully Grown Corn.png");
         FarmType currFarmType = farm.getFarmType();
         super.setGrowthRate(GROWTH*currFarmType.getCropPercent());
         super.setValue(VALUE);

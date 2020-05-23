@@ -8,8 +8,8 @@ public class Strawberries extends Crop{
 
     public Strawberries(Farm farm)
     {
-        super.setImages("GameResources/Seed Strawberry.png", "GameResources/Half Grown Strawberry.png",
-                "GameResources/Nearly Grown Strawberry.png", "GameResources/Fully Grown Strawberry.png");
+        super.setImages("Seed Strawberry.png", "Half Grown Strawberry.png",
+                "Nearly Grown Strawberry.png", "Fully Grown Strawberry.png");
         FarmType currFarmType = farm.getFarmType();
         super.setGrowthRate(GROWTH*currFarmType.getCropPercent());
         super.setValue(VALUE);

@@ -157,7 +157,7 @@ public class CropDetailScreen {
 
             growthRateLabel.setText(currentCrop.getGrowthRate() + "%");
             valueLabel.setText("$" + String.format("%.2f", currentCrop.getValue()));
-            cropImageIcon.setIcon(new ImageIcon(currentCrop.getCurrImage()));
+            cropImageIcon.setIcon(new ImageIcon(getClass().getResource(currentCrop.getCurrImage())));
 
             if (currentCrop.getGrowth() == 100 && actionsLeft > 0)
                 harvestCropButton.setEnabled(true);

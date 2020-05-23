@@ -39,7 +39,7 @@ public class FarmScreen {
             Found at: https://opengameart.org/content/farming-tool-icons
             Copyright licence: http://creativecommons.org/licenses/by/3.0/
          */
-        bagButton.setIcon(new ImageIcon("GameResources/Bag Icon.png"));
+        bagButton.setIcon(new ImageIcon(getClass().getResource("BagIcon.png")));
         bagButton.setContentAreaFilled(false);
 
         nextDayButton.addActionListener(new ActionListener() {
