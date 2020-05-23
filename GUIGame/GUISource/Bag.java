@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 /***
  * bag class
- * contains all the methods and variable for the storage of items
+ * contains all the methods and variables for the storage of items
  **/
 
 public class Bag {
