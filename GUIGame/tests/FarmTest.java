@@ -131,4 +131,25 @@ class FarmTest {
         assertEquals(0, Status.getActions());
 
     }
+
+    @Test
+    void testTendingPens() {
+        Bag.setHasHoe(false);
+        assertEquals(4, farm.getPens().length);
+
+        /*Checks if the pen size is increased by 1 if the pens are tended*/
+        farm.updatePenSize();
+        assertEquals(5, farm.getPens().length);
+
+        /*Checks if the pen size increases by 2 if user has bought hoe*/
+        Bag.setHasHoe(true);
+        farm.updatePenSize();
+        assertEquals(7, farm.getPens().length);
+
+        /*Checks if the pen size can increase over 12 this should not happen*/
+        farm.updatePenSize();
+        farm.updatePenSize();
+        farm.updatePenSize();
+        assertEquals(12, farm.getPens().length);
+    }
 }
