@@ -34,6 +34,7 @@ public abstract class Crop {
     public double getValue() { return this.value; }
 
     public void tend(String item)
+        /*Takes an item stored as a string and updates values of crops based on item used*/
         {
             switch (item)
             {
@@ -62,6 +63,7 @@ public abstract class Crop {
     }
 
     public String daysTillHarvistable(){
+            /*Returns a string stating how many days till a crop is harvistable*/
         if (this.growth == 100)
             return "Crop is Ready";
         else{
