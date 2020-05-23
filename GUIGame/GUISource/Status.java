@@ -35,6 +35,7 @@ public class Status {
     }
 
     public static void updateDay(Farm farm) {
+        /*moves to the next day and update crop and animal stats*/
         for (Crop crop : farm.getPlots()) {
             if (crop != null)
                 crop.updateGrowth();
