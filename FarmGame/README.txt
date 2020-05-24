@@ -39,13 +39,19 @@ How to Run .jar files:
 
 How to open source code in Eclipse:
 
-1. Open eclipse and click import existing projects then click browse
+1. Open eclipse and click file then import
 
 
-2. Go to the location of the exported folder and click on GUIGame then click select folder
+2. in the import menu under general double click existing project into workplace
 
 
-3. Make sure GUIGame is ticked in projects window
+3. click browse in the top right of the window
 
 
-4. click Finish
+4. Go to the location of the extracted folder and click on GUIGame then click select folder
+
+
+5. Make sure GUIGame is ticked in projects window
+
+
+6. click Finish
