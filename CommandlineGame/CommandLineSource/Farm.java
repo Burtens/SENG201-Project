@@ -1,6 +1,3 @@
-import Items.Items;
-
-import javax.swing.*;
 import java.util.Scanner;
 
 public class Farm 
