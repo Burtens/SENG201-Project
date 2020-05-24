@@ -36,4 +36,16 @@ How to Run .jar files:
 
 		java -jar 26358497_41654471_FarmingSimulatorCL.jar
 
-	
+
+How to open source code in Eclipse:
+
+1. Open eclipse and click import existing projects then click browse
+
+
+2. Go to the location of the exported folder and click on GUIGame then click select folder
+
+
+3. Make sure GUIGame is ticked in projects window
+
+
+4. click Finish
