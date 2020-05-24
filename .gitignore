@@ -1,5 +1,9 @@
-.idea/**
-javadoc/**
-out/**
-SENG201-Project.iml
+/CommandlineGame/.idea/**
+/CommandlineGame/javadoc/**
+/CommandlineGame/out/**
+/CommandlineGame/CommandlineGame.iml
+/GUIGame/.idea/**
+/GUIGame/javadoc/**
+/GUIGame/out/**
+/GUIGame/GUIGame.iml
 
