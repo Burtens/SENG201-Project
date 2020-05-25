@@ -17,6 +17,10 @@ public class Status {
 
     public static int getDay() { return day; }
 
+    /**
+     * updates money prevents it going below 0
+     * @param amount
+     */
     public static void updateMoney(double amount) {
         money += amount;
         if (money < 0) {
@@ -24,6 +28,10 @@ public class Status {
         }
     }
 
+    /**
+     * updates actions prevents them going above 2 or below 0
+     * @param amount
+     */
     public static void updateActions(int amount) {
         actions += amount;
         if (actions > 2) {
@@ -34,8 +42,11 @@ public class Status {
         }
     }
 
+    /**
+     * moves to the next day and update crop and animal stats
+     * @param farm
+     */
     public static void updateDay(Farm farm) {
-        /*moves to the next day and update crop and animal stats*/
         for (Crop crop : farm.getPlots()) {
             if (crop != null)
                 crop.updateGrowth();
