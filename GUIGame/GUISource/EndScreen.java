@@ -36,6 +36,10 @@ public class EndScreen {
         points = pointsCalculator();
     }
 
+    /**
+     * creates the end screen and adds counting up points label
+     * @param control
+     */
     public EndScreen(Main control) {
         controller = control;
         initialize();
@@ -54,6 +58,10 @@ public class EndScreen {
         exec.scheduleAtFixedRate(counter, 1000000, delay, TimeUnit.MICROSECONDS);
     }
 
+    /**
+     * calculates points using money, animals, and crops on farm
+     * @return points
+     */
     private int pointsCalculator() {
         Animals[] pens = controller.farm.getPens();
         Crop[] crops = controller.farm.getPlots();
