@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<eclipse-userlibraries>
-  <library name="JavaDocs">
-    <archive path="C:/Users/flynn/Documents/GitHub/SENG201-Project/FarmGame/GUIGame/JavaDocs/package-search-index.zip" />
-    <archive path="C:/Users/flynn/Documents/GitHub/SENG201-Project/FarmGame/GUIGame/JavaDocs/member-search-index.zip" />
-    <archive path="C:/Users/flynn/Documents/GitHub/SENG201-Project/FarmGame/GUIGame/JavaDocs/type-search-index.zip" />
-  </library>
-</eclipse-userlibraries>
-
