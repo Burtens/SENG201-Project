@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class BagScreen {
     private final Main controller;
     private JTabbedPane bagMenu;
-    private JPanel MainPanel;
+    private JPanel mainPanel;
     private JButton closeBagButton;
     private JLabel turnipAmountLabel;
     private JLabel cornAmountLabel;
@@ -82,6 +82,6 @@ public class BagScreen {
     }
 
     public JPanel getMainPanel() {
-        return MainPanel;
+        return mainPanel;
     }
 }

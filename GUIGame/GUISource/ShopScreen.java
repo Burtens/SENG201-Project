@@ -26,7 +26,7 @@ public class ShopScreen {
     private JButton sheepButton;
     private JButton returnToFarmButton;
     private JButton bagButton;
-    private JPanel MainPanel;
+    private JPanel mainPanel;
     private JSpinner buyAmountSpinner;
     private JTextPane buyText;
     private JLabel moneyLabel;
@@ -209,6 +209,6 @@ public class ShopScreen {
     }
 
     public JPanel getMainPanel() {
-        return MainPanel;
+        return mainPanel;
     }
 }
