@@ -33,8 +33,11 @@ public abstract class Crop {
 
     public double getValue() { return this.value; }
 
+
+    /**
+     * Takes an item stored as a string and updates values of crops based on item used
+     */
     public void tend(String item)
-        /*Takes an item stored as a string and updates values of crops based on item used*/
         {
             switch (item)
             {
@@ -62,8 +65,11 @@ public abstract class Crop {
 
     }
 
+    /**
+     * Returns a string stating how many days till a crop is harvistable
+     */
     public String daysTillHarvistable(){
-            /*Returns a string stating how many days till a crop is harvistable*/
+
         if (this.growth == 100)
             return "Crop is Ready";
         else{
@@ -75,6 +81,9 @@ public abstract class Crop {
         }
     }
 
+    /**
+     * Depending on the current Growth of a crop returns the file location of specific crop image
+     */
     public String getCurrImage()
     {
         if (this.growth < 33){

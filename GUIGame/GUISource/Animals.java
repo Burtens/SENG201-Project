@@ -28,8 +28,10 @@ public abstract class Animals {
         return (int) happiness;
     }
 
+    /**
+     * @return returns current value buy adjusting value using the value of health and happiness
+     */
     public int getValue() {
-        /* returns current value buy adjusting value using the value of health and happiness. */
         double currentValue = round((value / 2) * (health / maxHealth) + value / 2);
         currentValue = round((currentValue / 2) * (happiness / 100) + currentValue / 2);
         return (int) currentValue;
@@ -59,19 +61,23 @@ public abstract class Animals {
         }
     }
 
+
+    /**
+     * feeds the animal increasing health and happiness at the cost of 1 action and 1 piece of food,
+     * food is decreased by the feed button of the animal screen.
+     */
     public void feed() {
-        /* feeds the animal increasing health and happiness at the cost of 1 action and 1 piece of food,
-         food is decreased by the feed button of the animal screen.
-         */
+
         updateHappiness(20);
         updateHealth(40);
         Status.updateActions(-1);
     }
 
+    /**
+     * plays with the animal increasing happiness at the cost of 1 action and 1 toy,
+     * toy amount is decreased by the toy button of the animal screen.
+     */
     public void play() {
-        /* plays with the animal increasing happiness at the cost of 1 action and 1 toy,
-         toy amount is decreased by the toy button of the animal screen.
-         */
         updateHappiness(50);
         Status.updateActions(-1);
     }

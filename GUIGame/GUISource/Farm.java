@@ -43,9 +43,11 @@ public class Farm
     public boolean getTended() { return tended; }
 
 
+    /**
+     * Updates size of plots array (Increases amount of plots on farm)
+     */
     public void updatePlotSize()
     {
-        /*Updates size of plots array (Increases amount of plots on farm)*/
         Status.updateActions(-1);
         int plotsSize = this.plots.length;
         int newPlotsSize;
@@ -64,9 +66,11 @@ public class Farm
         System.arraycopy(this.plots, 0, newplots, 0, plotsSize);
         this.plots = newplots;
     }
-    
+
+    /**
+     * updates the size of the pens array (increases amount of pens on farm)
+     */
     public void updatePenSize() {
-        /*updates the size of the pens array (increases amount of pens on farm)*/
         int penSize = this.pens.length;
         Animals[] newPens;
         int newPensSize = penSize + 1;
@@ -80,10 +84,16 @@ public class Farm
         System.arraycopy(this.pens, 0, newPens, 0, penSize);
         this.pens = newPens;
     }
-    
+
+
+    /**
+     * Places new animal object into a pen
+     * and prevents to many animals from being created
+     * @param animal chosen animal selected from shop screen
+     * @return returns a boolean depending on weather or not the animal was
+     * successfully add to a pen
+     */
     public boolean newAnimal(Animals animal) {
-        /*Places new animal object into a pen
-         and prevents to many animals from being created*/
         boolean inPen = false;
         int numPens = this.pens.length;
         for (int i = 0; i < numPens; i++) {
@@ -99,9 +109,15 @@ public class Farm
             return false;
     }
 
-    public void plantCrop(String seed, int seedNum, int plotToPlant) {
-        /*Allows user to plant crops on farm*/
 
+    /**
+     * Allows user to plant crops on farm, creates new seed and then adds that Crop object to the
+     * Array plots
+     * @param seed String of the seed to be planted
+     * @param seedNum Location of seed in Bag.seeds a ListArray of Seeds
+     * @param plotToPlant Location in Array plots to store Crop object
+     */
+    public void plantCrop(String seed, int seedNum, int plotToPlant) {
             /*Creates plant based on seed*/
         try {
             switch (seed) {
@@ -134,6 +150,11 @@ public class Farm
         }
     }
 
+    /**
+     * Takes a specific crop  and calls the harvest method of that crop
+     * decreases the amount of actions left by one
+     * @param plotNum Location of Crop in Array plots
+     */
     public void harvestCrop(int plotNum)
     {
         Crop crop = this.plots[plotNum];
@@ -142,6 +163,12 @@ public class Farm
         this.plots[plotNum] = null;
     }
 
+    /**
+     * Takes a crop stored in Array plots at location plotNum and calls the tend method of that crop
+     * with the chosen item, decreases the amount of actions left by one
+     * @param item String representing the item to be used on crop
+     * @param plotNum Location of Crop in Array plots
+     */
     public void tendCrop(String item , int plotNum)
     {
         Crop crop = this.plots[plotNum];
