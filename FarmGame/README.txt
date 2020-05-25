@@ -1,3 +1,7 @@
+Resources:
+All UML Diagrams and the report can be found in the PlanningResources folder
+
+
 How to Run .jar files: 
 
 1. Ensure that you are running Java JDK 14
