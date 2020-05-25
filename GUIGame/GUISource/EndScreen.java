@@ -38,7 +38,6 @@ public class EndScreen {
 
     /**
      * creates the end screen and adds counting up points label
-     * @param control
      */
     public EndScreen(Main control) {
         controller = control;

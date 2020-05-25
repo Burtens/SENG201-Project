@@ -87,11 +87,10 @@ public class Farm
 
 
     /**
-     * Places new animal object into a pen
-     * and prevents to many animals from being created
+     * Places new animal object into a pen and prevents to many animals from being created
      * @param animal chosen animal selected from shop screen
      * @return returns a boolean depending on weather or not the animal was
-     * successfully add to a pen
+     * successfully added to a pen
      */
     public boolean newAnimal(Animals animal) {
         boolean inPen = false;

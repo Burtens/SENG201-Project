@@ -36,6 +36,7 @@ public abstract class Crop {
 
     /**
      * Takes an item stored as a string and updates values of crops based on item used
+     * @param item String representing the item to be used on crop
      */
     public void tend(String item)
         {
@@ -66,7 +67,8 @@ public abstract class Crop {
     }
 
     /**
-     * Returns a string stating how many days till a crop is harvistable
+     * Calculates days left till crop is harvestible
+     * @return Returns a string stating how many days till a crop is harvistable
      */
     public String daysTillHarvistable(){
 
@@ -82,7 +84,7 @@ public abstract class Crop {
     }
 
     /**
-     * Depending on the current Growth of a crop returns the file location of specific crop image
+     * @return Depending on the current Growth of a crop returns the file location of specific crop image
      */
     public String getCurrImage()
     {

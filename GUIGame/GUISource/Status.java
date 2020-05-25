@@ -19,7 +19,7 @@ public class Status {
 
     /**
      * updates money prevents it going below 0
-     * @param amount
+     * @param amount a double representing amount of money to be added
      */
     public static void updateMoney(double amount) {
         money += amount;
@@ -30,7 +30,7 @@ public class Status {
 
     /**
      * updates actions prevents them going above 2 or below 0
-     * @param amount
+     * @param amount an int representing the amount of actions added
      */
     public static void updateActions(int amount) {
         actions += amount;
@@ -44,7 +44,7 @@ public class Status {
 
     /**
      * moves to the next day and update crop and animal stats
-     * @param farm
+     * @param farm object Farm used in game
      */
     public static void updateDay(Farm farm) {
         for (Crop crop : farm.getPlots()) {
